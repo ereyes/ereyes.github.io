@@ -1,4 +1,4 @@
-# publi-reseau
+# publication en réseau
 
 Fichiers des séances du cours **Publication en réseau**, Univ. Paris 8
 
