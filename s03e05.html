@@ -1,0 +1,40 @@
+<html>
+
+<style>
+
+.p_aleatoire {
+	width:50px; height:50px;
+	border-radius:50px;
+	position:absolute;
+	background-color:lime;
+}
+
+</style>
+
+<script>
+
+function ecrire_texte() {
+	
+	document.getElementById("rect").innerHTML = "";
+	
+	var texte = document.getElementById("mon_texte").value;
+	
+	for(var i = 0; i < 200; i++){
+		var posX = Math.random()*window.innerWidth;
+		var posY = Math.random()*window.innerHeight;
+		var couleurR = Math.floor(Math.random()*255);
+		var couleurV = Math.floor(Math.random()*255);
+		var couleurB = Math.floor(Math.random()*255);
+		
+		document.getElementById("rect").innerHTML += '<div class="p_aleatoire" style="left:'+ posX +'px; top:'+ posY +'px; background-color:rgba('+ couleurR +','+couleurV+','+couleurB+',0.5);">' + texte + ' ' + i + '</div>';
+		
+	}
+	
+}
+
+</script>
+
+
+<div id="rect"></div>
+<textarea id="mon_texte"></textarea> <button onClick="ecrire_texte();">Go</button>
+</html>

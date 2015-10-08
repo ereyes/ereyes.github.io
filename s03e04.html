@@ -1,0 +1,20 @@
+<html>
+
+<script>
+
+function ecrire_texte() {
+	
+	var texte = document.getElementById("mon_texte").value;
+	
+	for(var i = 0; i < 20; i++){
+		document.getElementById("rect").innerHTML += '<p>' + texte + ' ' + i + '</p>';
+	}
+	
+}
+
+</script>
+
+<textarea id="mon_texte"></textarea> <button onClick="ecrire_texte();">Go</button>
+<div id="rect"></div>
+
+</html>
