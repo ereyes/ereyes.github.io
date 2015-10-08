@@ -1,0 +1,22 @@
+<html>
+
+<style>
+#rect {
+	font-size:200px;
+	color:tomato;
+}
+</style>
+
+<script>
+
+function ecrire_message() {	
+	var mon_nom = window.prompt("Votre nom...");
+	document.getElementById("rect").innerHTML = mon_nom;
+}
+
+</script>
+
+<button onClick="ecrire_message();">Votre nom</button>
+<div id="rect"></div>
+
+</html>

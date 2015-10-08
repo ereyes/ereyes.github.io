@@ -1,0 +1,32 @@
+<html>
+
+<script>
+
+function ecrire_texte() {
+	
+	var texte = document.getElementById("mon_texte").value;
+	
+	if(texte == "paris") {
+		document.getElementById("rect").style.color = "tomato";
+		document.getElementById("rect").style.fontSize = "200px";
+	}
+
+	else if(texte == "mexico") {
+		document.getElementById("rect").style.color = "darkgreen";
+		document.getElementById("rect").style.fontSize = "200px";
+	}
+	else {
+		document.getElementById("rect").style.color = "black";
+		document.getElementById("rect").style.fontSize = "12px";
+	}
+	
+	document.getElementById("rect").innerHTML = texte;
+	
+}
+
+</script>
+
+<input id="mon_texte"> <button onClick="ecrire_texte();">Go</button>
+<div id="rect"></div>
+
+</html>
