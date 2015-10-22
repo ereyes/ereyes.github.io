@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>pubres-s04e01</title>
+    <style>
+    	#phrase {
+			font-size:3em;
+		}
+		
+		.animal {
+			color:red;
+		}
+    </style>
+    <script>
+		    function generateur() {
+				var animaux = ['lions', 'poules', 'chats', 'lézards', 'chiens', 'mouettes'];
+				var animalAlea = animaux[Math.floor(Math.random()* animaux.length)];
+				
+				var verbes = ['vois', 'mange', 'bois', 'déteste', 'vends', 'chante'];
+				var verbeAlea = verbes[Math.floor(Math.random()* verbes.length)];
+				
+				document.getElementById('phrase').innerHTML = 'Je '+ verbeAlea +' bien les <span class="animal">' + animalAlea + '</span>';
+				
+				//alert ('Je '+ verbeAlea +' bien les ' + animalAlea);
+			}
+    </script>
+</head>
+
+<body>
+	<button onClick="generateur();">Générer</button>
+	<div id="phrase"></div>
+</body>
+</html>

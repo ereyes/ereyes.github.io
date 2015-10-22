@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>pubres-s04e02</title>
+<style>
+	body { margin:0; padding:0; }
+	
+	#couleurs {
+		width:7200px;
+		height:100%;
+		position:absolute;
+	}
+	
+	.tinte {
+		width:20px;
+		height:100%;
+		float:left;
+	}
+</style>
+
+<script>
+
+window.onload = function(){
+
+	for(var i = 0; i < 360; i++){
+		document.getElementById('couleurs').innerHTML += '<span class="tinte" style="background-color:hsl('+ i +',100%,50%);"></span>';
+	}
+
+}
+
+</script>
+</head>
+
+<body>
+	<div id="couleurs"></div>
+</body>
+</html>
