@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>s05e02</title>
+
+<style>
+#rect01 {
+	width:100px; height:20px;
+	background-color:gray;
+}
+
+#rect02 {
+	width:100px; height:200px;
+	background-color:tomato;
+	display:none;
+}
+</style>
+
+<script src="jquery-1.11.3.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+	$('#rect01').mouseenter(function(){
+	
+		$('#rect02').fadeToggle(); //essayez aussi : toggle et slideToggle
+	
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body>
+	<div id="rect01"></div>
+    <div id="rect02"></div>
+</body>
+</html>

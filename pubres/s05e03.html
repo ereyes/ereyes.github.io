@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>s05e02</title>
+
+<style>
+ #message { font-size:200px; font-family:Courier; }
+</style>
+
+<script src="jquery-1.11.3.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+	$('body').keypress(function(e){
+		
+		var couleur = 'hsl('+ Math.round(Math.random()*360) +', 100%, 50%)';
+		
+		//$('body').css('background-color', couleur);
+		
+		$('#message').append('<span style="color:'+ couleur +'">' + String.fromCharCode(e.charCode) + '</span>'); 
+		// sur Firefox utilisez charCode à la place de keyCode
+
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body>
+	<div id="message"></div>
+</body>
+</html>

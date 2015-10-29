@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>s05e04</title>
+
+<style>
+#rect01 {
+	width:100px; height:100px;
+	background-color:olive;
+	position:relative;
+}
+
+#rect02 {
+	width:100px; height:100px;
+	background-color:pink;
+	position:relative;
+}
+</style>
+
+<script src="jquery-1.11.3.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+	$('#rect01').animate({
+		 left: '650px',
+		 opacity: 0.5
+	}, 1500 );
+
+
+	$('button').click(function(){
+
+		$('#rect01').animate({
+			 left: '0px',
+			 opacity: 1
+		}, 1500 );	
+
+		$('#rect02').animate({
+			 left: '650px',
+			 opacity: 0.5
+		}, 5000 );	
+	
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body>
+	<div id="rect01"></div>
+    <button>Go</button>
+    <div id="rect02"></div>
+</body>
+</html>
