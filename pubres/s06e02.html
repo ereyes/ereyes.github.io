@@ -1,0 +1,57 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>PubRes - s06e02</title>
+	<style>
+		#rect01 {
+			width: 200px; height: 200px;
+			background-color: olive;
+			position: absolute;
+			top:0;right:0;bottom:0;left:0;
+			color: white; font-size: 20px;
+			text-align: center;
+		}
+
+		#rect02 {
+			width: 200px; height: 200px;
+			background-color: darkred;
+			position: absolute;
+			top:0;right:0;bottom:0;left:0;
+			color: white; font-size: 20px;
+			display: none;
+			text-align: center;
+		}
+	</style>
+	
+	<script src="jquery-1.11.3.min.js"></script>
+
+	<script>
+	$(document).ready(function(){
+		
+		function duFrEn(){
+
+			$('#rect01').fadeToggle(2000);
+			$('#rect02').fadeToggle(2000);
+
+			duFrEn();
+		}
+
+		// Cette ligne déclanche la fonction automatiquement
+		// duFrEn();
+
+		// Cette ligne déclanche la fonction au survol de la souris
+
+		$('#rect01').mouseover(function(){
+			duFrEn();
+		});
+
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="rect01">Je suis en français</div>
+	<div id="rect02">I am in English</div>
+</body>
+</html>
