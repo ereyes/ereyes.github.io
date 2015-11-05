@@ -1,43 +1,38 @@
 <html>
 <head>
-	<meta charset="UTF-8">
 	<title>PubRes - s06e05</title>
-	<style>
-
-	</style>
-	
-	<script src="jquery-1.11.3.min.js"></script>
-
-	<script>
-	$(document).ready(function(){
-
-		$('button').click(function(){
-
-
-			var url_p01 = 'http://translate.google.com/translate_tts?ie=UTF-8&q=';
-			var url_p02 = '&tl=fr&total=1&idx=0&textlen=5&prev=input';
-
-			var texte = $('input').val();
-
-			alert(texte);
-
-			var url = url_p01 + texte + url_p02;
-
-			$('iframe').attr('src', url);
-
+    <script src="jquery-1.11.3.min.js"></script>
+    <script>
+    	$(document).ready(function() {
 			
-		});
-
-	});
-	</script>
-
+			$('audio').hide();
+			
+			$('select').change(function(){
+				var maSelection = $('select').val();
+				$('audio').attr('src', maSelection);			
+				$('audio').show();
+				
+				if(maSelection == 'rien'){
+					$('audio').hide();
+				}
+			});
+			
+            
+        });
+    </script>
 </head>
-
 <body>
-
-	<input> <button>Speech</button>
-	<br>
-	<iframe></iframe>
-
+	<select>
+    	<option value="rien">Faites votre choix...</option>
+    	<option value="Rolling Stones-GimmeShelter.mp3">Rolling Stones - Gimme Shelter</option>
+        <option value="Pink Floyd-Wish.mp3">Pink Floyd - Wish You Were Here</option>
+    </select>
+	
+    <p>
+    
+	<audio controls autoplay loop>
+		<source>
+	</audio>
+    </p>
 </body>
 </html>

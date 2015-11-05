@@ -1,28 +1,54 @@
 <html>
 <head>
-	<title></title>
-	<script src="jquery-1.11.1.min.js"></script>
+	<meta charset="UTF-8">
+	<title>PubRes - s06e04</title>
+	<style>
+
+	</style>
+	
+	<script src="jquery-1.11.3.min.js"></script>
+
 	<script>
-		$(document).ready(function(){
+	$(document).ready(function(){
 
-			$('button').click(function(){
-				var url_partie_01 = "http://translate.google.com/translate_tts?ie=UTF-8&q=";
-				var url_partie_02 = "&tl=fr&total=1&idx=0&textlen=5&prev=input";
-				var texte = $('input').val();
+		$('button').click(function(){
 
-				var url = url_partie_01 + texte + url_partie_02;
 
-				$('iframe').attr('src',url);
-			});
+			var url_p01 = 'http://translate.google.com/translate_tts?ie=UTF-8&q=';
+			var url_p02 = '&tl=';
+			var url_p03 = '&total=1&idx=0&textlen=5&prev=input';
 
+			var texte = $('input').val();
+			var maLangue = $('select[name="options"]').val();
+
+			var url = url_p01 + texte + url_p02 + maLangue + url_p03;
+
+			$('iframe').attr('src', url);
+
+			
 		});
 
-
-		
+	});
 	</script>
+
 </head>
+
 <body>
-	<input><button>Speech</button>
+	<p>Note : si cette page ne fonctionne pas, cliquez d'abord sur l'adresse suivante et revenez ici ensuite:</p>
+    <p><a href="http://translate.google.com/translate_tts?ie=UTF-8&q=%22Paris&tl=fr&total=1&idx=0&textlen=5&prev=input">
+    	http://translate.google.com/translate_tts?ie=UTF-8&q=%22Paris&tl=fr&total=1&idx=0&textlen=5&prev=input
+        </a>
+    </p>
+	<input> <button>Speech</button>
+	<select name="options">
+		<option value="fr">français</option>
+		<option value="en-us">american</option>
+		<option value="en-gb">british</option>
+		<option value="es">español</option>
+		<option value="es-mx">mexicain</option>
+	</select>
+	<br>
 	<iframe></iframe>
+
 </body>
 </html>

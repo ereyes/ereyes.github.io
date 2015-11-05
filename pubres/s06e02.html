@@ -29,22 +29,28 @@
 	$(document).ready(function(){
 		
 		function duFrEn(){
-
-			$('#rect01').fadeToggle(2000);
-			$('#rect02').fadeToggle(2000);
+			
+			$('#rect01').animate( { function(){
+					$('#rect01').fadeToggle();
+				}
+			}, function(){
+				$('#rect02').fadeToggle();
+			} );
 
 			duFrEn();
 		}
-
-		// Cette ligne déclanche la fonction automatiquement
-		// duFrEn();
-
-		// Cette ligne déclanche la fonction au survol de la souris
-
-		$('#rect01').mouseover(function(){
+		
+		// La ligne 44 déclanche automatiquement la fonction
+		//duFrEn();
+		
+		// la fonction hover() permet de déclancher la fonction au survol de la souris
+		$('div').hover(function(){
 			duFrEn();
+		}, function(){
+			$('#rect01, #rect02').stop(true);
 		});
 
+		
 	});
 	</script>
 
