@@ -1,0 +1,86 @@
+{
+	"name": "Game of Thrones",
+	"color": "#000000",
+	"children": [
+		{
+			"name": "Stark",
+			"color": "#FFFF00",
+			"children": [
+				{
+					"name": "Eddard Stark",
+					"children": [
+						{
+							"name": "Arya Stark",
+							"size": 88
+						},
+						{
+							"name": "Brandon Stark Stark",
+							"size": 4458
+						},
+						{
+							"name": "Rickon Stark",
+							"size": 36
+						},
+						{
+							"name": "Sansa Stark",
+							"size": 6
+						},
+						{
+							"name": "Robb Stark",
+							"size": 263
+						},
+						{
+							"name": "John Snow",
+							"size": 198
+						}, 
+						{
+							"name": "Theon Greyjoy",
+							"size": 1089
+						}
+					]
+				},
+				{
+					"name": "Catelyn Tully",
+					"children": [
+						{
+							"name": "Arya Stark",
+							"size": 88
+						},
+						{
+							"name": "Brandon Stark Stark",
+							"size": 4458
+						},
+						{
+							"name": "Rickon Stark",
+							"size": 36
+						},
+						{
+							"name": "Sansa Stark",
+							"size": 6
+						},
+						{
+							"name": "Robb Stark",
+							"size": 263
+						},
+						{
+							"name": "John Snow",
+							"size": 198
+						}, 
+						{
+							"name": "Theon Greyjoy",
+							"size": 1089
+						},
+						{
+							"name": "Lisa Tully",
+							"size": 1089						
+						},
+						{
+							"name": "Edmure Tully",
+							"size": 1089						
+						}
+					]
+				}
+			]
+		}
+	]
+}
