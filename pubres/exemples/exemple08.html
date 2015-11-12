@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+	#rect { width:100px; height:100px; background-color:darkred; float:left; margin-left:2em; margin-right:2em; }
+	#controls { width:400px; height:100px; float:left; }
+	textarea { width:200px; height:10	0px; }
+</style>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(document).ready(function() {
+    
+	
+	
+	$('#compter').click(function(){
+		
+		var mesMots = $('textarea').val().split(' ');
+		
+		$('#rect').animate({
+			height: mesMots.length + 'px'
+		}, 1000);
+		
+		$('#message1').text('Quantité de mots : ' + mesMots.length);
+		
+	});
+	
+	$('#chercher').click(function(){
+		var motCle = $('#mot').val();
+		var mesMots = $('textarea').val();
+		
+		var re = new RegExp(motCle,"g");
+		
+		var count = (mesMots.match(re) || []).length;
+		
+		if (mesMots.indexOf(motCle) >= 0) {
+			$('#message2').text(motCle + ' existe ' + count + ' fois');
+			$('#rect').animate({
+				height: count + 'px'
+			}, 1000);
+		} else {
+			$('#message2').text(motCle + ' existe 0 fois');
+		}
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+
+	<div id="rect"></div>
+	<div id="controls">
+    	<textarea></textarea>
+        <button id="compter">Compter les mots</button>
+        <p id="message1"></p>
+        <br>
+        <input id="mot">
+        <button id="chercher">Chercher le mot</button>
+        <p id="message2"></p>
+    </div>
+</body>
+</html>
