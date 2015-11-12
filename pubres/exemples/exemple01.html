@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+	#rect {
+		position:absolute;
+		width:100px;
+		height:400px;
+		background-color:white;
+	}
+	#image-fond {
+		position:absolute;
+		width:100px;
+		height:400px;
+		background-color:olive;
+	}
+</style>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(document).ready(function() {
+    
+	
+	
+	$('button').click(function(){
+		var increm = $('input').val();
+		$('#rect').animate({
+			height: increm + 'px'
+		}, 1000);
+	
+	});
+});
+</script>
+</head>
+
+<body>
+	<input value="une valeur entre 1 et 200"><button>Go</button>
+	<div id="image-fond"></div>
+    <div id="rect"></div>
+    
+
+</body>
+</html>

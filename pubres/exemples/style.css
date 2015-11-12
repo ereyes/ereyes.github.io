@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body {
+	background-color:#333;
+}
+
+h1 {
+	color:white;
+}
+
+a {
+	color:tomato;
+}
+
+
+a:hover {
+	color:yellow;
+}
+
+#titre-page {
+	font-size:200px;
+}
