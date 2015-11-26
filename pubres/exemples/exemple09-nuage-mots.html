@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style type="text/css">
+#htmltagcloud{
+	font-size: 100%;
+	width: auto;
+	font-family:"arial narrow";
+	font-weight:bold;
+	background-color:#fff;
+	margin:1em 1em 0 1em;
+	border:2px dotted #ddd;
+	padding:2em;
+
+}
+#htmltagcloud{line-height:2.4em;word-spacing:normal;letter-spacing:normal;text-transform:none;text-align:justify;text-indent:0}#htmltagcloud a:link{text-decoration:none}#htmltagcloud a:visited{text-decoration:none}#htmltagcloud a:hover{color:white;background-color:#05f}#htmltagcloud a:active{color:white;background-color:#03d}.wrd{padding:0;position:relative}.wrd a{text-decoration:none}.tagcloud0{font-size:1.0em;color:#ACC1F3;z-index:10}.tagcloud0 a{color:#ACC1F3}.tagcloud1{font-size:1.4em;color:#ACC1F3;z-index:9}.tagcloud1 a{color:#ACC1F3}.tagcloud2{font-size:1.8em;color:#86A0DC;z-index:8}.tagcloud2 a{color:#86A0DC}.tagcloud3{font-size:2.2em;color:#86A0DC;z-index:7}.tagcloud3 a{color:#86A0DC}.tagcloud4{font-size:2.6em;color:#607EC5;z-index:6}.tagcloud4 a{color:#607EC5}.tagcloud5{font-size:3.0em;color:#607EC5;z-index:5}.tagcloud5 a{color:#607EC5}.tagcloud6{font-size:3.3em;color:#4C6DB9;z-index:4}.tagcloud6 a{color:#4C6DB9}.tagcloud7{font-size:3.6em;color:#395CAE;z-index:3}.tagcloud7 a{color:#395CAE}.tagcloud8{font-size:3.9em;color:#264CA2;z-index:2}.tagcloud8 a{color:#264CA2}.tagcloud9{font-size:4.2em;color:#133B97;z-index:1}.tagcloud9 a{color:#133B97}.tagcloud10{font-size:4.5em;color:#002A8B;z-index:0}.tagcloud10 a{color:#002A8B}
+
+
+
+</style>
+
+<script src="jquery-1.11.3.min.js"></script>
+
+<script>
+$(document).ready(function() {
+
+
+
+	//$('a').css('color',randColor);
+	//$('.tagcloud0, .tagcloud1').css('color',randColor);
+
+
+	for(var i = 0; i < 11; i++){
+		var hue = Math.floor(Math.random()*360);
+		var randColor = 'hsl('+hue+', 80%, 40%)';
+		$('.tagcloud'+i).css('color',randColor);
+	}
+
+});
+</script>
+</head>
+
+<body>
+
+<div id="htmltagcloud"> <span id="0" class="wrd tagcloud0">around</span> <span id="1" class="wrd tagcloud0">asked</span> <span id="2" class="wrd tagcloud1">away</span> <span id="3" class="wrd tagcloud0">bell</span> <span id="4" class="wrd tagcloud1">boy</span> <span id="5" class="wrd tagcloud0">comes</span> <span id="6" class="wrd tagcloud1">doctor</span> <span id="7" class="wrd tagcloud1">door</span> <span id="8" class="wrd tagcloud4">eyes</span> <span id="9" class="wrd tagcloud0">face</span> <span id="10" class="wrd tagcloud0">file</span> <span id="11" class="wrd tagcloud0">found</span> <span id="12" class="wrd tagcloud1">friend</span> <span id="13" class="wrd tagcloud0">general</span> <span id="14" class="wrd tagcloud3">give</span> <span id="15" class="wrd tagcloud6">hand</span> <span id="16" class="wrd tagcloud0">heard</span> <span id="17" class="wrd tagcloud0">henry</span> <span id="18" class="wrd tagcloud1">house</span> <span id="19" class="wrd tagcloud2">john</span> <span id="20" class="wrd tagcloud1">land</span> <span id="21" class="wrd tagcloud1">letter</span> <span id="22" class="wrd tagcloud0">light</span> <span id="23" class="wrd tagcloud1">live</span> <span id="24" class="wrd tagcloud3">looking</span> <span id="25" class="wrd tagcloud0">love</span> <span id="26" class="wrd tagcloud10">man</span> <span id="27" class="wrd tagcloud5">miss</span> <span id="28" class="wrd tagcloud8">mr</span> <span id="29" class="wrd tagcloud2">name</span> <span id="30" class="wrd tagcloud3">night</span> <span id="31" class="wrd tagcloud3">o'connor</span> <span id="32" class="wrd tagcloud0">open</span> <span id="33" class="wrd tagcloud1">paper</span> <span id="34" class="wrd tagcloud1">rolling</span> <span id="35" class="wrd tagcloud4">room</span> <span id="36" class="wrd tagcloud0">seemed</span> <span id="37" class="wrd tagcloud0">something</span> <span id="38" class="wrd tagcloud0">stone</span> <span id="39" class="wrd tagcloud4">story</span> <span id="40" class="wrd tagcloud0">street</span> <span id="41" class="wrd tagcloud0">talk</span> <span id="42" class="wrd tagcloud0">texas</span> <span id="43" class="wrd tagcloud2">think</span> <span id="44" class="wrd tagcloud2">thought</span> <span id="45" class="wrd tagcloud0">tom</span> <span id="46" class="wrd tagcloud0">town</span> <span id="47" class="wrd tagcloud2">turned</span> <span id="48" class="wrd tagcloud0">white</span> <span id="49" class="wrd tagcloud1">years</span> </div>
+
+
+</body>
+</html>
