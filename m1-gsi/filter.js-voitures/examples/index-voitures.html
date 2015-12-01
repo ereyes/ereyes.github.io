@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="assets/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="assets/css/jquery-ui-1.10.2.custom.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="assets/css/stream.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="assets/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
+    <script src="../dist/filter.js" type="text/javascript"></script>
+    <!--<script src="data/movies.js" type="text/javascript"></script>-->
+    <script src="data/voitures.js" type="text/javascript"></script>
+    <!--<script src="index.js" type="text/javascript"></script>-->
+    <script src="index-voitures.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Comparateur de voitures</h1>
+      <div class="sidebar col-md-3">
+        <div>
+          <h4 class='col-md-6'>Voitures (<span id="total_movies">0</span>)</h4>
+          <div class="col-md-6 progress">
+            <div class="progress-bar" id="stream_progress" style="width: 0%;">0%</div>
+          </div>
+        </div>
+        <div>
+          <label class="sr-only" for="searchbox">Search</label>
+          <input type="text" class="form-control" id="searchbox" placeholder="Search &hellip;">
+          <span class="glyphicon glyphicon-search search-icon"></span>
+        </div>
+        <br>
+        <div class="well">
+          <fieldset id="rating_criteria">
+            <legend>Prix</legend> <span id="rating_range_label" class="slider-label">5000 - 150000</span>
+            <div id="rating_slider" class="slider">
+            </div>
+            <input type="hidden" id="rating_filter" value="5000-150000">
+          </fieldset>
+        </div>
+        <div class="well">
+          <fieldset id="runtime_criteria">
+            <legend>Puissance</legend> <span id="runtime_range_label" class="slider-label">10 ch - 433 ch</span>
+            <div id="runtime_slider" class="slider">
+            </div>
+            <input type="hidden" id="runtime_filter" value="10-433">
+          </fieldset>
+        </div>
+
+        <div class="well">
+          <fieldset id="genre_criteria">
+            <legend>Marque</legend>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="All" id="all_genre">
+                <span>All</span>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="Opel">
+                <span>Opel</span>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="Audi">
+                <span>Audi</span>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="Citroën">
+                <span>Citroën</span>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="Peugot">
+                <span>Peugot</span>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="Toyota">
+                <span>Toyota</span>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="BMW">
+                <span>BMW</span>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="Chevrolet">
+                <span>Chevrolet</span>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="Mercedes">
+                <span>Mercedes</span>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="Renault">
+                <span>Renault</span>
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="Volkswagen">
+                <span>Volkswagen</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <div class="movies content row" id="movies"> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="movie-template" type="text/html">
+  <div class="col-md-4 movie">
+    <div class="thumbnail">
+      <span class="label label-success Prix"><%= Prix %>
+        <i class="glyphicon glyphicon-star"></i>
+      </span>
+      <div class="caption">
+        <h4><%= Annee %>. <%= Modele %></h4>
+        <div class="outline">
+          <strong>Autonomie</strong> : <br> <%= Autonomie %> km. <br>
+		  <strong>Emission</strong> : <br> <%= Emission %> CO2 (g/km) <br>
+		  <strong>Consommation extra-urbaine</strong> : <br> <%= Consommationextraurbaine %> (l/ Mille km)  <br>
+		  <strong>Consommation moyenne</strong> : <br> <%= Consommationmoyenne %> + (l/Mille km) <br>
+		  <strong>Consommation Urbaine</strong> : <br> <%= Consommationurbaine %> + (l/Mille km) <br>
+		  <strong>Carburant</strong> : <br> <%= Carburant %> km. <br>
+        </div>
+        <div class="detail">
+          <p> <span class="colNom">Marque</span> : <span class="colData"><%= Marque %></span></p>
+		  <p> <span class="colNom">Catégorie</span> : <span class="colData"><%= Categorie %></span></p>
+		  <p> <span class="colNom">Année</span> : <span class="colData"><%= Annee %></span></p>
+		  <p> <span class="colNom">Puissance</span> : <span class="colData"><%= Puissance %></span></p>
+		  <p> <span class="colNom">Photo</span> : </p>
+		  <p><img class="colPhoto" src="<%= Photos %>" width="150"> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="genre_template" type="text/html">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" value="<%= Marque %>"> <%= Marque %>
+    </label>
+  </div>
+</script>
+  </body>
+</html>

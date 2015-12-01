@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<div id="sigma-container"></div>
+<script src="sigmajs-v1.0.3/sigma.min.js"></script>
+<script src="path/to/sigma.parsers.gexf.min.js"></script>
+<script>
+  sigma.parsers.gexf(
+    'path/to/les-miserables.gexf',
+    { // Here is the ID of the DOM element that
+      // will contain the graph:
+      container: 'sigma-container'
+    },
+    function(s) {
+      // This function will be executed when the
+      // graph is displayed, with "s" the related
+      // sigma instance.
+    }
+  );
+</script>
+<!-- [...] -->
+
+</body>
+</html>
