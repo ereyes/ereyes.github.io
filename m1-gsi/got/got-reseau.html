@@ -4,38 +4,50 @@
 <meta charset="UTF-8">
 <title>Untitled Document</title>
 <style>
-#sigma-container, #sigma-container2, #sigma-container3 { 
-	width:700px; height:700px;
-	border:1px solid gray;
-	float:left;
+body {
+	margin:2em;
+	background-color:#eee;
+}
+#sigma-container { 
+	width:800px; height:700px;
+	margin-left:250px; margin-top:40px;
+	position:absolute;
+	top:0; right:0; bottom:0; left:0;
+	background-color:white;
+}
+
+#info{
+	width:200px;
+	position:fixed;
+	top:0; right:0; bottom:0; left:0;
+	padding:1em;
+	font-family:Arial;
+	font-size:80%;
 }
 </style>
 </head>
 
 <body>
-<h1>GOT</h1>
+<div id="info">
+    <h1>Réseau Game of Thrones</h1>
+    <p><em>Carte interactive du réseau de personnages</em></p>
+    <hr>
+    <p>Instructions :</p>
+    <p>Zoomer avec la souris</p>
+    <p>Cliquez un noed pour sélectionner son réseau</p>
+    <p>Cliquez sur la partie blanche pour désélectionner</p>
+    <p>
+    	Afficher une carte de grande taille avec les type de relations <br><br>
+    	<a href="got-reseau.png"><img src="got-reseau.png" width="200"></a>
+    </p>
+</div>
+
 <div id="sigma-container"></div>
-<div id="sigma-container2"></div>
+
 
 <script src="sigmajs-v1.0.3/sigma.min.js"></script>
 <script src="sigmajs-v1.0.3/plugins/sigma.parsers.gexf.min.js"></script>
 <script src="sigmajs-v1.0.3/plugins/sigma.canvas.edges.labels.def.js"></script>
-
-<script>
-  sigma.parsers.gexf(
-    'got.gexf',
-    { // Here is the ID of the DOM element that
-      // will contain the graph:
-      container: 'sigma-container'
-    },
-    function(s) {
-      // This function will be executed when the
-      // graph is displayed, with "s" the related
-      // sigma instance.
-    }
-  );
-</script>
-<!-- [...] -->
 
 <script>
   // Add a method to the graph model that returns an
@@ -54,7 +66,7 @@
   sigma.parsers.gexf(
     'got-v2.gexf',
     {
-      container: 'sigma-container2'
+      container: 'sigma-container'
     },
     function(s) {
       // We first need to save the original colors of our
