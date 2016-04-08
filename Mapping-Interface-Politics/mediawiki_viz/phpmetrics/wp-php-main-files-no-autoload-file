@@ -1,0 +1,1628 @@
+<?php
+/**
+ * This file is the entry point for all API queries.
+ *
+ * It begins by checking whether the API is enabled on this wiki; if not,
+ * it informs the user that s/he should set $wgEnableAPI to true and exits.
+ * Otherwise, it constructs a new ApiMain using the parameter passed to it
+ * as an argument in the URL ('?action=') and with write-enabled set to the
+ * value of $wgEnableWriteAPI as specified in LocalSettings.php.
+ * It then invokes "execute()" on the ApiMain object instance, which
+ * produces output in the format specified in the URL.
+ *
+ * Copyright © 2006 Yuri Astrakhan <Firstname><Lastname>@gmail.com
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @file
+ */
+
+use MediaWiki\Logger\LegacyLogger;
+
+// So extensions (and other code) can check whether they're running in API mode
+define( 'MW_API', true );
+
+// Bail on old versions of PHP, or if composer has not been run yet to install
+// dependencies. Using dirname( __FILE__ ) here because __DIR__ is PHP5.3+.
+require_once dirname( __FILE__ ) . '/includes/PHPVersionCheck.php';
+wfEntryPointCheck( 'api.php' );
+
+require __DIR__ . '/includes/WebStart.php';
+
+$starttime = microtime( true );
+
+// URL safety checks
+if ( !$wgRequest->checkUrlExtension() ) {
+	return;
+}
+
+// Verify that the API has not been disabled
+if ( !$wgEnableAPI ) {
+	header( $_SERVER['SERVER_PROTOCOL'] . ' 500 MediaWiki configuration Error', true, 500 );
+	echo 'MediaWiki API is not enabled for this site. Add the following line to your LocalSettings.php'
+		. '<pre><b>$wgEnableAPI=true;</b></pre>';
+	die( 1 );
+}
+
+// Set a dummy $wgTitle, because $wgTitle == null breaks various things
+// In a perfect world this wouldn't be necessary
+$wgTitle = Title::makeTitle( NS_SPECIAL, 'Badtitle/dummy title for API calls set in api.php' );
+
+// RequestContext will read from $wgTitle, but it will also whine about it.
+// In a perfect world this wouldn't be necessary either.
+RequestContext::getMain()->setTitle( $wgTitle );
+
+try {
+	/* Construct an ApiMain with the arguments passed via the URL. What we get back
+	 * is some form of an ApiMain, possibly even one that produces an error message,
+	 * but we don't care here, as that is handled by the ctor.
+	 */
+	$processor = new ApiMain( RequestContext::getMain(), $wgEnableWriteAPI );
+
+	// Last chance hook before executing the API
+	Hooks::run( 'ApiBeforeMain', array( &$processor ) );
+	if ( !$processor instanceof ApiMain ) {
+		throw new MWException( 'ApiBeforeMain hook set $processor to a non-ApiMain class' );
+	}
+} catch ( Exception $e ) {
+	// Crap. Try to report the exception in API format to be friendly to clients.
+	ApiMain::handleApiBeforeMainException( $e );
+	$processor = false;
+}
+
+// Process data & print results
+if ( $processor ) {
+	$processor->execute();
+}
+
+// Log what the user did, for book-keeping purposes.
+$endtime = microtime( true );
+
+// Log the request
+if ( $wgAPIRequestLog ) {
+	$items = array(
+		wfTimestamp( TS_MW ),
+		$endtime - $starttime,
+		$wgRequest->getIP(),
+		$wgRequest->getHeader( 'User-agent' )
+	);
+	$items[] = $wgRequest->wasPosted() ? 'POST' : 'GET';
+	if ( $processor ) {
+		try {
+			$manager = $processor->getModuleManager();
+			$module = $manager->getModule( $wgRequest->getVal( 'action' ), 'action' );
+		} catch ( Exception $ex ) {
+			$module = null;
+		}
+		if ( !$module || $module->mustBePosted() ) {
+			$items[] = "action=" . $wgRequest->getVal( 'action' );
+		} else {
+			$items[] = wfArrayToCgi( $wgRequest->getValues() );
+		}
+	} else {
+		$items[] = "failed in ApiBeforeMain";
+	}
+	LegacyLogger::emit( implode( ',', $items ) . "\n", $wgAPIRequestLog );
+	wfDebug( "Logged API request to $wgAPIRequestLog\n" );
+}
+
+$mediawiki = new MediaWiki();
+$mediawiki->doPostOutputShutdown( 'fast' );
+
+
+
+<?php
+/**
+ * Image authorisation script
+ *
+ * To use this, see https://www.mediawiki.org/wiki/Manual:Image_Authorization
+ *
+ * - Set $wgUploadDirectory to a non-public directory (not web accessible)
+ * - Set $wgUploadPath to point to this file
+ *
+ * Optional Parameters
+ *
+ * - Set $wgImgAuthDetails = true if you want the reason the access was denied messages to
+ *       be displayed instead of just the 403 error (doesn't work on IE anyway),
+ *       otherwise it will only appear in error logs
+ *
+ *  For security reasons, you usually don't want your user to know *why* access was denied,
+ *  just that it was. If you want to change this, you can set $wgImgAuthDetails to 'true'
+ *  in localsettings.php and it will give the user the reason why access was denied.
+ *
+ * Your server needs to support PATH_INFO; CGI-based configurations usually don't.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @file
+ */
+
+define( 'MW_NO_OUTPUT_COMPRESSION', 1 );
+require __DIR__ . '/includes/WebStart.php';
+
+# Set action base paths so that WebRequest::getPathInfo()
+# recognizes the "X" as the 'title' in ../img_auth.php/X urls.
+$wgArticlePath = false; # Don't let a "/*" article path clober our action path
+$wgActionPaths = array( "$wgUploadPath/" );
+
+wfImageAuthMain();
+
+$mediawiki = new MediaWiki();
+$mediawiki->doPostOutputShutdown( 'fast' );
+
+function wfImageAuthMain() {
+	global $wgImgAuthUrlPathMap;
+
+	$request = RequestContext::getMain()->getRequest();
+	$publicWiki = in_array( 'read', User::getGroupPermissions( array( '*' ) ), true );
+
+	// Get the requested file path (source file or thumbnail)
+	$matches = WebRequest::getPathInfo();
+	if ( !isset( $matches['title'] ) ) {
+		wfForbidden( 'img-auth-accessdenied', 'img-auth-nopathinfo' );
+		return;
+	}
+	$path = $matches['title'];
+	if ( $path && $path[0] !== '/' ) {
+		// Make sure $path has a leading /
+		$path = "/" . $path;
+	}
+
+	// Check for bug 28235: QUERY_STRING overriding the correct extension
+	$whitelist = array();
+	$extension = FileBackend::extensionFromPath( $path, 'rawcase' );
+	if ( $extension != '' ) {
+		$whitelist[] = $extension;
+	}
+	if ( !$request->checkUrlExtension( $whitelist ) ) {
+		return;
+	}
+
+	// Various extensions may have their own backends that need access.
+	// Check if there is a special backend and storage base path for this file.
+	foreach ( $wgImgAuthUrlPathMap as $prefix => $storageDir ) {
+		$prefix = rtrim( $prefix, '/' ) . '/'; // implicit trailing slash
+		if ( strpos( $path, $prefix ) === 0 ) {
+			$be = FileBackendGroup::singleton()->backendFromPath( $storageDir );
+			$filename = $storageDir . substr( $path, strlen( $prefix ) ); // strip prefix
+			// Check basic user authorization
+			if ( !RequestContext::getMain()->getUser()->isAllowed( 'read' ) ) {
+				wfForbidden( 'img-auth-accessdenied', 'img-auth-noread', $path );
+				return;
+			}
+			if ( $be->fileExists( array( 'src' => $filename ) ) ) {
+				wfDebugLog( 'img_auth', "Streaming `" . $filename . "`." );
+				$be->streamFile( array( 'src' => $filename ),
+					array( 'Cache-Control: private', 'Vary: Cookie' ) );
+			} else {
+				wfForbidden( 'img-auth-accessdenied', 'img-auth-nofile', $path );
+			}
+			return;
+		}
+	}
+
+	// Get the local file repository
+	$repo = RepoGroup::singleton()->getRepo( 'local' );
+	$zone = strstr( ltrim( $path, '/' ), '/', true );
+
+	// Get the full file storage path and extract the source file name.
+	// (e.g. 120px-Foo.png => Foo.png or page2-120px-Foo.png => Foo.png).
+	// This only applies to thumbnails/transcoded, and each of them should
+	// be under a folder that has the source file name.
+	if ( $zone === 'thumb' || $zone === 'transcoded' ) {
+		$name = wfBaseName( dirname( $path ) );
+		$filename = $repo->getZonePath( $zone ) . substr( $path, strlen( "/" . $zone ) );
+		// Check to see if the file exists
+		if ( !$repo->fileExists( $filename ) ) {
+			wfForbidden( 'img-auth-accessdenied', 'img-auth-nofile', $filename );
+			return;
+		}
+	} else {
+		$name = wfBaseName( $path ); // file is a source file
+		$filename = $repo->getZonePath( 'public' ) . $path;
+		// Check to see if the file exists and is not deleted
+		$bits = explode( '!', $name, 2 );
+		if ( substr( $path, 0, 9 ) === '/archive/' && count( $bits ) == 2 ) {
+			$file = $repo->newFromArchiveName( $bits[1], $name );
+		} else {
+			$file = $repo->newFile( $name );
+		}
+		if ( !$file->exists() || $file->isDeleted( File::DELETED_FILE ) ) {
+			wfForbidden( 'img-auth-accessdenied', 'img-auth-nofile', $filename );
+			return;
+		}
+	}
+
+	$headers = array(); // extra HTTP headers to send
+
+	if ( !$publicWiki ) {
+		// For private wikis, run extra auth checks and set cache control headers
+		$headers[] = 'Cache-Control: private';
+		$headers[] = 'Vary: Cookie';
+
+		$title = Title::makeTitleSafe( NS_FILE, $name );
+		if ( !$title instanceof Title ) { // files have valid titles
+			wfForbidden( 'img-auth-accessdenied', 'img-auth-badtitle', $name );
+			return;
+		}
+
+		// Run hook for extension authorization plugins
+		/** @var $result array */
+		$result = null;
+		if ( !Hooks::run( 'ImgAuthBeforeStream', array( &$title, &$path, &$name, &$result ) ) ) {
+			wfForbidden( $result[0], $result[1], array_slice( $result, 2 ) );
+			return;
+		}
+
+		// Check user authorization for this title
+		// Checks Whitelist too
+		if ( !$title->userCan( 'read' ) ) {
+			wfForbidden( 'img-auth-accessdenied', 'img-auth-noread', $name );
+			return;
+		}
+	}
+
+	if ( $request->getCheck( 'download' ) ) {
+		$headers[] = 'Content-Disposition: attachment';
+	}
+
+	// Stream the requested file
+	wfDebugLog( 'img_auth', "Streaming `" . $filename . "`." );
+	$repo->streamFile( $filename, $headers );
+}
+
+/**
+ * Issue a standard HTTP 403 Forbidden header ($msg1-a message index, not a message) and an
+ * error message ($msg2, also a message index), (both required) then end the script
+ * subsequent arguments to $msg2 will be passed as parameters only for replacing in $msg2
+ * @param string $msg1
+ * @param string $msg2
+ */
+function wfForbidden( $msg1, $msg2 ) {
+	global $wgImgAuthDetails;
+
+	$args = func_get_args();
+	array_shift( $args );
+	array_shift( $args );
+	$args = ( isset( $args[0] ) && is_array( $args[0] ) ) ? $args[0] : $args;
+
+	$msgHdr = wfMessage( $msg1 )->escaped();
+	$detailMsgKey = $wgImgAuthDetails ? $msg2 : 'badaccess-group0';
+	$detailMsg = wfMessage( $detailMsgKey, $args )->escaped();
+
+	wfDebugLog( 'img_auth',
+		"wfForbidden Hdr: " . wfMessage( $msg1 )->inLanguage( 'en' )->text() . " Msg: " .
+			wfMessage( $msg2, $args )->inLanguage( 'en' )->text()
+	);
+
+	HttpStatus::header( 403 );
+	header( 'Cache-Control: no-cache' );
+	header( 'Content-Type: text/html; charset=utf-8' );
+	echo <<<ENDS
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>$msgHdr</title>
+</head>
+<body>
+<h1>$msgHdr</h1>
+<p>$detailMsg</p>
+</body>
+</html>
+ENDS;
+}
+
+
+<?php
+/**
+ * This is the main web entry point for MediaWiki.
+ *
+ * If you are reading this in your web browser, your server is probably
+ * not configured correctly to run PHP applications!
+ *
+ * See the README, INSTALL, and UPGRADE files for basic setup instructions
+ * and pointers to the online documentation.
+ *
+ * https://www.mediawiki.org/
+ *
+ * ----------
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @file
+ */
+
+// Bail on old versions of PHP, or if composer has not been run yet to install
+// dependencies. Using dirname( __FILE__ ) here because __DIR__ is PHP5.3+.
+require_once dirname( __FILE__ ) . '/includes/PHPVersionCheck.php';
+wfEntryPointCheck( 'index.php' );
+
+require __DIR__ . '/includes/WebStart.php';
+
+$mediaWiki = new MediaWiki();
+$mediaWiki->run();
+
+
+<?php
+/**
+ * This file is the entry point for the resource loader.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @file
+ * @author Roan Kattouw
+ * @author Trevor Parscal
+ */
+
+use MediaWiki\Logger\LoggerFactory;
+
+// Bail on old versions of PHP, or if composer has not been run yet to install
+// dependencies. Using dirname( __FILE__ ) here because __DIR__ is PHP5.3+.
+require_once dirname( __FILE__ ) . '/includes/PHPVersionCheck.php';
+wfEntryPointCheck( 'load.php' );
+
+require __DIR__ . '/includes/WebStart.php';
+
+
+// URL safety checks
+if ( !$wgRequest->checkUrlExtension() ) {
+	return;
+}
+
+// Respond to resource loading request.
+// foo()->bar() syntax is not supported in PHP4, and this file needs to *parse* in PHP4.
+$configFactory = ConfigFactory::getDefaultInstance();
+$resourceLoader = new ResourceLoader(
+	$configFactory->makeConfig( 'main' ),
+	LoggerFactory::getInstance( 'resourceloader' )
+);
+$resourceLoader->respond( new ResourceLoaderContext( $resourceLoader, $wgRequest ) );
+
+Profiler::instance()->setTemplated( true );
+
+$mediawiki = new MediaWiki();
+$mediawiki->doPostOutputShutdown( 'fast' );
+
+
+<?php
+/**
+ * Generate an OpenSearch description file.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @file
+ */
+
+require_once __DIR__ . '/includes/WebStart.php';
+
+if ( $wgRequest->getVal( 'ctype' ) == 'application/xml' ) {
+	// Makes testing tweaks about a billion times easier
+	$ctype = 'application/xml';
+} else {
+	$ctype = 'application/opensearchdescription+xml';
+}
+
+$response = $wgRequest->response();
+$response->header( "Content-type: $ctype" );
+
+// Set an Expires header so that squid can cache it for a short time
+// Short enough so that the sysadmin barely notices when $wgSitename is changed
+$expiryTime = 600; # 10 minutes
+$response->header( 'Expires: ' . gmdate( 'D, d M Y H:i:s', time() + $expiryTime ) . ' GMT' );
+$response->header( 'Cache-control: max-age=600' );
+
+print '<?xml version="1.0"?>';
+print Xml::openElement( 'OpenSearchDescription',
+	array(
+		'xmlns' => 'http://a9.com/-/spec/opensearch/1.1/',
+		'xmlns:moz' => 'http://www.mozilla.org/2006/browser/search/' ) );
+
+// The spec says the ShortName must be no longer than 16 characters,
+// but 16 is *realllly* short. In practice, browsers don't appear to care
+// when we give them a longer string, so we're no longer attempting to trim.
+//
+// Note: ShortName and the <link title=""> need to match; they are used as
+// a key for identifying if the search engine has been added already, *and*
+// as the display name presented to the end-user.
+//
+// Behavior seems about the same between Firefox and IE 7/8 here.
+// 'Description' doesn't appear to be used by either.
+$fullName = wfMessage( 'opensearch-desc' )->inContentLanguage()->text();
+print Xml::element( 'ShortName', null, $fullName );
+print Xml::element( 'Description', null, $fullName );
+
+// By default we'll use the site favicon.
+// Double-check if IE supports this properly?
+print Xml::element( 'Image',
+	array(
+		'height' => 16,
+		'width' => 16,
+		'type' => 'image/x-icon' ),
+	wfExpandUrl( $wgFavicon, PROTO_CURRENT ) );
+
+$urls = array();
+
+// General search template. Given an input term, this should bring up
+// search results or a specific found page.
+// At least Firefox and IE 7 support this.
+$searchPage = SpecialPage::getTitleFor( 'Search' );
+$urls[] = array(
+	'type' => 'text/html',
+	'method' => 'get',
+	'template' => $searchPage->getCanonicalURL( 'search={searchTerms}' ) );
+
+foreach ( $wgOpenSearchTemplates as $type => $template ) {
+	if ( !$template && $wgEnableAPI ) {
+		$template = ApiOpenSearch::getOpenSearchTemplate( $type );
+	}
+
+	if ( $template ) {
+		$urls[] = array(
+			'type' => $type,
+			'method' => 'get',
+			'template' => $template,
+		);
+	}
+}
+
+// Allow hooks to override the suggestion URL settings in a more
+// general way than overriding the whole search engine...
+Hooks::run( 'OpenSearchUrls', array( &$urls ) );
+
+foreach ( $urls as $attribs ) {
+	print Xml::element( 'Url', $attribs );
+}
+
+// And for good measure, add a link to the straight search form.
+// This is a custom format extension for Firefox, which otherwise
+// sends you to the domain root if you hit "enter" with an empty
+// search box.
+print Xml::element( 'moz:SearchForm', null,
+	$searchPage->getCanonicalURL() );
+
+print '</OpenSearchDescription>';
+
+
+<?php
+/**
+ * Show profiling data.
+ *
+ * Copyright 2005 Kate Turner.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ * @file
+ */
+
+ini_set( 'zlib.output_compression', 'off' );
+
+$wgEnableProfileInfo = false;
+require __DIR__ . '/includes/WebStart.php';
+
+header( 'Content-Type: text/html; charset=utf-8' );
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Profiling data</title>
+	<style>
+		/* noc.wikimedia.org/base.css */
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			padding: 0.5em 1em;
+			background: #fff;
+			font: 14px/1.6 sans-serif;
+			color: #333;
+		}
+
+		p, ul, ol, table {
+			margin: 0.5em 0;
+		}
+
+		a {
+			color: #0645AD;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		/*!
+		 * Bootstrap v2.1.1
+		 *
+		 * Copyright 2012 Twitter, Inc
+		 * Licensed under the Apache License v2.0
+		 * http://www.apache.org/licenses/LICENSE-2.0
+		 *
+		 * Designed and built with all the love in the world @twitter by @mdo and @fat.
+		 */
+
+		table {
+			max-width: 100%;
+			background-color: transparent;
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+		.table {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		.table th,
+		.table td {
+			padding: 0.1em;
+			text-align: left;
+			vertical-align: top;
+			border-top: 1px solid #ddd;
+		}
+
+		.table th {
+			font-weight: bold;
+		}
+
+		.table thead th {
+			vertical-align: bottom;
+		}
+
+		.table thead:first-child tr:first-child th,
+		.table thead:first-child tr:first-child td {
+			border-top: 0;
+		}
+
+		.table tbody + tbody {
+			border-top: 2px solid #ddd;
+		}
+
+		.table-condensed th,
+		.table-condensed td {
+			padding: 4px 5px;
+		}
+
+		.table-striped tbody tr:nth-child(odd) td,
+		.table-striped tbody tr:nth-child(odd) th {
+			background-color: #f9f9f9;
+		}
+
+		.table-hover tbody tr:hover td,
+		.table-hover tbody tr:hover th {
+			background-color: #f5f5f5;
+		}
+
+		hr {
+			margin: 20px 0;
+			border: 0;
+			border-top: 1px solid #eee;
+			border-bottom: 1px solid #fff;
+		}
+	</style>
+</head>
+<body>
+<?php
+
+if ( !$wgEnableProfileInfo ) {
+	echo '<p>Disabled</p>'
+		. '</body></html>';
+	exit( 1 );
+}
+
+$dbr = wfGetDB( DB_SLAVE );
+
+if ( !$dbr->tableExists( 'profiling' ) ) {
+	echo '<p>No <code>profiling</code> table exists, so we can\'t show you anything.</p>'
+		. '<p>If you want to log profiling data, enable <code>$wgProfiler[\'output\'] = \'db\'</code>'
+		. ' in your StartProfiler.php and run <code>maintenance/update.php</code> to'
+		. ' create the profiling table.'
+		. '</body></html>';
+	exit( 1 );
+}
+
+$expand = array();
+if ( isset( $_REQUEST['expand'] ) ) {
+	foreach ( explode( ',', $_REQUEST['expand'] ) as $f ) {
+		$expand[$f] = true;
+	}
+}
+
+// @codingStandardsIgnoreStart
+class profile_point {
+	// @codingStandardsIgnoreEnd
+
+	public $name;
+	public $count;
+	public $time;
+	public $children;
+
+	public static $totaltime, $totalmemory, $totalcount;
+
+	public function __construct( $name, $count, $time, $memory ) {
+		$this->name = $name;
+		$this->count = $count;
+		$this->time = $time;
+		$this->memory = $memory;
+		$this->children = array();
+	}
+
+	public function add_child( $child ) {
+		$this->children[] = $child;
+	}
+
+	public function display( $expand, $indent = 0.0 ) {
+		usort( $this->children, 'compare_point' );
+
+		$ex = isset( $expand[$this->name()] );
+
+		$anchor = str_replace( '"', '', $this->name() );
+
+		if ( !$ex ) {
+			if ( count( $this->children ) ) {
+				$url = getEscapedProfileUrl( false, false, $expand + array( $this->name() => true ) );
+				$extet = " <a id=\"{$anchor}\" href=\"{$url}#{$anchor}\">[+]</a>";
+			} else {
+				$extet = '';
+			}
+		} else {
+			$e = array();
+			foreach ( $expand as $name => $ep ) {
+				if ( $name != $this->name() ) {
+					$e += array( $name => $ep );
+				}
+			}
+			$url = getEscapedProfileUrl( false, false, $e );
+			$extet = " <a id=\"{$anchor}\" href=\"{$url}#{$anchor}\">[–]</a>";
+		}
+		?>
+	<tr>
+		<th>
+			<div style="margin-left: <?php echo (int)$indent; ?>em;">
+				<?php echo htmlspecialchars( str_replace( ',', ', ', $this->name() ) ) . $extet ?>
+			</div>
+		</th>
+		<?php //@codingStandardsIgnoreStart ?>
+		<td class="mw-profileinfo-timep"><?php echo @wfPercent( $this->time() / self::$totaltime * 100 ); ?></td>
+		<td class="mw-profileinfo-memoryp"><?php echo @wfPercent( $this->memory() / self::$totalmemory * 100 ); ?></td>
+		<td class="mw-profileinfo-count"><?php echo $this->count(); ?></td>
+		<td class="mw-profileinfo-cpr"><?php echo round( sprintf( '%.2f', $this->callsPerRequest() ), 2 ); ?></td>
+		<td class="mw-profileinfo-tpc"><?php echo round( sprintf( '%.2f', $this->timePerCall() ), 2 ); ?></td>
+		<td class="mw-profileinfo-mpc"><?php echo round( sprintf( '%.2f', $this->memoryPerCall() / 1024 ), 2 ); ?></td>
+		<td class="mw-profileinfo-tpr"><?php echo @round( sprintf( '%.2f', $this->time() / self::$totalcount ), 2 ); ?></td>
+		<td class="mw-profileinfo-mpr"><?php echo @round( sprintf( '%.2f', $this->memory() / self::$totalcount / 1024 ), 2 ); ?></td>
+		<?php //@codingStandardsIgnoreEnd ?>
+	</tr>
+		<?php
+		if ( $ex ) {
+			foreach ( $this->children as $child ) {
+				$child->display( $expand, $indent + 2 );
+			}
+		}
+	}
+
+	public function name() {
+		return $this->name;
+	}
+
+	public function count() {
+		return $this->count;
+	}
+
+	public function time() {
+		return $this->time;
+	}
+
+	public function memory() {
+		return $this->memory;
+	}
+
+	public function timePerCall() {
+		// @codingStandardsIgnoreStart
+		return @( $this->time / $this->count );
+		// @codingStandardsIgnoreEnd
+	}
+
+	public function memoryPerCall() {
+		// @codingStandardsIgnoreStart
+		return @( $this->memory / $this->count );
+		// @codingStandardsIgnoreEnd
+	}
+
+	public function callsPerRequest() {
+		// @codingStandardsIgnoreStart
+		return @( $this->count / self::$totalcount );
+		// @codingStandardsIgnoreEnd
+	}
+
+	public function timePerRequest() {
+		// @codingStandardsIgnoreStart
+		return @( $this->time / self::$totalcount );
+		// @codingStandardsIgnoreEnd
+	}
+
+	public function memoryPerRequest() {
+		// @codingStandardsIgnoreStart
+		return @( $this->memory / self::$totalcount );
+		// @codingStandardsIgnoreEnd
+	}
+
+	public function fmttime() {
+		return sprintf( '%5.02f', $this->time );
+	}
+};
+
+function compare_point( profile_point $a, profile_point $b ) {
+	// @codingStandardsIgnoreStart
+	global $sort;
+	// @codingStandardsIgnoreEnd
+	switch ( $sort ) {
+		case 'name':
+			return strcmp( $a->name(), $b->name() );
+		case 'time':
+			return $a->time() > $b->time() ? -1 : 1;
+		case 'memory':
+			return $a->memory() > $b->memory() ? -1 : 1;
+		case 'count':
+			return $a->count() > $b->count() ? -1 : 1;
+		case 'time_per_call':
+			return $a->timePerCall() > $b->timePerCall() ? -1 : 1;
+		case 'memory_per_call':
+			return $a->memoryPerCall() > $b->memoryPerCall() ? -1 : 1;
+		case 'calls_per_req':
+			return $a->callsPerRequest() > $b->callsPerRequest() ? -1 : 1;
+		case 'time_per_req':
+			return $a->timePerRequest() > $b->timePerRequest() ? -1 : 1;
+		case 'memory_per_req':
+			return $a->memoryPerRequest() > $b->memoryPerRequest() ? -1 : 1;
+	}
+}
+
+$sorts = array( 'time', 'memory', 'count', 'calls_per_req', 'name',
+	'time_per_call', 'memory_per_call', 'time_per_req', 'memory_per_req' );
+$sort = 'time';
+if ( isset( $_REQUEST['sort'] ) && in_array( $_REQUEST['sort'], $sorts ) ) {
+	$sort = $_REQUEST['sort'];
+}
+
+$res = $dbr->select( 'profiling', '*', array(), 'profileinfo.php', array( 'ORDER BY' => 'pf_name ASC' ) );
+
+if ( isset( $_REQUEST['filter'] ) ) {
+	$filter = $_REQUEST['filter'];
+} else {
+	$filter = '';
+}
+
+?>
+<form method="get" action="profileinfo.php">
+	<p>
+		<input type="text" name="filter" value="<?php echo htmlspecialchars( $filter ); ?>">
+		<input type="hidden" name="sort" value="<?php echo htmlspecialchars( $sort ); ?>">
+		<input type="hidden" name="expand" value="<?php echo htmlspecialchars( implode( ",", array_keys( $expand ) ) ); ?>">
+		<input type="submit" value="Filter">
+	</p>
+</form>
+
+<table class="mw-profileinfo-table table table-striped table-hover">
+	<thead>
+	<tr>
+		<th><a href="<?php echo getEscapedProfileUrl( false, 'name' ); ?>">Name</a></th>
+		<th><a href="<?php echo getEscapedProfileUrl( false, 'time' ); ?>">Time (%)</a></th>
+		<th><a href="<?php echo getEscapedProfileUrl( false, 'memory' ); ?>">Memory (%)</a></th>
+		<th><a href="<?php echo getEscapedProfileUrl( false, 'count' ); ?>">Count</a></th>
+		<th><a href="<?php echo getEscapedProfileUrl( false, 'calls_per_req' ); ?>">Calls/req</a></th>
+		<th><a href="<?php echo getEscapedProfileUrl( false, 'time_per_call' ); ?>">ms/call</a></th>
+		<th><a href="<?php echo getEscapedProfileUrl( false, 'memory_per_call' ); ?>">kb/call</a></th>
+		<th><a href="<?php echo getEscapedProfileUrl( false, 'time_per_req' ); ?>">ms/req</a></th>
+		<th><a href="<?php echo getEscapedProfileUrl( false, 'memory_per_req' ); ?>">kb/req</a></th>
+	</tr>
+	</thead>
+	<tbody>
+	<?php
+	profile_point::$totaltime = 0.0;
+	profile_point::$totalcount = 0;
+	profile_point::$totalmemory = 0.0;
+
+	function getEscapedProfileUrl( $_filter = false, $_sort = false, $_expand = false ) {
+		// @codingStandardsIgnoreStart
+		global $filter, $sort, $expand;
+		// @codingStandardsIgnoreEnd
+
+		if ( $_expand === false ) {
+			$_expand = $expand;
+		}
+
+		return htmlspecialchars(
+			'?' .
+				wfArrayToCgi( array(
+					'filter' => $_filter ? $_filter : $filter,
+					'sort' => $_sort ? $_sort : $sort,
+					'expand' => implode( ',', array_keys( $_expand ) )
+				) )
+		);
+	}
+
+	$points = array();
+	$queries = array();
+	$sqltotal = 0.0;
+
+	$last = false;
+	foreach ( $res as $o ) {
+		$next = new profile_point( $o->pf_name, $o->pf_count, $o->pf_time, $o->pf_memory );
+		if ( $next->name() == '-total' || $next->name() == 'main()' ) {
+			profile_point::$totaltime = $next->time();
+			profile_point::$totalcount = $next->count();
+			profile_point::$totalmemory = $next->memory();
+		}
+		if ( $last !== false ) {
+			if ( preg_match( '/^' . preg_quote( $last->name(), '/' ) . '/', $next->name() ) ) {
+				$last->add_child( $next );
+				continue;
+			}
+		}
+		$last = $next;
+		if ( preg_match( '/^query: /', $next->name() ) || preg_match( '/^query-m: /', $next->name() ) ) {
+			$sqltotal += $next->time();
+			$queries[] = $next;
+		} else {
+			$points[] = $next;
+		}
+	}
+
+	$s = new profile_point( 'SQL Queries', 0, $sqltotal, 0, 0 );
+	foreach ( $queries as $q ) {
+		$s->add_child( $q );
+	}
+	$points[] = $s;
+
+	usort( $points, 'compare_point' );
+
+	foreach ( $points as $point ) {
+		if ( strlen( $filter ) && !strstr( $point->name(), $filter ) ) {
+			continue;
+		}
+
+		$point->display( $expand );
+	}
+	?>
+	</tbody>
+</table>
+<hr />
+<p>Total time: <code><?php printf( '%5.02f', profile_point::$totaltime ); ?></code></p>
+
+<p>Total memory: <code><?php printf( '%5.02f', profile_point::$totalmemory / 1024 ); ?></code></p>
+<hr />
+</body>
+</html>
+
+
+
+<?php
+/**
+ * PHP script to be used as 404 handler to create and stream out a
+ * not yet existing image thumbnail.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @file
+ * @ingroup Media
+ */
+
+define( 'THUMB_HANDLER', true );
+
+// Execute thumb.php, having set THUMB_HANDLER so that
+// it knows to extract params from a thumbnail file URL.
+require __DIR__ . '/thumb.php';
+
+
+<?php
+/**
+ * PHP script to stream out an image thumbnail.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * http://www.gnu.org/copyleft/gpl.html
+ *
+ * @file
+ * @ingroup Media
+ */
+
+define( 'MW_NO_OUTPUT_COMPRESSION', 1 );
+require __DIR__ . '/includes/WebStart.php';
+
+// Don't use fancy MIME detection, just check the file extension for jpg/gif/png
+$wgTrivialMimeDetection = true;
+
+if ( defined( 'THUMB_HANDLER' ) ) {
+	// Called from thumb_handler.php via 404; extract params from the URI...
+	wfThumbHandle404();
+} else {
+	// Called directly, use $_GET params
+	wfStreamThumb( $_GET );
+}
+
+$mediawiki = new MediaWiki();
+$mediawiki->doPostOutputShutdown( 'fast' );
+
+//--------------------------------------------------------------------------
+
+/**
+ * Handle a thumbnail request via thumbnail file URL
+ *
+ * @return void
+ */
+function wfThumbHandle404() {
+	global $wgArticlePath;
+
+	# Set action base paths so that WebRequest::getPathInfo()
+	# recognizes the "X" as the 'title' in ../thumb_handler.php/X urls.
+	# Note: If Custom per-extension repo paths are set, this may break.
+	$repo = RepoGroup::singleton()->getLocalRepo();
+	$oldArticlePath = $wgArticlePath;
+	$wgArticlePath = $repo->getZoneUrl( 'thumb' ) . '/$1';
+
+	$matches = WebRequest::getPathInfo();
+
+	$wgArticlePath = $oldArticlePath;
+
+	if ( !isset( $matches['title'] ) ) {
+		wfThumbError( 404, 'Could not determine the name of the requested thumbnail.' );
+		return;
+	}
+
+	$params = wfExtractThumbRequestInfo( $matches['title'] ); // basic wiki URL param extracting
+	if ( $params == null ) {
+		wfThumbError( 400, 'The specified thumbnail parameters are not recognized.' );
+		return;
+	}
+
+	wfStreamThumb( $params ); // stream the thumbnail
+}
+
+/**
+ * Stream a thumbnail specified by parameters
+ *
+ * @param array $params List of thumbnailing parameters. In addition to parameters
+ *  passed to the MediaHandler, this may also includes the keys:
+ *   f (for filename), archived (if archived file), temp (if temp file),
+ *   w (alias for width), p (alias for page), r (ignored; historical),
+ *   rel404 (path for render on 404 to verify hash path correct),
+ *   thumbName (thumbnail name to potentially extract more parameters from
+ *   e.g. 'lossy-page1-120px-Foo.tiff' would add page, lossy and width
+ *   to the parameters)
+ * @return void
+ */
+function wfStreamThumb( array $params ) {
+	global $wgVaryOnXFP;
+
+	$headers = array(); // HTTP headers to send
+
+	$fileName = isset( $params['f'] ) ? $params['f'] : '';
+
+	// Backwards compatibility parameters
+	if ( isset( $params['w'] ) ) {
+		$params['width'] = $params['w'];
+		unset( $params['w'] );
+	}
+	if ( isset( $params['width'] ) && substr( $params['width'], -2 ) == 'px' ) {
+		// strip the px (pixel) suffix, if found
+		$params['width'] = substr( $params['width'], 0, -2 );
+	}
+	if ( isset( $params['p'] ) ) {
+		$params['page'] = $params['p'];
+	}
+
+	// Is this a thumb of an archived file?
+	$isOld = ( isset( $params['archived'] ) && $params['archived'] );
+	unset( $params['archived'] ); // handlers don't care
+
+	// Is this a thumb of a temp file?
+	$isTemp = ( isset( $params['temp'] ) && $params['temp'] );
+	unset( $params['temp'] ); // handlers don't care
+
+	// Some basic input validation
+	$fileName = strtr( $fileName, '\\/', '__' );
+
+	// Actually fetch the image. Method depends on whether it is archived or not.
+	if ( $isTemp ) {
+		$repo = RepoGroup::singleton()->getLocalRepo()->getTempRepo();
+		$img = new UnregisteredLocalFile( null, $repo,
+			# Temp files are hashed based on the name without the timestamp.
+			# The thumbnails will be hashed based on the entire name however.
+			# @todo fix this convention to actually be reasonable.
+			$repo->getZonePath( 'public' ) . '/' . $repo->getTempHashPath( $fileName ) . $fileName
+		);
+	} elseif ( $isOld ) {
+		// Format is <timestamp>!<name>
+		$bits = explode( '!', $fileName, 2 );
+		if ( count( $bits ) != 2 ) {
+			wfThumbError( 404, wfMessage( 'badtitletext' )->parse() );
+			return;
+		}
+		$title = Title::makeTitleSafe( NS_FILE, $bits[1] );
+		if ( !$title ) {
+			wfThumbError( 404, wfMessage( 'badtitletext' )->parse() );
+			return;
+		}
+		$img = RepoGroup::singleton()->getLocalRepo()->newFromArchiveName( $title, $fileName );
+	} else {
+		$img = wfLocalFile( $fileName );
+	}
+
+	// Check the source file title
+	if ( !$img ) {
+		wfThumbError( 404, wfMessage( 'badtitletext' )->parse() );
+		return;
+	}
+
+	// Check permissions if there are read restrictions
+	$varyHeader = array();
+	if ( !in_array( 'read', User::getGroupPermissions( array( '*' ) ), true ) ) {
+		if ( !$img->getTitle() || !$img->getTitle()->userCan( 'read' ) ) {
+			wfThumbError( 403, 'Access denied. You do not have permission to access ' .
+				'the source file.' );
+			return;
+		}
+		$headers[] = 'Cache-Control: private';
+		$varyHeader[] = 'Cookie';
+	}
+
+	// Check if the file is hidden
+	if ( $img->isDeleted( File::DELETED_FILE ) ) {
+		wfThumbErrorText( 404, "The source file '$fileName' does not exist." );
+		return;
+	}
+
+	// Do rendering parameters extraction from thumbnail name.
+	if ( isset( $params['thumbName'] ) ) {
+		$params = wfExtractThumbParams( $img, $params );
+	}
+	if ( $params == null ) {
+		wfThumbError( 400, 'The specified thumbnail parameters are not recognized.' );
+		return;
+	}
+
+	// Check the source file storage path
+	if ( !$img->exists() ) {
+		$redirectedLocation = false;
+		if ( !$isTemp ) {
+			// Check for file redirect
+			// Since redirects are associated with pages, not versions of files,
+			// we look for the most current version to see if its a redirect.
+			$possRedirFile = RepoGroup::singleton()->getLocalRepo()->findFile( $img->getName() );
+			if ( $possRedirFile && !is_null( $possRedirFile->getRedirected() ) ) {
+				$redirTarget = $possRedirFile->getName();
+				$targetFile = wfLocalFile( Title::makeTitleSafe( NS_FILE, $redirTarget ) );
+				if ( $targetFile->exists() ) {
+					$newThumbName = $targetFile->thumbName( $params );
+					if ( $isOld ) {
+						/** @var array $bits */
+						$newThumbUrl = $targetFile->getArchiveThumbUrl(
+							$bits[0] . '!' . $targetFile->getName(), $newThumbName );
+					} else {
+						$newThumbUrl = $targetFile->getThumbUrl( $newThumbName );
+					}
+					$redirectedLocation = wfExpandUrl( $newThumbUrl, PROTO_CURRENT );
+				}
+			}
+		}
+
+		if ( $redirectedLocation ) {
+			// File has been moved. Give redirect.
+			$response = RequestContext::getMain()->getRequest()->response();
+			$response->statusHeader( 302 );
+			$response->header( 'Location: ' . $redirectedLocation );
+			$response->header( 'Expires: ' .
+				gmdate( 'D, d M Y H:i:s', time() + 12 * 3600 ) . ' GMT' );
+			if ( $wgVaryOnXFP ) {
+				$varyHeader[] = 'X-Forwarded-Proto';
+			}
+			if ( count( $varyHeader ) ) {
+				$response->header( 'Vary: ' . implode( ', ', $varyHeader ) );
+			}
+			$response->header( 'Content-Length: 0' );
+			return;
+		}
+
+		// If its not a redirect that has a target as a local file, give 404.
+		wfThumbErrorText( 404, "The source file '$fileName' does not exist." );
+		return;
+	} elseif ( $img->getPath() === false ) {
+		wfThumbErrorText( 400, "The source file '$fileName' is not locally accessible." );
+		return;
+	}
+
+	// Check IMS against the source file
+	// This means that clients can keep a cached copy even after it has been deleted on the server
+	if ( !empty( $_SERVER['HTTP_IF_MODIFIED_SINCE'] ) ) {
+		// Fix IE brokenness
+		$imsString = preg_replace( '/;.*$/', '', $_SERVER["HTTP_IF_MODIFIED_SINCE"] );
+		// Calculate time
+		MediaWiki\suppressWarnings();
+		$imsUnix = strtotime( $imsString );
+		MediaWiki\restoreWarnings();
+		if ( wfTimestamp( TS_UNIX, $img->getTimestamp() ) <= $imsUnix ) {
+			HttpStatus::header( 304 );
+			return;
+		}
+	}
+
+	$rel404 = isset( $params['rel404'] ) ? $params['rel404'] : null;
+	unset( $params['r'] ); // ignore 'r' because we unconditionally pass File::RENDER
+	unset( $params['f'] ); // We're done with 'f' parameter.
+	unset( $params['rel404'] ); // moved to $rel404
+
+	// Get the normalized thumbnail name from the parameters...
+	try {
+		$thumbName = $img->thumbName( $params );
+		if ( !strlen( $thumbName ) ) { // invalid params?
+			throw new MediaTransformInvalidParametersException( 'Empty return from File::thumbName' );
+		}
+		$thumbName2 = $img->thumbName( $params, File::THUMB_FULL_NAME ); // b/c; "long" style
+	} catch ( MediaTransformInvalidParametersException $e ) {
+		wfThumbError( 400, 'The specified thumbnail parameters are not valid: ' . $e->getMessage() );
+		return;
+	} catch ( MWException $e ) {
+		wfThumbError( 500, $e->getHTML() );
+		return;
+	}
+
+	// For 404 handled thumbnails, we only use the base name of the URI
+	// for the thumb params and the parent directory for the source file name.
+	// Check that the zone relative path matches up so squid caches won't pick
+	// up thumbs that would not be purged on source file deletion (bug 34231).
+	if ( $rel404 !== null ) { // thumbnail was handled via 404
+		if ( rawurldecode( $rel404 ) === $img->getThumbRel( $thumbName ) ) {
+			// Request for the canonical thumbnail name
+		} elseif ( rawurldecode( $rel404 ) === $img->getThumbRel( $thumbName2 ) ) {
+			// Request for the "long" thumbnail name; redirect to canonical name
+			$response = RequestContext::getMain()->getRequest()->response();
+			$response->statusHeader( 301 );
+			$response->header( 'Location: ' .
+				wfExpandUrl( $img->getThumbUrl( $thumbName ), PROTO_CURRENT ) );
+			$response->header( 'Expires: ' .
+				gmdate( 'D, d M Y H:i:s', time() + 7 * 86400 ) . ' GMT' );
+			if ( $wgVaryOnXFP ) {
+				$varyHeader[] = 'X-Forwarded-Proto';
+			}
+			if ( count( $varyHeader ) ) {
+				$response->header( 'Vary: ' . implode( ', ', $varyHeader ) );
+			}
+			return;
+		} else {
+			wfThumbErrorText( 404, "The given path of the specified thumbnail is incorrect;
+				expected '" . $img->getThumbRel( $thumbName ) . "' but got '" .
+				rawurldecode( $rel404 ) . "'." );
+			return;
+		}
+	}
+
+	$dispositionType = isset( $params['download'] ) ? 'attachment' : 'inline';
+
+	// Suggest a good name for users downloading this thumbnail
+	$headers[] = "Content-Disposition: {$img->getThumbDisposition( $thumbName, $dispositionType )}";
+
+	if ( count( $varyHeader ) ) {
+		$headers[] = 'Vary: ' . implode( ', ', $varyHeader );
+	}
+
+	// Stream the file if it exists already...
+	$thumbPath = $img->getThumbPath( $thumbName );
+	if ( $img->getRepo()->fileExists( $thumbPath ) ) {
+		$starttime = microtime( true );
+		$success = $img->getRepo()->streamFile( $thumbPath, $headers );
+		$streamtime = microtime( true ) - $starttime;
+
+		if ( !$success ) {
+			wfThumbError( 500, 'Could not stream the file' );
+		} else {
+			RequestContext::getMain()->getStats()->timing( 'media.thumbnail.stream', $streamtime );
+		}
+		return;
+	}
+
+	$user = RequestContext::getMain()->getUser();
+	if ( !wfThumbIsStandard( $img, $params ) && $user->pingLimiter( 'renderfile-nonstandard' ) ) {
+		wfThumbError( 429, wfMessage( 'actionthrottledtext' )->parse() );
+		return;
+	} elseif ( $user->pingLimiter( 'renderfile' ) ) {
+		wfThumbError( 429, wfMessage( 'actionthrottledtext' )->parse() );
+		return;
+	}
+
+	list( $thumb, $errorMsg ) = wfGenerateThumbnail( $img, $params, $thumbName, $thumbPath );
+
+	/** @var MediaTransformOutput|MediaTransformError|bool $thumb */
+
+	// Check for thumbnail generation errors...
+	$msg = wfMessage( 'thumbnail_error' );
+	$errorCode = 500;
+	if ( !$thumb ) {
+		$errorMsg = $errorMsg ?: $msg->rawParams( 'File::transform() returned false' )->escaped();
+		if ( $errorMsg instanceof MessageSpecifier && $errorMsg->getKey() === 'thumbnail_image-failure-limit' ) {
+			$errorCode = 429;
+		}
+	} elseif ( $thumb->isError() ) {
+		$errorMsg = $thumb->getHtmlMsg();
+	} elseif ( !$thumb->hasFile() ) {
+		$errorMsg = $msg->rawParams( 'No path supplied in thumbnail object' )->escaped();
+	} elseif ( $thumb->fileIsSource() ) {
+		$errorMsg = $msg->
+			rawParams( 'Image was not scaled, is the requested width bigger than the source?' )->escaped();
+		$errorCode = 400;
+	}
+
+	if ( $errorMsg !== false ) {
+		wfThumbError( $errorCode, $errorMsg );
+	} else {
+		// Stream the file if there were no errors
+		$success = $thumb->streamFile( $headers );
+		if ( !$success ) {
+			wfThumbError( 500, 'Could not stream the file' );
+		}
+	}
+}
+
+/**
+ * Actually try to generate a new thumbnail
+ *
+ * @param File $file
+ * @param array $params
+ * @param string $thumbName
+ * @param string $thumbPath
+ * @return array (MediaTransformOutput|bool, string|bool error message HTML)
+ */
+function wfGenerateThumbnail( File $file, array $params, $thumbName, $thumbPath ) {
+	global $wgMemc, $wgAttemptFailureEpoch;
+
+	$key = wfMemcKey( 'attempt-failures', $wgAttemptFailureEpoch,
+		$file->getRepo()->getName(), $file->getSha1(), md5( $thumbName ) );
+
+	// Check if this file keeps failing to render
+	if ( $wgMemc->get( $key ) >= 4 ) {
+		return array( false, wfMessage( 'thumbnail_image-failure-limit', 4 ) );
+	}
+
+	$done = false;
+	// Record failures on PHP fatals in addition to caching exceptions
+	register_shutdown_function( function () use ( &$done, $key ) {
+		if ( !$done ) { // transform() gave a fatal
+			global $wgMemc;
+			// Randomize TTL to reduce stampedes
+			$wgMemc->incrWithInit( $key, 3600 + mt_rand( 0, 300 ) );
+		}
+	} );
+
+	$thumb = false;
+	$errorHtml = false;
+
+	// guard thumbnail rendering with PoolCounter to avoid stampedes
+	// expensive files use a separate PoolCounter config so it is possible
+	// to set up a global limit on them
+	if ( $file->isExpensiveToThumbnail() ) {
+		$poolCounterType = 'FileRenderExpensive';
+	} else {
+		$poolCounterType = 'FileRender';
+	}
+
+	// Thumbnail isn't already there, so create the new thumbnail...
+	try {
+		$work = new PoolCounterWorkViaCallback( $poolCounterType, sha1( $file->getName() ),
+			array(
+				'doWork' => function () use ( $file, $params ) {
+					return $file->transform( $params, File::RENDER_NOW );
+				},
+				'getCachedWork' => function () use ( $file, $params, $thumbPath ) {
+					// If the worker that finished made this thumbnail then use it.
+					// Otherwise, it probably made a different thumbnail for this file.
+					return $file->getRepo()->fileExists( $thumbPath )
+						? $file->transform( $params, File::RENDER_NOW )
+						: false; // retry once more in exclusive mode
+				},
+				'fallback' => function () {
+					return wfMessage( 'generic-pool-error' )->parse();
+				},
+				'error' => function ( Status $status ) {
+					return $status->getHTML();
+				}
+			)
+		);
+		$result = $work->execute();
+		if ( $result instanceof MediaTransformOutput ) {
+			$thumb = $result;
+		} elseif ( is_string( $result ) ) { // error
+			$errorHtml = $result;
+		}
+	} catch ( Exception $e ) {
+		// Tried to select a page on a non-paged file?
+	}
+
+	/** @noinspection PhpUnusedLocalVariableInspection */
+	$done = true; // no PHP fatal occured
+
+	if ( !$thumb || $thumb->isError() ) {
+		// Randomize TTL to reduce stampedes
+		$wgMemc->incrWithInit( $key, 3600 + mt_rand( 0, 300 ) );
+	}
+
+	return array( $thumb, $errorHtml );
+}
+
+/**
+ * Convert pathinfo type parameter, into normal request parameters
+ *
+ * So for example, if the request was redirected from
+ * /w/images/thumb/a/ab/Foo.png/120px-Foo.png. The $thumbRel parameter
+ * of this function would be set to "a/ab/Foo.png/120px-Foo.png".
+ * This method is responsible for turning that into an array
+ * with the folowing keys:
+ *  * f => the filename (Foo.png)
+ *  * rel404 => the whole thing (a/ab/Foo.png/120px-Foo.png)
+ *  * archived => 1 (If the request is for an archived thumb)
+ *  * temp => 1 (If the file is in the "temporary" zone)
+ *  * thumbName => the thumbnail name, including parameters (120px-Foo.png)
+ *
+ * Transform specific parameters are set later via wfExtractThumbParams().
+ *
+ * @param string $thumbRel Thumbnail path relative to the thumb zone
+ * @return array|null Associative params array or null
+ */
+function wfExtractThumbRequestInfo( $thumbRel ) {
+	$repo = RepoGroup::singleton()->getLocalRepo();
+
+	$hashDirReg = $subdirReg = '';
+	$hashLevels = $repo->getHashLevels();
+	for ( $i = 0; $i < $hashLevels; $i++ ) {
+		$subdirReg .= '[0-9a-f]';
+		$hashDirReg .= "$subdirReg/";
+	}
+
+	// Check if this is a thumbnail of an original in the local file repo
+	if ( preg_match( "!^((archive/)?$hashDirReg([^/]*)/([^/]*))$!", $thumbRel, $m ) ) {
+		list( /*all*/, $rel, $archOrTemp, $filename, $thumbname ) = $m;
+	// Check if this is a thumbnail of an temp file in the local file repo
+	} elseif ( preg_match( "!^(temp/)($hashDirReg([^/]*)/([^/]*))$!", $thumbRel, $m ) ) {
+		list( /*all*/, $archOrTemp, $rel, $filename, $thumbname ) = $m;
+	} else {
+		return null; // not a valid looking thumbnail request
+	}
+
+	$params = array( 'f' => $filename, 'rel404' => $rel );
+	if ( $archOrTemp === 'archive/' ) {
+		$params['archived'] = 1;
+	} elseif ( $archOrTemp === 'temp/' ) {
+		$params['temp'] = 1;
+	}
+
+	$params['thumbName'] = $thumbname;
+	return $params;
+}
+
+/**
+ * Convert a thumbnail name (122px-foo.png) to parameters, using
+ * file handler.
+ *
+ * @param File $file File object for file in question
+ * @param array $params Array of parameters so far
+ * @return array Parameters array with more parameters
+ */
+function wfExtractThumbParams( $file, $params ) {
+	if ( !isset( $params['thumbName'] ) ) {
+		throw new InvalidArgumentException( "No thumbnail name passed to wfExtractThumbParams" );
+	}
+
+	$thumbname = $params['thumbName'];
+	unset( $params['thumbName'] );
+
+	// Do the hook first for older extensions that rely on it.
+	if ( !Hooks::run( 'ExtractThumbParameters', array( $thumbname, &$params ) ) ) {
+		// Check hooks if parameters can be extracted
+		// Hooks return false if they manage to *resolve* the parameters
+		// This hook should be considered deprecated
+		wfDeprecated( 'ExtractThumbParameters', '1.22' );
+		return $params; // valid thumbnail URL (via extension or config)
+	}
+
+	// FIXME: Files in the temp zone don't set a MIME type, which means
+	// they don't have a handler. Which means we can't parse the param
+	// string. However, not a big issue as what good is a param string
+	// if you have no handler to make use of the param string and
+	// actually generate the thumbnail.
+	$handler = $file->getHandler();
+
+	// Based on UploadStash::parseKey
+	$fileNamePos = strrpos( $thumbname, $params['f'] );
+	if ( $fileNamePos === false ) {
+		// Maybe using a short filename? (see FileRepo::nameForThumb)
+		$fileNamePos = strrpos( $thumbname, 'thumbnail' );
+	}
+
+	if ( $handler && $fileNamePos !== false ) {
+		$paramString = substr( $thumbname, 0, $fileNamePos - 1 );
+		$extraParams = $handler->parseParamString( $paramString );
+		if ( $extraParams !== false ) {
+			return $params + $extraParams;
+		}
+	}
+
+	// As a last ditch fallback, use the traditional common parameters
+	if ( preg_match( '!^(page(\d*)-)*(\d*)px-[^/]*$!', $thumbname, $matches ) ) {
+		list( /* all */, /* pagefull */, $pagenum, $size ) = $matches;
+		$params['width'] = $size;
+		if ( $pagenum ) {
+			$params['page'] = $pagenum;
+		}
+		return $params; // valid thumbnail URL
+	}
+	return null;
+}
+
+
+/**
+ * Output a thumbnail generation error message
+ *
+ * @param int $status
+ * @param string $msgText Plain text (will be html escaped)
+ * @return void
+ */
+function wfThumbErrorText( $status, $msgText ) {
+	wfThumbError( $status, htmlspecialchars( $msgText ) );
+}
+
+/**
+ * Output a thumbnail generation error message
+ *
+ * @param int $status
+ * @param string $msgHtml HTML
+ * @return void
+ */
+function wfThumbError( $status, $msgHtml ) {
+	global $wgShowHostnames;
+
+	header( 'Cache-Control: no-cache' );
+	header( 'Content-Type: text/html; charset=utf-8' );
+	if ( $status == 400 || $status == 404 || $status == 429 ) {
+		HttpStatus::header( $status );
+	} elseif ( $status == 403 ) {
+		HttpStatus::header( 403 );
+		header( 'Vary: Cookie' );
+	} else {
+		HttpStatus::header( 500 );
+	}
+	if ( $wgShowHostnames ) {
+		header( 'X-MW-Thumbnail-Renderer: ' . wfHostname() );
+		$url = htmlspecialchars( isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '' );
+		$hostname = htmlspecialchars( wfHostname() );
+		$debug = "<!-- $url -->\n<!-- $hostname -->\n";
+	} else {
+		$debug = '';
+	}
+	$content = <<<EOT
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8" />
+<title>Error generating thumbnail</title>
+</head>
+<body>
+<h1>Error generating thumbnail</h1>
+<p>
+$msgHtml
+</p>
+$debug
+</body>
+</html>
+
+EOT;
+	header( 'Content-Length: ' . strlen( $content ) );
+	echo $content;
+}

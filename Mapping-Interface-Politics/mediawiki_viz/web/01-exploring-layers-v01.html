@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="interface, politics, mapping transparency">
+<title>Exploring transaprency v1</title>
+<link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<link href="viz.css" rel="stylesheet" type="text/css">
+
+<script src="jquery-1.11.3.min.js"></script>
+<style>
+	
+	#images {
+		width:850px;
+		height:600px;
+		overflow:auto;
+		float:left;
+		background-color:#fff;
+		margin-left:2em;
+	}
+	
+	#images img { 
+		width:845px;
+		position:absolute;
+	}
+	
+	#read { z-index:5; }
+	#source { z-index:4; }
+	
+	#control {
+		width:200px;
+		height:500px;
+		background-color: #CCC; border:1px solid gray;
+		padding:3em;
+		margin-left:1em;
+		position:fixed;
+		left:890px;
+		font-size:75%;
+	}
+	
+	#control input { margin:.2em; }
+</style>
+<script>
+$(document).ready(function() {
+	
+	var level_r, level_s, level_h, level_t;
+	
+	$('#level-read').on("change mousemove", function(){
+		level_r = $('#level-read').val() * 0.01;
+		$('#read').css('opacity', level_r);
+	});
+	
+	$('#level-source').on("change mousemove", function(){
+		level_s = $('#level-source').val() * 0.01;	
+		$('#source').css('opacity', level_s);
+	});
+	
+	$('#level-history').on("change mousemove", function(){
+		level_h = $('#level-history').val() * 0.01;	
+		$('#history').css('opacity', level_h);
+	});
+	
+	$('#level-talk').on("change mousemove", function(){
+		level_t = $('#level-talk').val() * 0.01;	
+		$('#talk').css('opacity', level_t);
+	});
+	
+});
+</script>
+</head>
+
+<body>
+	<header>Mediawiki/Wikipedia Viz : mapping interface transparency</header>
+	<div id="images">
+    	<div id="talk"><img src="04-talk.png"></div>
+        <div id="history"><img src="03-history.png"></div>
+        <div id="source"><img src="02-source.png"></div>
+        <div id="read"><img src="01-read.png"></div>
+    </div>
+    <div id="control">
+    	<p>Exploring transparency</p>
+    	
+        <p>Views (left to right): <br>Read, Source, History, Talk</p>
+        
+        <input id="level-read" type="range" orient="vertical" min="0" max="100" value="100">
+        <input id="level-source" type="range" orient="vertical" min="0" max="100" value="100">
+        <input id="level-history" type="range" orient="vertical" min="0" max="100" value="100">
+        <input id="level-talk" type="range" orient="vertical" min="0" max="100" value="100">
+        
+        
+        
+        
+    </div>
+</body>
+</html>

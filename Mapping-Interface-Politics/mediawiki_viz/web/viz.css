@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* { box-sizing:border-box; }
+
+body { background-color:#eee; padding:0; margin:0; font-family: 'Bitter', serif;  }
+
+header {
+	background-color:#666;
+	color:#eee;
+	padding:1em;
+	margin-bottom:2em;
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="interface, politics, mapping transparency">
+<title>Exploring connections</title>
+<link type="text/css" rel="stylesheet" href="application.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+img { width:400px; float:left; }
+text { font-size:120%; }
+</style>
+</head>
+
+<body>
+
+<img src="01-read.png">
+<img src="03-history.png">
+<img src="04-talk.png">
+
+<svg style="height: 0px;">
+          <defs>
+            <linearGradient id="linear-talk">
+              <stop offset="0%" stop-color="rgba(207,60,52,0.6)"></stop>
+              <stop offset="100%" stop-color="rgba(255,122,37,0.6)"></stop>
+            </linearGradient>
+            <linearGradient id="linear-history">
+              <stop offset="0%" stop-color="rgba(0,172,178,0.6)"></stop>
+              <stop offset="100%" stop-color="rgba(37,247,255,0.6)"></stop>
+            </linearGradient>
+            <linearGradient id="circle-fm">
+              <stop offset="0%" stop-color="#FA8A9C"></stop>
+              <stop offset="30%" stop-color="#FA8A9C"></stop>
+              <stop offset="70%" stop-color="#8CCDFF"></stop>
+              <stop offset="100%" stop-color="#8CCDFF"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+
+<svg id="lines" width="1600" height="2010">
+<g class="connections">
+	<!-- From Talk to Read -->
+	<path class="connection mf" d="M840,245 380,60" style="stroke: url(&quot;#linear-talk&quot;); stroke-width: 2px;"></path>
+	<!--<rect x="835" y="240" width="5" height="10" style="fill:rgba(255,122,37,0.8);" />-->
+	
+	<path class="connection mf" d="M840,320 45,1040" style="stroke: url(&quot;#linear-talk&quot;); stroke-width: 2px;"></path>
+	<!--<rect x="835" y="320" width="5" height="10" style="fill:rgba(255,122,37,0.8);" />-->
+	<rect x="40" y="1040" width="350" height="10" style="fill:rgba(255,122,37,0.2);" />
+	
+	<path class="connection mf" d="M840,435 45,770" style="stroke: url(&quot;#linear-talk&quot;); stroke-width: 2px;"></path>
+	<!--<rect x="835" y="432" width="5" height="10" style="fill:rgba(255,122,37,0.8);" />-->
+	<rect x="40" y="770" width="350" height="20" style="fill:rgba(255,122,37,0.2);" />
+	
+	<path class="connection mf" d="M840,465 45,1350" style="stroke: url(&quot;#linear-talk&quot;); stroke-width: 2px;"></path>
+	<!--<rect x="835" y="460" width="5" height="10" style="fill:rgba(255,122,37,0.8);" />-->
+	<rect x="40" y="1350" width="355" height="530" style="fill:rgba(255,122,37,0.2);" />
+	
+	<path class="connection mf" d="M840,517 45,580" style="stroke: url(&quot;#linear-talk&quot;); stroke-width: 2px;"></path>
+	<!--<rect x="835" y="510" width="5" height="10" style="fill:rgba(255,122,37,0.8);" />-->
+	<rect x="40" y="580" width="350" height="30" style="fill:rgba(255,122,37,0.2);" />
+	
+	<path class="connection mf" d="M840,665 45,1160" style="stroke: url(&quot;#linear-talk&quot;); stroke-width: 2px;"></path>
+	<!--<rect x="835" y="660" width="5" height="10" style="fill:rgba(255,122,37,0.8);" />-->
+	<rect x="40" y="1160" width="350" height="30" style="fill:rgba(255,122,37,0.2);" />
+	
+
+	
+	<!-- From History to Read -->
+	<path class="connection mf" d="M445,80 45,595" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,85 45,595" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,90 45,595" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,95 45,595" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,100 45,595" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,105 45,595" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,110 45,595" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,115 45,595" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<rect x="40" y="595" width="350" height="15" style="fill:rgba(0,172,178,0.2);" />
+	
+	<path class="connection mf" d="M445,120 45,1300" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,125 45,1300" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<rect x="40" y="1300" width="355" height="15" style="fill:rgba(0,172,178,0.2);" />
+	
+	<path class="connection mf" d="M445,130 45,1040" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,135 45,1040" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,145 45,1040" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,170 45,1040" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,175 45,1040" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<rect x="40" y="1040" width="350" height="10" style="fill:rgba(0,172,178,0.2);" />
+	
+	<path class="connection mf" d="M445,140 45,82" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,150 45,82" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<rect x="40" y="82" width="290" height="7" style="fill:rgba(0,172,178,0.2);" />
+	
+	<path class="connection mf" d="M445,180 45,545" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,185 45,545" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,190 45,545" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<rect x="40" y="545" width="350" height="15" style="fill:rgba(0,172,178,0.2);" />
+	
+	<path class="connection mf" d="M445,210 45,82" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+	<path class="connection mf" d="M445,215 45,82" style="stroke: url(&quot;#linear-history&quot;); stroke-width: 2px;"></path>
+</g>
+</svg>
+
+</body>
+</html>

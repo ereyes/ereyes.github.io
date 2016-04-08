@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="interface, politics, mapping transparency">
+<title>Exploring transaprency v2</title>
+<link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<link href="viz.css" rel="stylesheet" type="text/css">
+<script src="jquery-1.11.3.min.js"></script>
+<style>
+	* { box-sizing:border-box; }
+	
+	#images {
+		width:850px;
+		height:500px;
+		overflow:auto;
+		float:left;
+		background-color:#fff;
+		margin-left:2em;
+	}
+	
+	#images img { 
+		width:845px;
+		position:absolute;
+	}
+	
+	#read { z-index:5; }
+	#source { z-index:4; }
+	
+	#control {
+		width:200px;
+		height:500px;
+		background-color: #CCC; border:1px solid gray;
+		padding:3em;
+		margin-left:1em;
+		position:fixed;
+		left:890px;
+		font-size:75%;
+	}
+	
+	#level-g { height:200px; }
+	
+</style>
+<script>
+$(document).ready(function() {
+	
+	var lvl;
+	
+	$('#level-g').on("change mousemove", function() {
+		
+		lvl = $('#level-g').val() * 0.01;
+		
+		
+		if( (lvl <= 1) || (lvl >= 0.75) ){  
+			$('#read').css('opacity',lvl);
+			$('#count').text('Read');
+			
+			if(lvl <= 0.74){
+				$('#read').css('opacity',0);
+			}
+		}
+		
+		if( (lvl <= 0.75) || (lvl >= 0.5) ){
+			$('#source').css('opacity',lvl*1/.75);
+			$('#count').text('Source');
+			if(lvl <= 0.49){
+				$('#source').css('opacity',0);
+			}
+		}
+
+		if( (lvl <= 0.5) || (lvl >= 0.25) ){
+			$('#history').css('opacity',lvl*1/.5);
+			$('#count').text('History');
+			if(lvl <= 0.24){
+				$('#history').css('opacity',0);
+			}
+		}
+
+		if( (lvl <= 0.25) || (lvl >= 0.01) ){
+			$('#talk').css('opacity',lvl*1/.25);
+			$('#count').text('Talk');
+			if(lvl <= 0.01){
+				$('#talk').css('opacity',0);
+			}
+		}
+
+		
+	});
+	
+	
+});
+</script>
+</head>
+
+<body>
+	<header>Mediawiki/Wikipedia Viz : mapping interface transparency</header>
+	<div id="images">
+    	<div id="talk"><img src="04-talk.png"></div>
+        <div id="history"><img src="03-history.png"></div>
+        <div id="source"><img src="02-source.png"></div>
+        <div id="read"><img src="01-read.png"></div>
+    </div>
+    <div id="control">
+    	<p>Exploring transparency across different layers</p>
+        <p>From Read to Talk</p>
+    	<input id="level-g" type="range" orient="vertical" min="0" max="100" value="100" >
+        <p id="count"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="interface, politics, mapping transparency">
+<title>Exploring evolution</title>
+<link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<link href="viz.css" rel="stylesheet" type="text/css">
+
+<style>
+#viz {
+	margin-left:2em;
+}
+
+#my_date {
+	font-size:180%;
+	
+}
+
+#params {
+	padding-left:2em;
+}
+
+img {	width:800px; border:1px solid gray; }
+#my_map { width:400px;}
+.data_point { width:10px; height:10px; background-color:white;  border:1px solid tomato; margin:.1em; float:left; cursor:pointer; }
+#slider { width:380px; height:30px; clear:both; display:block; }
+</style>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="data.js"></script>
+<script>
+var src_item = 0;
+var id;
+
+$(document).ready(function() {
+	$('#my_img').attr('src', '../4chan-135-resized-960x600px/' + screenshot[src_item].src); 
+	$('#my_date').text(screenshot[src_item].date + ' ' + screenshot[src_item].year);
+	
+	$('#slider').on("change mousemove", function() {
+		$('.' + src_item).css('background-color','white');
+		src_item = $('#slider').val();
+		$('#my_img').attr('src', '../4chan-135-resized-960x600px/' + screenshot[src_item].src); 
+		$('#my_date').text(screenshot[src_item].date + ' ' + screenshot[src_item].year);
+		$('.' + src_item).css('background-color','tomato');
+	});
+	
+	for(var i = 0; i < 136; i++){
+		var my_html = '<div';
+		my_html += ' id="'+screenshot[i].src+'" onclick="show_img(this)" class="data_point '+ i +'" name="'+i+'">&nbsp;</div>';
+		
+		$('#my_map').append(my_html);
+
+	}
+	
+});
+
+function show_img(e){
+	$('.data_point').css('background-color','white');
+	$('#my_img').attr('src', '../4chan-135-resized-960x600px/' + e.id);
+	
+	var temp_src = $(e).attr('name');
+	src_item = temp_src;
+	$('#my_date').text(screenshot[src_item].date + ' ' + screenshot[src_item].year);
+	$('.' + src_item).css('background-color','tomato');
+}
+
+function move() {
+  $('#btn_move').css('display', 'none');
+  
+  var elem = $('#my_img'); 
+  
+  id = setInterval(frame, 400);
+  
+  function frame() {
+	  $('.' + src_item).css('background-color','white');
+		if (src_item == 136) {
+		  clearInterval(id);
+		} else {
+		  src_item++; 
+		  $('#my_img').attr('src', '../4chan-135-resized-960x600px/' + screenshot[src_item].src); 
+		  $('#my_date').text(screenshot[src_item].date + ' ' + screenshot[src_item].year);
+		  $('.' + src_item).css('background-color','tomato');
+		  //alert(src_item);
+		}      	
+  }
+  
+  
+}
+
+function move_step_fwd(){
+	$('.' + src_item).css('background-color','white');
+	src_item++;
+	
+	if(src_item < 136){
+		 $('#my_img').attr('src', '../4chan-135-resized-960x600px/' + screenshot[src_item].src); 
+		 $('#my_date').text(screenshot[src_item].date + ' ' + screenshot[src_item].year);
+		 $('.' + src_item).css('background-color','tomato');
+	} 
+	
+}
+
+function move_step_bck(){
+	$('.' + src_item).css('background-color','white');
+	src_item--;
+	if(src_item > 0){
+		 $('#my_img').attr('src', '../4chan-135-resized-960x600px/' + screenshot[src_item].src); 
+		 $('#my_date').text(screenshot[src_item].date + ' ' + screenshot[src_item].year);
+		 $('.' + src_item).css('background-color','tomato');
+	} 
+}
+
+function stop_move(){
+	clearInterval(id);
+	$('#btn_move').css('display', 'inline');
+}
+
+
+
+</script>
+</head>
+
+<body>
+	<header>Mediawiki/Wikipedia Viz : mapping  interface transparency</header>
+    <div id="viz">
+		<img id="my_img">
+		<p id="my_date"></p>
+    </div>
+    <div id="params">
+		<button onClick="move();" id="btn_move">Animate</button> 
+        <button onClick="stop_move();">Stop</button> 
+        <button onClick="move_step_bck();">Back</button> 
+        <button onClick="move_step_fwd();">Forward</button>
+    	<br>
+        <div id="my_map"></div>
+        <br>
+    	<input type="range" min="1" max="135" id="slider" value="1"> 
+    </div>
+    
+    <div id="instructions">
+    
+    </div>
+    
+    <div id="credits"></div>
+    
+</body>
+</html>

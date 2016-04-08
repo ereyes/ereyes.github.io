@@ -1,0 +1,268 @@
+body{
+  overflow-x: hidden;
+}
+
+#graph svg{
+  overflow: visible;
+}
+
+#inner-content{
+  overflow: visible;
+}
+
+.article-title{
+  font-size: 44px;
+}
+
+h3{
+  padding-top: 40px;
+}
+
+text {
+  font: 12px sans-serif;
+  pointer-events: none;
+}
+
+#inner-content{
+  margin-bottom: 0px;
+}
+
+.copywidth {
+  width: 85% !important;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+
+div.tooltip {
+  top: -1000px;
+  position: absolute;
+  padding: 10px;
+  background: rgba(255, 255, 255, .90);
+  border: 1px solid lightgray;
+  pointer-events: none;
+}
+.tooltip-hidden{
+  opacity: 0;
+}
+
+.connections path{
+  pointer-events: none;
+  stroke-width: 3px;
+  fill: none;
+}
+
+.job-text{
+  transform: scale(1);
+  transition: all .3s;
+  color: #ccc;
+  font-size: 8px;
+  font-family: 'RobotoMono-Regular', 'Andale Mono', monospace;
+  line-height: 1em;
+  padding-top: 1px;
+  position: absolute;
+  max-width: 10em;
+  height: 15px;
+  overflow: hidden;
+
+}
+
+.job-text.active{
+  text-align:  center;
+  transform: scale(2);
+  text-shadow: 0 1px 0 rgba(255,255,255,.5), 1px 0 0 rgba(255,255,255,.5), 0 -1px 0 rgba(255,255,255,.5), -1px 0 0 rgba(255,255,255,.5);
+  height: auto;
+  z-index: 10;
+  color: black;
+}
+
+
+#graph{
+  position: relative;
+  margin: 4px auto;
+  min-height: 800px; 
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+#lines{
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+#text-blocks{
+  position: relative;
+}
+
+
+#bot-keys{
+  position: absolute;
+  width: 100%;
+  font-family: 'RobotoMono-Regular', 'Andale Mono', monospace;
+}
+
+#m-key{
+  padding-left: 80px;
+}
+
+#f-key{
+  position: relative;
+  right: 80px;
+  text-align: right;
+}
+
+#m-key, #f-key{
+  font-size: 12px;
+  color: #555;
+  display: inline-block;
+  width: 49%;
+}
+
+
+.tt-suggestion strong{
+  font-weight: 500;
+}
+
+#key-tt{
+  display: relative;
+  /*max-width: 960px;*/
+  margin: 0px auto;
+  min-height: 120px;
+}
+
+#key-tt img{
+  float: left;
+}
+
+.mobile #key-tt img, .mobile #bot-keys{
+  display: none;
+}
+
+/*typeahead styles*/
+#tt-containter{
+  width: 300px;
+  float: right;
+  font-family: 'RobotoMono-Medium', 'Andale Mono', monospace;
+}
+
+.mobile #tt-containter{
+  float: none;
+}
+
+input{
+  width: 300px;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-menu {    /* used to be tt-dropdown-menu in older versions */
+  width: 300px;
+  margin-top: 4px;
+  padding: 4px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+          box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  padding: 3px 10px;
+  /*line-height: 24px;*/
+}
+
+.tt-suggestion.tt-cursor,.tt-suggestion:hover {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+
+
+.highlight{
+  text-decoration: underline;
+  font-family: 'RobotoMono-Medium', 'Andale Mono', monospace;
+}
+
+
+/*MOBILE*/
+#mobile{ display: none; }
+
+.mobile .copywidth{
+ width: 100% !important;
+}
+
+.mobile #mobile{
+  display: block;
+  margin-top: -50px;
+  font-family: 'RobotoMono-Regular', 'Andale Mono', monospace;
+}
+
+.mobile #graph{
+  display: none;
+}
+
+#mobile .job{
+  /*border: solid 1px lightgray;*/
+  margin: 10px;
+  padding-bottom: 40px;
+}
+
+.selected-job{
+  /*font-family: 'HaasDisplayBold';*/
+  margin-top: 25px;
+}
+.jobs span{
+  display: inline-block;
+  margin-right: 20px;  
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.jobs span:after{
+  content: " \00a0";
+}
+
+.jobs span.male{
+  border-bottom: 1px solid #8AE8FF;
+}
+.jobs span.female{
+  border-bottom: 1px solid #FF9B9B;
+}
+
+.jobs span.male:before{
+  content: "Male ";
+}
+
+.jobs span.female:before{
+  content: "Female ";
+}
+
+
+.jobs{
+  margin-left: 10px;
+}
+
