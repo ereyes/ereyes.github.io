@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2" xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd">
+  <meta lastmodifieddate="2016-04-16">
+    <creator>Gephi 0.8.1</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="directed" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="Name" title="Name" type="string"></attribute>
+      <attribute id="theme" title="theme" type="string"></attribute>
+      <attribute id="Type" title="Type" type="string"></attribute>
+      <attribute id="Field 1" title="Field 1" type="string"></attribute>
+      <attribute id="Field 2" title="Field 2" type="string"></attribute>
+      <attribute id="Issues 1" title="Issues 1" type="string"></attribute>
+      <attribute id="Issues 2" title="Issues 2" type="string"></attribute>
+      <attribute id="Issues 3" title="Issues 3" type="string"></attribute>
+      <attribute id="Nodes" title="Nodes" type="string"></attribute>
+    </attributes>
+    <attributes class="edge" mode="static">
+      <attribute id="Relations" title="Relations" type="string"></attribute>
+    </attributes>
+    <nodes>
+      <node id="Open Gov/Data Transparency Governance" label="Open Gov/Data Transparency Governance">
+        <attvalues>
+          <attvalue for="theme" value="information governance"></attvalue>
+          <attvalue for="Type" value="issue"></attvalue>
+          <attvalue for="Field 1" value="web"></attvalue>
+          <attvalue for="Issues 1" value="information transparency"></attvalue>
+          <attvalue for="Issues 2" value="community"></attvalue>
+          <attvalue for="Issues 3" value="accountability"></attvalue>
+          <attvalue for="Nodes" value="Open Gov/Data Transparency Governance"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-165.70224" y="174.92863" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Glass House, film by Sergueï Eisenstein" label="Glass House, film by Sergueï Eisenstein">
+        <attvalues>
+          <attvalue for="theme" value="information governance"></attvalue>
+          <attvalue for="Type" value="art work"></attvalue>
+          <attvalue for="Field 1" value="cinema"></attvalue>
+          <attvalue for="Field 2" value="architecture"></attvalue>
+          <attvalue for="Issues 1" value="information transparency"></attvalue>
+          <attvalue for="Issues 2" value="community"></attvalue>
+          <attvalue for="Issues 3" value="security"></attvalue>
+          <attvalue for="Nodes" value="Glass House, film by Sergueï Eisenstein"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-73.77806" y="-227.1362" z="0.0"></viz:position>
+        <viz:color r="0" g="204" b="153"></viz:color>
+      </node>
+      <node id="Glass Architecture of Paul Scheerbart" label="Glass Architecture of Paul Scheerbart">
+        <attvalues>
+          <attvalue for="theme" value="information governance"></attvalue>
+          <attvalue for="Type" value="art work"></attvalue>
+          <attvalue for="Field 1" value="architecture"></attvalue>
+          <attvalue for="Field 2" value="design"></attvalue>
+          <attvalue for="Issues 1" value="information transparency"></attvalue>
+          <attvalue for="Issues 2" value="community"></attvalue>
+          <attvalue for="Issues 3" value="security"></attvalue>
+          <attvalue for="Nodes" value="Glass Architecture of Paul Scheerbart"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-150.5187" y="-437.4337" z="0.0"></viz:position>
+        <viz:color r="0" g="204" b="153"></viz:color>
+      </node>
+      <node id="Glass Architecture of Bruno Taut" label="Glass Architecture of Bruno Taut">
+        <attvalues>
+          <attvalue for="theme" value="information governance"></attvalue>
+          <attvalue for="Type" value="art work"></attvalue>
+          <attvalue for="Field 1" value="architecture"></attvalue>
+          <attvalue for="Field 2" value="design"></attvalue>
+          <attvalue for="Issues 1" value="information transparency"></attvalue>
+          <attvalue for="Issues 2" value="community"></attvalue>
+          <attvalue for="Issues 3" value="security"></attvalue>
+          <attvalue for="Nodes" value="Glass Architecture of Bruno Taut"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-241.52307" y="-54.7698" z="0.0"></viz:position>
+        <viz:color r="0" g="204" b="153"></viz:color>
+      </node>
+      <node id="Hiding the system thanks to GUI, resources are shadows. " label="Hiding the system thanks to GUI, resources are shadows. ">
+        <attvalues>
+          <attvalue for="theme" value="information governance"></attvalue>
+          <attvalue for="Type" value="issue"></attvalue>
+          <attvalue for="Field 1" value="web"></attvalue>
+          <attvalue for="Issues 1" value="GUI"></attvalue>
+          <attvalue for="Nodes" value="Hiding the system thanks to GUI, resources are shadows. "></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-499.56177" y="-436.138" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Lack of platforms transparency, filters failure" label="Lack of platforms transparency, filters failure">
+        <attvalues>
+          <attvalue for="theme" value="information governance"></attvalue>
+          <attvalue for="Type" value="issue"></attvalue>
+          <attvalue for="Field 1" value="web"></attvalue>
+          <attvalue for="Issues 1" value="information transparency"></attvalue>
+          <attvalue for="Issues 2" value="GUI"></attvalue>
+          <attvalue for="Nodes" value="Lack of platforms transparency, filters failure"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-608.93933" y="262.3788" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Self-documentation and quantification, truth of the digital identity " label="Self-documentation and quantification, truth of the digital identity ">
+        <attvalues>
+          <attvalue for="theme" value="digital identity"></attvalue>
+          <attvalue for="Type" value="issue"></attvalue>
+          <attvalue for="Field 1" value="digital"></attvalue>
+          <attvalue for="Field 2" value="web"></attvalue>
+          <attvalue for="Issues 1" value="digital identity"></attvalue>
+          <attvalue for="Issues 2" value="information transparency"></attvalue>
+          <attvalue for="Issues 3" value="privacy"></attvalue>
+          <attvalue for="Nodes" value="Self-documentation and quantification, truth of the digital identity "></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-668.379" y="26.241867" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Opacity and secrecy of online identity VS  disclosure of intimacy and transparency. " label="Opacity and secrecy of online identity VS  disclosure of intimacy and transparency. ">
+        <attvalues>
+          <attvalue for="theme" value="digital identity"></attvalue>
+          <attvalue for="Type" value="issue"></attvalue>
+          <attvalue for="Field 1" value="digital"></attvalue>
+          <attvalue for="Field 2" value="web"></attvalue>
+          <attvalue for="Issues 1" value="digital identity"></attvalue>
+          <attvalue for="Issues 2" value="information transparency"></attvalue>
+          <attvalue for="Issues 3" value="privacy"></attvalue>
+          <attvalue for="Nodes" value="Opacity and secrecy of online identity VS  disclosure of intimacy and transparency. "></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-466.75964" y="-83.718864" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Walter Benjamin and the glass house : revealing intimacy as a modern value." label="Walter Benjamin and the glass house : revealing intimacy as a modern value.">
+        <attvalues>
+          <attvalue for="Type" value="intellectual work"></attvalue>
+          <attvalue for="Field 1" value="architecture"></attvalue>
+          <attvalue for="Issues 1" value="privacy"></attvalue>
+          <attvalue for="Issues 2" value="information transparency"></attvalue>
+          <attvalue for="Nodes" value="Walter Benjamin and the glass house : revealing intimacy as a modern value."></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-623.27936" y="-234.54634" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="Histoire(s) du Cinéma films, Jean-Luc Godard" label="Histoire(s) du Cinéma films, Jean-Luc Godard">
+        <attvalues>
+          <attvalue for="theme" value="formal transparency"></attvalue>
+          <attvalue for="Type" value="art work"></attvalue>
+          <attvalue for="Field 1" value="cinema"></attvalue>
+          <attvalue for="Issues 1" value="editing"></attvalue>
+          <attvalue for="Nodes" value="Histoire(s) du Cinéma films, Jean-Luc Godard"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="325.20038" y="298.5637" z="0.0"></viz:position>
+        <viz:color r="0" g="204" b="153"></viz:color>
+      </node>
+      <node id="Jean-Luc Godard’s wish to see with the eyes of the animals and the child, first vision." label="Jean-Luc Godard’s wish to see with the eyes of the animals and the child, first vision.">
+        <attvalues>
+          <attvalue for="theme" value="formal transparency"></attvalue>
+          <attvalue for="Type" value="art work"></attvalue>
+          <attvalue for="Field 1" value="cinema"></attvalue>
+          <attvalue for="Issues 1" value="vision"></attvalue>
+          <attvalue for="Nodes" value="Jean-Luc Godard’s wish to see with the eyes of the animals and the child, first vision."></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="579.4896" y="323.5082" z="0.0"></viz:position>
+        <viz:color r="0" g="204" b="53"></viz:color>
+      </node>
+      <node id="Transparency in graphical compositing softwares" label="Transparency in graphical compositing softwares">
+        <attvalues>
+          <attvalue for="theme" value="formal transparency"></attvalue>
+          <attvalue for="Type" value="software functionnality"></attvalue>
+          <attvalue for="Field 1" value="software"></attvalue>
+          <attvalue for="Issues 1" value="vision"></attvalue>
+          <attvalue for="Issues 2" value="editing"></attvalue>
+          <attvalue for="Nodes" value="Transparency in graphical compositing softwares"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="423.86548" y="508.8253" z="0.0"></viz:position>
+        <viz:color r="255" g="102" b="102"></viz:color>
+      </node>
+      <node id="Transparent paintings/sculptures/photos László Moholy-Nagy, Man Ray." label="Transparent paintings/sculptures/photos László Moholy-Nagy, Man Ray.">
+        <attvalues>
+          <attvalue for="theme" value="formal transparency"></attvalue>
+          <attvalue for="Type" value="art work"></attvalue>
+          <attvalue for="Field 1" value="beaux arts"></attvalue>
+          <attvalue for="Issues 1" value="vision"></attvalue>
+          <attvalue for="Nodes" value="Transparent paintings/sculptures/photos László Moholy-Nagy, Man Ray."></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="141.67468" y="442.8332" z="0.0"></viz:position>
+        <viz:color r="0" g="204" b="153"></viz:color>
+      </node>
+      <node id="Goethe's Theories of Colors, 1810" label="Goethe's Theories of Colors, 1810">
+        <attvalues>
+          <attvalue for="theme" value="formal transparency"></attvalue>
+          <attvalue for="Type" value="intellectual work"></attvalue>
+          <attvalue for="Field 1" value="beaux arts"></attvalue>
+          <attvalue for="Issues 1" value="color"></attvalue>
+          <attvalue for="Issues 2" value="vision"></attvalue>
+          <attvalue for="Issues 3" value="childhood"></attvalue>
+          <attvalue for="Nodes" value="Goethe's Theories of Colors, 1810"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="457.03772" y="105.52535" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="Walter Benjamin on calks, and colors in child’s books." label="Walter Benjamin on calks, and colors in child’s books.">
+        <attvalues>
+          <attvalue for="theme" value="formal transparency"></attvalue>
+          <attvalue for="Type" value="intellectual work"></attvalue>
+          <attvalue for="Field 1" value="beaux arts"></attvalue>
+          <attvalue for="Issues 1" value="color"></attvalue>
+          <attvalue for="Issues 2" value="vision"></attvalue>
+          <attvalue for="Issues 3" value="childhood"></attvalue>
+          <attvalue for="Nodes" value="Walter Benjamin on calks, and colors in child’s books."></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="642.5869" y="-155.04797" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="Feedbacks and accountability thanks to GUI" label="Feedbacks and accountability thanks to GUI">
+        <attvalues>
+          <attvalue for="theme" value="democracy by transparency"></attvalue>
+          <attvalue for="Type" value="interface issues and effects"></attvalue>
+          <attvalue for="Field 1" value="GUI"></attvalue>
+          <attvalue for="Issues 1" value="GUI"></attvalue>
+          <attvalue for="Nodes" value="Feedbacks and accountability thanks to GUI"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-265.10965" y="605.50726" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Free information anywhere" label="Free information anywhere">
+        <attvalues>
+          <attvalue for="theme" value="democracy by transparency"></attvalue>
+          <attvalue for="Type" value="interface issues and effects"></attvalue>
+          <attvalue for="Field 1" value="digital"></attvalue>
+          <attvalue for="Issues 1" value="digital"></attvalue>
+          <attvalue for="Nodes" value="Free information anywhere"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-307.2826" y="353.57742" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Platforms as glass cage and walled gardens" label="Platforms as glass cage and walled gardens">
+        <attvalues>
+          <attvalue for="theme" value="quest of identity"></attvalue>
+          <attvalue for="Type" value="interface issues and effects"></attvalue>
+          <attvalue for="Field 1" value="digital"></attvalue>
+          <attvalue for="Field 2" value="web"></attvalue>
+          <attvalue for="Issues 1" value="serendipity"></attvalue>
+          <attvalue for="Nodes" value="Platforms as glass cage and walled gardens"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-483.0752" y="471.10092" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Interfaces for connectivity and birth of communities" label="Interfaces for connectivity and birth of communities">
+        <attvalues>
+          <attvalue for="theme" value="community"></attvalue>
+          <attvalue for="Type" value="interface issues and effects"></attvalue>
+          <attvalue for="Field 1" value="digital"></attvalue>
+          <attvalue for="Field 2" value="web"></attvalue>
+          <attvalue for="Issues 1" value="GUI"></attvalue>
+          <attvalue for="Nodes" value="Interfaces for connectivity and birth of communities"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-4.786955" y="-1.8011947" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Open systems and commons" label="Open systems and commons">
+        <attvalues>
+          <attvalue for="theme" value="community"></attvalue>
+          <attvalue for="Type" value="interface issues and effects"></attvalue>
+          <attvalue for="Field 1" value="digital"></attvalue>
+          <attvalue for="Field 2" value="web"></attvalue>
+          <attvalue for="Issues 1" value="software"></attvalue>
+          <attvalue for="Issues 2" value="information transparency"></attvalue>
+          <attvalue for="Nodes" value="Open systems and commons"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="86.63884" y="-420.9839" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="The viewer/user has a role in the way the message is construct" label="The viewer/user has a role in the way the message is construct">
+        <attvalues>
+          <attvalue for="theme" value="participation"></attvalue>
+          <attvalue for="Type" value="interface issues and effects"></attvalue>
+          <attvalue for="Field 1" value="cinema"></attvalue>
+          <attvalue for="Field 2" value="digital"></attvalue>
+          <attvalue for="Issues 1" value="participation"></attvalue>
+          <attvalue for="Nodes" value="The viewer/user has a role in the way the message is construct"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="73.07199" y="225.24931" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Renewal, blurred and first vision" label="Renewal, blurred and first vision">
+        <attvalues>
+          <attvalue for="theme" value="childhood"></attvalue>
+          <attvalue for="Type" value="interface issues and effects"></attvalue>
+          <attvalue for="Field 1" value="cinema"></attvalue>
+          <attvalue for="Field 2" value="photography"></attvalue>
+          <attvalue for="Issues 1" value="vision"></attvalue>
+          <attvalue for="Nodes" value="Renewal, blurred and first vision"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="668.2909" y="82.53371" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="GUI affordances" label="GUI affordances">
+        <attvalues>
+          <attvalue for="theme" value="image to read"></attvalue>
+          <attvalue for="Type" value="interface issues and effects"></attvalue>
+          <attvalue for="Field 1" value="GUI"></attvalue>
+          <attvalue for="Field 2" value="digital"></attvalue>
+          <attvalue for="Issues 1" value="GUI"></attvalue>
+          <attvalue for="Nodes" value="GUI affordances"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="235.9355" y="52.819836" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Wikipedia history page" label="Wikipedia history page">
+        <attvalues>
+          <attvalue for="theme" value="wikipedia examples"></attvalue>
+          <attvalue for="Type" value="web page"></attvalue>
+          <attvalue for="Field 1" value="web"></attvalue>
+          <attvalue for="Field 2" value="digital"></attvalue>
+          <attvalue for="Issues 1" value="wikipedia"></attvalue>
+          <attvalue for="Nodes" value="Wikipedia history page"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-32.108757" y="661.16656" z="0.0"></viz:position>
+        <viz:color r="0" g="0" b="255"></viz:color>
+      </node>
+      <node id="Wikipedia talk page" label="Wikipedia talk page">
+        <attvalues>
+          <attvalue for="theme" value="wikipedia examples"></attvalue>
+          <attvalue for="Type" value="web page"></attvalue>
+          <attvalue for="Field 1" value="web"></attvalue>
+          <attvalue for="Field 2" value="digital"></attvalue>
+          <attvalue for="Issues 1" value="wikipedia"></attvalue>
+          <attvalue for="Nodes" value="Wikipedia talk page"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-89.0449" y="428.17975" z="0.0"></viz:position>
+        <viz:color r="0" g="0" b="255"></viz:color>
+      </node>
+      <node id="CC Licence" label="CC Licence">
+        <attvalues>
+          <attvalue for="theme" value="copyright "></attvalue>
+          <attvalue for="Type" value="law"></attvalue>
+          <attvalue for="Field 1" value="web page"></attvalue>
+          <attvalue for="Issues 1" value="law"></attvalue>
+          <attvalue for="Nodes" value="CC Licence"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="154.72452" y="-639.69214" z="0.0"></viz:position>
+        <viz:color r="255" g="204" b="204"></viz:color>
+      </node>
+      <node id="Source Code page" label="Source Code page">
+        <attvalues>
+          <attvalue for="theme" value="wikipedia examples"></attvalue>
+          <attvalue for="Type" value="web page"></attvalue>
+          <attvalue for="Field 1" value="web page"></attvalue>
+          <attvalue for="Nodes" value="Source Code page"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="314.23648" y="-346.8678" z="0.0"></viz:position>
+        <viz:color r="0" g="0" b="255"></viz:color>
+      </node>
+      <node id="MediaWiki logo" label="MediaWiki logo">
+        <attvalues>
+          <attvalue for="theme" value="wikipedia examples"></attvalue>
+          <attvalue for="Type" value="software functionnality"></attvalue>
+          <attvalue for="Field 2" value="digital"></attvalue>
+          <attvalue for="Nodes" value="MediaWiki logo"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-317.43582" y="-587.55884" z="0.0"></viz:position>
+        <viz:color r="255" g="102" b="102"></viz:color>
+      </node>
+      <node id="Semantic web item page" label="Semantic web item page">
+        <attvalues>
+          <attvalue for="theme" value="wikipedia examples"></attvalue>
+          <attvalue for="Type" value="web page"></attvalue>
+          <attvalue for="Field 1" value="web page"></attvalue>
+          <attvalue for="Nodes" value="Semantic web item page"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="548.7489" y="-372.06558" z="0.0"></viz:position>
+        <viz:color r="0" g="0" b="255"></viz:color>
+      </node>
+      <node id="Technical contribution guide page" label="Technical contribution guide page">
+        <attvalues>
+          <attvalue for="theme" value="wikipedia examples"></attvalue>
+          <attvalue for="Type" value="web page"></attvalue>
+          <attvalue for="Field 1" value="web page"></attvalue>
+          <attvalue for="Nodes" value="Technical contribution guide page"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-75.56157" y="-659.03864" z="0.0"></viz:position>
+        <viz:color r="0" g="0" b="255"></viz:color>
+      </node>
+      <node id="Data feed" label="Data feed">
+        <attvalues>
+          <attvalue for="theme" value="wikipedia examples"></attvalue>
+          <attvalue for="Type" value="web page"></attvalue>
+          <attvalue for="Field 1" value="web page"></attvalue>
+          <attvalue for="Nodes" value="Data feed"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="372.8158" y="-556.9193" z="0.0"></viz:position>
+        <viz:color r="0" g="0" b="255"></viz:color>
+      </node>
+      <node id="Wikipedia Edit Page" label="Wikipedia Edit Page">
+        <attvalues>
+          <attvalue for="theme" value="wikipedia examples"></attvalue>
+          <attvalue for="Type" value="web page"></attvalue>
+          <attvalue for="Field 1" value="web page"></attvalue>
+          <attvalue for="Nodes" value="Wikipedia Edit Page"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="417.34186" y="-130.20241" z="0.0"></viz:position>
+        <viz:color r="0" g="0" b="255"></viz:color>
+      </node>
+      <node id="Wikipedia minimalist design" label="Wikipedia minimalist design">
+        <attvalues>
+          <attvalue for="theme" value="wikipedia examples"></attvalue>
+          <attvalue for="Type" value="web page"></attvalue>
+          <attvalue for="Field 1" value="web page"></attvalue>
+          <attvalue for="Nodes" value="Wikipedia minimalist design"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="166.18486" y="-175.8455" z="0.0"></viz:position>
+        <viz:color r="0" g="0" b="255"></viz:color>
+      </node>
+      <node id="GAFA " label="GAFA ">
+        <attvalues>
+          <attvalue for="Type" value="compagny"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-418.28278" y="144.51358" z="0.0"></viz:position>
+      </node>
+      <node id="Infinite modularity of the image" label="Infinite modularity of the image">
+        <attvalues>
+          <attvalue for="Type" value="interface issues and effects"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="215.75226" y="639.4026" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+      <node id="Crisis of disclosure, radical transparency and leaks" label="Crisis of disclosure, radical transparency and leaks">
+        <attvalues>
+          <attvalue for="Type" value="issue"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-332.4674" y="-287.0901" z="0.0"></viz:position>
+        <viz:color r="255" g="0" b="255"></viz:color>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="Open Gov/Data Transparency Governance" target="Feedbacks and accountability thanks to GUI" label="dependency" weight="5.0">
+        <attvalues>
+          <attvalue for="Relations" value="dependency"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Open Gov/Data Transparency Governance" target="Free information anywhere" label="dependency" weight="5.0">
+        <attvalues>
+          <attvalue for="Relations" value="dependency"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Glass House, film by Sergueï Eisenstein" target="Open Gov/Data Transparency Governance" label="resonance" weight="2.0">
+        <attvalues>
+          <attvalue for="Relations" value="resonance"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Glass House, film by Sergueï Eisenstein" target="Crisis of disclosure, radical transparency and leaks" label="resonance" weight="2.0">
+        <attvalues>
+          <attvalue for="Relations" value="resonance"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Glass Architecture of Paul Scheerbart" target="Open Gov/Data Transparency Governance" label="resonance" weight="2.0">
+        <attvalues>
+          <attvalue for="Relations" value="resonance"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Glass Architecture of Paul Scheerbart" target="Glass House, film by Sergueï Eisenstein" label="influence" weight="4.0">
+        <attvalues>
+          <attvalue for="Relations" value="influence"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Glass Architecture of Paul Scheerbart" target="Glass Architecture of Bruno Taut" label="influence" weight="4.0">
+        <attvalues>
+          <attvalue for="Relations" value="influence"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Glass Architecture of Paul Scheerbart" target="Crisis of disclosure, radical transparency and leaks" label="resonance" weight="2.0">
+        <attvalues>
+          <attvalue for="Relations" value="resonance"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Glass Architecture of Bruno Taut" target="Open Gov/Data Transparency Governance" label="resonance" weight="2.0">
+        <attvalues>
+          <attvalue for="Relations" value="resonance"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Glass Architecture of Bruno Taut" target="Glass House, film by Sergueï Eisenstein" label="influence" weight="4.0">
+        <attvalues>
+          <attvalue for="Relations" value="influence"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Glass Architecture of Bruno Taut" target="Crisis of disclosure, radical transparency and leaks" label="resonance" weight="2.0">
+        <attvalues>
+          <attvalue for="Relations" value="resonance"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Lack of platforms transparency, filters failure" target="GAFA " label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Self-documentation and quantification, truth of the digital identity " target="GAFA " label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Opacity and secrecy of online identity VS  disclosure of intimacy and transparency. " target="GAFA " label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Walter Benjamin and the glass house : revealing intimacy as a modern value." target="Self-documentation and quantification, truth of the digital identity " label="resonance" weight="2.0">
+        <attvalues>
+          <attvalue for="Relations" value="resonance"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Walter Benjamin and the glass house : revealing intimacy as a modern value." target="Opacity and secrecy of online identity VS  disclosure of intimacy and transparency. " label="resonance" weight="2.0">
+        <attvalues>
+          <attvalue for="Relations" value="resonance"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Transparency in graphical compositing softwares" target="Histoire(s) du Cinéma films, Jean-Luc Godard" label="analogy">
+        <attvalues>
+          <attvalue for="Relations" value="analogy"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Goethe's Theories of Colors, 1810" target="Histoire(s) du Cinéma films, Jean-Luc Godard" label="analogy">
+        <attvalues>
+          <attvalue for="Relations" value="analogy"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Goethe's Theories of Colors, 1810" target="Jean-Luc Godard’s wish to see with the eyes of the animals and the child, first vision." label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Feedbacks and accountability thanks to GUI" target="Wikipedia history page" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Feedbacks and accountability thanks to GUI" target="Wikipedia talk page" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Free information anywhere" target="GAFA " label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Platforms as glass cage and walled gardens" target="GAFA " label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Interfaces for connectivity and birth of communities" target="Glass House, film by Sergueï Eisenstein" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Interfaces for connectivity and birth of communities" target="Glass Architecture of Paul Scheerbart" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Interfaces for connectivity and birth of communities" target="Glass Architecture of Bruno Taut" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Interfaces for connectivity and birth of communities" target="Walter Benjamin and the glass house : revealing intimacy as a modern value." label="resonance" weight="2.0">
+        <attvalues>
+          <attvalue for="Relations" value="resonance"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Interfaces for connectivity and birth of communities" target="Wikipedia talk page" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Open systems and commons" target="Glass House, film by Sergueï Eisenstein" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Open systems and commons" target="Glass Architecture of Paul Scheerbart" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Open systems and commons" target="Glass Architecture of Bruno Taut" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Open systems and commons" target="Walter Benjamin and the glass house : revealing intimacy as a modern value." label="resonance" weight="2.0">
+        <attvalues>
+          <attvalue for="Relations" value="resonance"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Open systems and commons" target="CC Licence" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Open systems and commons" target="Source Code page" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Open systems and commons" target="Semantic web item page" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Open systems and commons" target="Technical contribution guide page" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Open systems and commons" target="Data feed" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="The viewer/user has a role in the way the message is construct" target="Histoire(s) du Cinéma films, Jean-Luc Godard" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="The viewer/user has a role in the way the message is construct" target="Transparent paintings/sculptures/photos László Moholy-Nagy, Man Ray." label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="The viewer/user has a role in the way the message is construct" target="Feedbacks and accountability thanks to GUI" label="dependency" weight="5.0">
+        <attvalues>
+          <attvalue for="Relations" value="dependency"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="The viewer/user has a role in the way the message is construct" target="Open systems and commons" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="The viewer/user has a role in the way the message is construct" target="GUI affordances" label="dependency" weight="5.0">
+        <attvalues>
+          <attvalue for="Relations" value="dependency"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="The viewer/user has a role in the way the message is construct" target="Wikipedia Edit Page" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Renewal, blurred and first vision" target="Goethe's Theories of Colors, 1810" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Renewal, blurred and first vision" target="Walter Benjamin on calks, and colors in child’s books." label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="GUI affordances" target="Interfaces for connectivity and birth of communities" label="dependency" weight="5.0">
+        <attvalues>
+          <attvalue for="Relations" value="dependency"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="GUI affordances" target="Wikipedia minimalist design" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Infinite modularity of the image" target="Histoire(s) du Cinéma films, Jean-Luc Godard" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Infinite modularity of the image" target="Transparency in graphical compositing softwares" label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+      <edge source="Infinite modularity of the image" target="Transparent paintings/sculptures/photos László Moholy-Nagy, Man Ray." label="illustration" weight="3.0">
+        <attvalues>
+          <attvalue for="Relations" value="illustration"></attvalue>
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
