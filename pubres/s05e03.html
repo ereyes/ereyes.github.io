@@ -15,16 +15,15 @@
 $(document).ready(function(){
 
 	$('body').keypress(function(e){
-		
+
 		var couleur = 'hsl('+ Math.round(Math.random()*360) +', 100%, 50%)';
-		
 		//$('body').css('background-color', couleur);
-		
-		$('#message').append('<span style="color:'+ couleur +'">' + String.fromCharCode(e.charCode) + '</span>');
-		// sur Firefox utilisez charCode à la place de keyCode
+
+		$('#message').append('<span style="color:'+couleur+';">' + String.fromCharCode(e.charCode) + '</span>');
+
 
 	});
-	
+
 });
 
 </script>
