@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="jquery.qrcode.js"></script>
+    <script type="text/javascript" src="qrcode.js"></script>
+
+    <style media="screen">
+      * { box-sizing:border-box; }
+      body { margin:0; }
+      #etape01 {
+        width:100%; height:100%;
+        position:absolute;
+        background-color:beige;
+      }
+      #etape02 {
+        width:100%; height:100%;
+        position:absolute;
+        background-color:olive;
+        display:none;
+      }
+      #etape03 {
+        width:100%; height:100%;
+        position:absolute;
+        background-color:lightblue;
+        display:none;
+      }
+      .active {
+        opacity:0.9;
+      }
+      .desactive {
+        opacity:0.5;
+      }
+      span {
+        font-size:20px; font-weight:bold;
+        border:1px solid gray;
+        margin:1em;
+        cursor:pointer;
+        position: absolute;
+      }
+    </style>
+    <script type="text/javascript">
+
+      var countChamp01 = 0;
+      var countChamp02 = 0;
+
+      $(document).ready(function(){
+
+        var tragicEnd = ['appalling', 'awful', 'calamitous', 'cataclysmic', 'deadly', 'deplorable', 'destructive', 'dire', 'disastrous'];
+        var happyEnd = ['cheerful', 'contented', 'delighted', 'ecstatic', 'elated', 'glad', 'joyful', 'joyous', 'jubilant', 'lively'];
+
+        for (var i = 0; i < tragicEnd.length; i++){
+          document.getElementById('etape01').innerHTML += '<span class="champ01" style="top:'+Math.random()*500+'px; left:'+Math.random()*800+'px;">'+tragicEnd[i]+'</span>';
+        }
+
+        for (var i = 0; i < happyEnd.length; i++){
+          document.getElementById('etape01').innerHTML += '<span class="champ02" style="top:'+Math.random()*500+'px; left:'+Math.random()*800+'px;">'+happyEnd[i]+'</span>';
+        }
+        // Clicks on field no. 01 ***********************************
+        $('.champ01').click(function(){
+          countChamp01 = countChamp01 + 1;
+          $(this).addClass('desactive');
+          //alert(countChamp01);
+          if(countChamp01 == 3){
+            $('#etape01').hide();
+            jQuery('#qrcodeCanvas').qrcode({
+          		text	: "http://brooom.org/elln/liberty/fr-end-a.html"
+          	});
+            $('#etape02').show();
+          }
+        });
+
+        // Clicks on field no. 02 ************************************
+        $('.champ02').click(function(){
+          countChamp02 = countChamp02 + 1;
+          $(this).addClass('desactive');
+          //alert(countChamp01);
+          if(countChamp02 == 3){
+            $('#etape01').hide();
+            jQuery('#qrcodeCanvas').qrcode({
+          		text	: "http://brooom.org/elln/liberty/fr-end-b.html"
+          	});
+            $('#etape02').show();
+          }
+        });
+
+      });
+
+    </script>
+  </head>
+
+  <body>
+    <div id="etape01">
+      <h1>Good job! This is phase 2</h1>
+      <p>When you have selected three words that relate to the same lexical domain, a new page will appear.</p>
+
+    </div>
+    <div id="etape02">
+      <p><a href="fr-01a.html">Restart</a></p>
+      <p> <a href="douane.html">douane</a> </p>
+      <div id="qrcodeCanvas" style="width:100px; height:100px; margin-top:15px;"></div>
+
+    </div>
+  </body>
+</html>

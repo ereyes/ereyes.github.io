@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="adapter.min.js"></script>
+    <script type="text/javascript" src="vue.min.js"></script>
+    <script type="text/javascript" src="instascan.min.js"></script>
+
+    <style media="screen">
+      * { box-sizing:border-box; }
+      body { margin:0; }
+      #etape01 {
+        width:100%; height:100%;
+        position:absolute;
+        background-color:beige;
+      }
+      #etape02 {
+        width:100%; height:100%;
+        position:absolute;
+        background-color:olive;
+        display:none;
+      }
+      #etape03 {
+        width:100%; height:100%;
+        position:absolute;
+        background-color:lightblue;
+        display:none;
+      }
+      .active {
+        opacity:0.9;
+      }
+      .desactive {
+        opacity:0.5;
+      }
+      span {
+        font-size:20px; font-weight:bold;
+        border:1px solid gray;
+        margin:1em;
+        cursor:pointer;
+      }
+    </style>
+    <script type="text/javascript">
+
+
+      $(document).ready(function(){
+
+      });
+
+    </script>
+  </head>
+
+  <body>
+    <div id="etape01">
+      <h1>Scan the code</h1>
+      <p>The generated QR code from the previous step allows you to continue the story.</p>
+      <div id="app">
+        <div class="sidebar">
+          <section class="cameras">
+            <h2>Cameras</h2>
+            <ul>
+              <li v-if="cameras.length === 0" class="empty">No cameras found</li>
+              <li v-for="camera in cameras">
+                <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active">{{ formatName(camera.name) }}</span>
+                <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
+                  <a @click.stop="selectCamera(camera)">{{ formatName(camera.name) }}</a>
+                </span>
+              </li>
+            </ul>
+          </section>
+          <section class="scans">
+            <h2>Scans</h2>
+            <ul v-if="scans.length === 0">
+              <li class="empty">No scans yet</li>
+            </ul>
+            <transition-group name="scans" tag="ul">
+              <li v-for="scan in scans" :key="scan.date" :title="scan.content"> <a :href="scan.content">{{ scan.content }}</a> </li>
+            </transition-group>
+          </section>
+        </div>
+        <div class="preview-container">
+          <video id="preview"></video>
+        </div>
+      </div>
+      <script type="text/javascript" src="app.js"></script>
+    </div>
+    <div id="etape02">
+      <input id="result-fr-01">
+      <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+    </div>
+    <div id="etape03">
+      <p id="result"></p>
+      <p> <a href="france.html">recommencer</a> </p>
+    </div>
+  </body>
+</html>
