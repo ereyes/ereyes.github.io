@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<!--
+Voronoi Surface
+By Everardo Reyes-Garcia
+Based on Voronoi Ripples by Jason Labbe
+
+The size of canvas is adjusted to fit A4 paper sheet format proportions
+
+Click "s" to save diagram as SVG
+Click "p" to save diagram as PNG
+Click any other key to show / hide lines and points
+
+main.js = blub parameters, animation, color
+bob.js = tesselation behavior
+
+-->
+<head>
+  <title>Voronoi Surface</title>
+  <meta charset="utf-8">
+  <style media="screen">
+  body {
+    margin:2em;
+  }
+    .tooltip {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 90%;
+    }
+    button {
+      margin-bottom: 1em;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <script src="main.js" type="text/javascript"></script>
+  <script src="bob.js" type="text/javascript"></script>
+  <script src="rhill-voronoi-core.min.js" type="text/javascript"></script>
+  <script src="p5.min.js" type="text/javascript"></script>
+  <script src="p5.svg.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+  <div class="tooltip">
+    <h1>Voronoi Surface</h1>
+    <p>Click "s" to save as SVG</p>
+    <p>Click "p" to save as PNG</p>
+    <button type="button" name="button" onclick="location.reload(true)">generate new graph</button>
+  </div>
+</body>
+
+</html>
