@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .countdown-wrap, .bg-cover {
-  width: 50%;
+  width: 40%;
   float: left;
   background: #232325;
 }
