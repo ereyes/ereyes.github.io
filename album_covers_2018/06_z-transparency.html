@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style media="screen">
+      * { box-sizing: border-box;
+      }
+      body { margin:0; background-color: #eee;}
+      #mosViz {
+        width:1050px;
+        text-align: center;
+        overflow: hidden;
+        line-height: 10px;
+      }
+      .mos {
+        position: absolute;
+        opacity: 0.2;
+        filter:brightness(200%);
+      }
+
+    </style>
+
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $.getJSON("myData.json", function(data){
+
+          $.each(data, function(i, d){
+
+            var mosSize = 400;
+            var mosViz = '<img class="mos"'+
+            ' src="2018/'+ d.filename +'"'+
+            ' style="width:'+mosSize+'px; height:'+mosSize+'px; left:100px; top:50px;"'+
+            ' name="'+d.filename+'">';
+
+            $('#mosViz').append(mosViz);
+
+
+          });
+
+        });
+
+      });
+    </script>
+
+  </head>
+  <body>
+
+    <div id="mosViz"></div>
+
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style media="screen">
+      body { margin: 0;}
+      #sliceViz {
+        width:1100px; height:200px;
+        margin-left: auto; margin-right: auto;
+        text-align: center;
+        overflow: hidden;
+        transition:width 0.2s;
+      }
+      .sli {
+        height:300px;
+      }
+      #sliceSingle {
+        margin-top: 1em;
+        width:500px; height:500px;
+        margin-left: auto; margin-right: auto;
+        text-align: center;
+        overflow: hidden;
+      }
+
+    </style>
+
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $.getJSON("myData.json", function(data){
+
+          $.each(data, function(i, d){
+
+
+            var sliceViz = '<img class="sli"'+
+            ' src="2018/'+ d.filename +'"'+
+            ' style="width:'+(1000/315)*0.1+'%; height:'+(d.brightness_median)*0.6+'px;"'+
+            ' name="'+d.filename+'">';
+
+
+            $('#sliceViz').append(sliceViz);
+
+            $('.sli').mouseenter(function(e){
+              $(this).css('width', '50px');
+              var mom = $(this).attr('src');
+              $('#sliceSingle').html('<img src="'+mom+'" width="300">');
+            });
+
+            $('.sli').mouseleave(function(){
+              $(this).css('width', '0.31%');
+            });
+
+          });
+
+        });
+
+      });
+    </script>
+
+  </head>
+  <body>
+
+    <div id="sliceViz"></div>
+    <div id="sliceSingle"></div>
+
+  </body>
+</html>

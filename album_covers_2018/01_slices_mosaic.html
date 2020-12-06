@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style media="screen">
+
+      .sli {
+        width:3.5px; height:100px;
+        transition:width 0.2s;
+      }
+
+      .sli:hover {
+        width:100px; height:100px;
+      }
+
+      .mos {
+        width:30px;
+      }
+
+    </style>
+
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $.getJSON("myData.json", function(data){
+
+          $.each(data, function(i, d){
+
+
+            var sliceViz = '<a href="2018/'+ d.filename +'"><img class="sli" src="2018/'+ d.filename +'"></a>';
+
+            var mosaicViz = '<img class="mos" src="2018/'+ d.filename +'">';
+
+
+            $('#sliceViz').append(sliceViz);
+            $('#mosaicViz').append(mosaicViz);
+
+            $('.mos').click(function(){
+              $(this).css('width','300px');
+            });
+
+
+          });
+
+        });
+
+      });
+    </script>
+
+  </head>
+  <body>
+
+    <div id="sliceViz"></div>
+    <div id="mosaicViz"></div>
+
+  </body>
+</html>

@@ -1,0 +1,3152 @@
+[
+  {
+    "filename": "88743-wouldnt-it-be-great-1.jpg",
+    "imageID": 1,
+    "brightness_median": 67,
+    "brightness_stdev": 52.0303,
+    "saturation_median": 68,
+    "saturation_stdev": 87.8506,
+    "hue_median": 146,
+    "hue_stdev": 65.6963
+  },
+  {
+    "filename": "99926-the-deconstruction.jpg",
+    "imageID": 2,
+    "brightness_median": 247,
+    "brightness_stdev": 17.7314,
+    "saturation_median": 36,
+    "saturation_stdev": 49.659,
+    "hue_median": 30,
+    "hue_stdev": 76.4062
+  },
+  {
+    "filename": "113120-oil-of-every-pearls-un-insides-1.jpg",
+    "imageID": 3,
+    "brightness_median": 146,
+    "brightness_stdev": 51.0376,
+    "saturation_median": 63,
+    "saturation_stdev": 37.4813,
+    "hue_median": 218,
+    "hue_stdev": 87.3198
+  },
+  {
+    "filename": "93043-i-like-fun.jpg",
+    "imageID": 4,
+    "brightness_median": 227,
+    "brightness_stdev": 43.7309,
+    "saturation_median": 15,
+    "saturation_stdev": 33.1477,
+    "hue_median": 36,
+    "hue_stdev": 8.6541
+  },
+  {
+    "filename": "109492-solastalgia.jpg",
+    "imageID": 5,
+    "brightness_median": 165,
+    "brightness_stdev": 26.3429,
+    "saturation_median": 48,
+    "saturation_stdev": 19.7231,
+    "hue_median": 162,
+    "hue_stdev": 82.2057
+  },
+  {
+    "filename": "108388-so-sad-so-sexy.jpg",
+    "imageID": 6,
+    "brightness_median": 171,
+    "brightness_stdev": 72.8517,
+    "saturation_median": 0,
+    "saturation_stdev": 87.3223,
+    "hue_median": 0,
+    "hue_stdev": 83.0279
+  },
+  {
+    "filename": "119852-iridescence-1.jpg",
+    "imageID": 7,
+    "brightness_median": 106,
+    "brightness_stdev": 48.983,
+    "saturation_median": 250,
+    "saturation_stdev": 46.6753,
+    "hue_median": 168,
+    "hue_stdev": 56.0656
+  },
+  {
+    "filename": "113329-book-of-bad-decisions.jpg",
+    "imageID": 8,
+    "brightness_median": 50,
+    "brightness_stdev": 38.5386,
+    "saturation_median": 44,
+    "saturation_stdev": 42.2627,
+    "hue_median": 51,
+    "hue_stdev": 78.306
+  },
+  {
+    "filename": "109820-high-as-hope.jpg",
+    "imageID": 9,
+    "brightness_median": 156,
+    "brightness_stdev": 33.9665,
+    "saturation_median": 86,
+    "saturation_stdev": 24.8588,
+    "hue_median": 29,
+    "hue_stdev": 30.0789
+  },
+  {
+    "filename": "123739-oxnard-1.jpg",
+    "imageID": 10,
+    "brightness_median": 241,
+    "brightness_stdev": 67.8367,
+    "saturation_median": 25,
+    "saturation_stdev": 25.0953,
+    "hue_median": 26,
+    "hue_stdev": 42.729
+  },
+  {
+    "filename": "116805-cool-patrol.jpg",
+    "imageID": 11,
+    "brightness_median": 63,
+    "brightness_stdev": 89.4149,
+    "saturation_median": 119,
+    "saturation_stdev": 73.8309,
+    "hue_median": 20,
+    "hue_stdev": 78.0946
+  },
+  {
+    "filename": "105068-as-long-as-i-have-you.jpg",
+    "imageID": 12,
+    "brightness_median": 68,
+    "brightness_stdev": 59.9615,
+    "saturation_median": 165,
+    "saturation_stdev": 72.2687,
+    "hue_median": 151,
+    "hue_stdev": 65.8547
+  },
+  {
+    "filename": "108320-lamp-lit-prose.jpg",
+    "imageID": 13,
+    "brightness_median": 209,
+    "brightness_stdev": 55.1422,
+    "saturation_median": 23,
+    "saturation_stdev": 92.3941,
+    "hue_median": 34,
+    "hue_stdev": 82.2392
+  },
+  {
+    "filename": "117967-lifes-a-trip.jpg",
+    "imageID": 14,
+    "brightness_median": 179,
+    "brightness_stdev": 47.4035,
+    "saturation_median": 115,
+    "saturation_stdev": 63.043,
+    "hue_median": 41,
+    "hue_stdev": 64.7173
+  },
+  {
+    "filename": "120361-a-star-is-born-soundtrack.jpg",
+    "imageID": 15,
+    "brightness_median": 166,
+    "brightness_stdev": 83.4382,
+    "saturation_median": 8,
+    "saturation_stdev": 44.546,
+    "hue_median": 34,
+    "hue_stdev": 56.7277
+  },
+  {
+    "filename": "114497-ktse.jpg",
+    "imageID": 16,
+    "brightness_median": 87,
+    "brightness_stdev": 36.0903,
+    "saturation_median": 47,
+    "saturation_stdev": 24.4843,
+    "hue_median": 45,
+    "hue_stdev": 59.4373
+  },
+  {
+    "filename": "113603-politics-of-living.jpg",
+    "imageID": 17,
+    "brightness_median": 240,
+    "brightness_stdev": 71.4074,
+    "saturation_median": 236,
+    "saturation_stdev": 70.4037,
+    "hue_median": 146,
+    "hue_stdev": 40.7763
+  },
+  {
+    "filename": "110132-cry-pretty.jpg",
+    "imageID": 18,
+    "brightness_median": 131,
+    "brightness_stdev": 74.1822,
+    "saturation_median": 80,
+    "saturation_stdev": 62.8492,
+    "hue_median": 211,
+    "hue_stdev": 80.7814
+  },
+  {
+    "filename": "111136-and-justice-for-none.jpg",
+    "imageID": 19,
+    "brightness_median": 143,
+    "brightness_stdev": 74.1129,
+    "saturation_median": 134,
+    "saturation_stdev": 71.6457,
+    "hue_median": 19,
+    "hue_stdev": 44.9006
+  },
+  {
+    "filename": "120809-nina-cried-power-1.jpg",
+    "imageID": 20,
+    "brightness_median": 151,
+    "brightness_stdev": 38.3181,
+    "saturation_median": 54,
+    "saturation_stdev": 51.6517,
+    "hue_median": 106,
+    "hue_stdev": 18.7686
+  },
+  {
+    "filename": "106279-my-dear-melancholy-1.jpg",
+    "imageID": 21,
+    "brightness_median": 15,
+    "brightness_stdev": 43.055,
+    "saturation_median": 137,
+    "saturation_stdev": 50.307,
+    "hue_median": 127,
+    "hue_stdev": 56.3353
+  },
+  {
+    "filename": "96683-everything-was-beautiful-and-nothing-hurt.jpg",
+    "imageID": 22,
+    "brightness_median": 96,
+    "brightness_stdev": 62.8666,
+    "saturation_median": 24,
+    "saturation_stdev": 59.2368,
+    "hue_median": 29,
+    "hue_stdev": 58.4293
+  },
+  {
+    "filename": "124992-lm5.jpg",
+    "imageID": 23,
+    "brightness_median": 206,
+    "brightness_stdev": 82.3469,
+    "saturation_median": 18,
+    "saturation_stdev": 47.0011,
+    "hue_median": 36,
+    "hue_stdev": 62.5642
+  },
+  {
+    "filename": "116958-djarimirri-child-of-the-rainbow.jpg",
+    "imageID": 24,
+    "brightness_median": 44,
+    "brightness_stdev": 107.55,
+    "saturation_median": 0,
+    "saturation_stdev": 9.5991,
+    "hue_median": 0,
+    "hue_stdev": 18.6816
+  },
+  {
+    "filename": "112577-ye-2.jpg",
+    "imageID": 25,
+    "brightness_median": 85,
+    "brightness_stdev": 68.7214,
+    "saturation_median": 136,
+    "saturation_stdev": 61.8339,
+    "hue_median": 148,
+    "hue_stdev": 41.7433
+  },
+  {
+    "filename": "104388-7.jpg",
+    "imageID": 26,
+    "brightness_median": 101,
+    "brightness_stdev": 79.7531,
+    "saturation_median": 0,
+    "saturation_stdev": 16.6402,
+    "hue_median": 0,
+    "hue_stdev": 93.3085
+  },
+  {
+    "filename": "127522-you-know-i-know.jpg",
+    "imageID": 27,
+    "brightness_median": 183,
+    "brightness_stdev": 85.9735,
+    "saturation_median": 55,
+    "saturation_stdev": 80.6518,
+    "hue_median": 28,
+    "hue_stdev": 93.7467
+  },
+  {
+    "filename": "108991-pray-for-the-wicked.jpg",
+    "imageID": 28,
+    "brightness_median": 176,
+    "brightness_stdev": 71.9499,
+    "saturation_median": 26,
+    "saturation_stdev": 88.798,
+    "hue_median": 71,
+    "hue_stdev": 45.3966
+  },
+  {
+    "filename": "94500-underworld.jpg",
+    "imageID": 29,
+    "brightness_median": 211,
+    "brightness_stdev": 67.0907,
+    "saturation_median": 51,
+    "saturation_stdev": 77.4298,
+    "hue_median": 39,
+    "hue_stdev": 69.8208
+  },
+  {
+    "filename": "111788-youngblood.jpg",
+    "imageID": 30,
+    "brightness_median": 181,
+    "brightness_stdev": 89.8921,
+    "saturation_median": 150,
+    "saturation_stdev": 84.0474,
+    "hue_median": 167,
+    "hue_stdev": 93.8539
+  },
+  {
+    "filename": "103140-day69.jpg",
+    "imageID": 31,
+    "brightness_median": 234,
+    "brightness_stdev": 45.9825,
+    "saturation_median": 128,
+    "saturation_stdev": 69.5591,
+    "hue_median": 135,
+    "hue_stdev": 76.283
+  },
+  {
+    "filename": "100011-expectations.jpg",
+    "imageID": 32,
+    "brightness_median": 84,
+    "brightness_stdev": 42.932,
+    "saturation_median": 115,
+    "saturation_stdev": 47.6788,
+    "hue_median": 17,
+    "hue_stdev": 58.521
+  },
+  {
+    "filename": "102265-i.jpg",
+    "imageID": 33,
+    "brightness_median": 245,
+    "brightness_stdev": 95.1085,
+    "saturation_median": 48,
+    "saturation_stdev": 98.9035,
+    "hue_median": 139,
+    "hue_stdev": 57.6868
+  },
+  {
+    "filename": "95542-the-stars-the-oceans-the-moon-1.jpg",
+    "imageID": 34,
+    "brightness_median": 58,
+    "brightness_stdev": 62.4596,
+    "saturation_median": 51,
+    "saturation_stdev": 36.8295,
+    "hue_median": 18,
+    "hue_stdev": 68.4187
+  },
+  {
+    "filename": "100979-dita-von-teese.jpg",
+    "imageID": 35,
+    "brightness_median": 163,
+    "brightness_stdev": 48.3381,
+    "saturation_median": 20,
+    "saturation_stdev": 33.338,
+    "hue_median": 35,
+    "hue_stdev": 72.4267
+  },
+  {
+    "filename": "114295-vicious.jpg",
+    "imageID": 36,
+    "brightness_median": 144,
+    "brightness_stdev": 78.4372,
+    "saturation_median": 0,
+    "saturation_stdev": 0.1141,
+    "hue_median": 0,
+    "hue_stdev": 2.974
+  },
+  {
+    "filename": "100553-virtue-1.jpg",
+    "imageID": 37,
+    "brightness_median": 11,
+    "brightness_stdev": 91.3579,
+    "saturation_median": 34,
+    "saturation_stdev": 101.4336,
+    "hue_median": 37,
+    "hue_stdev": 92.8463
+  },
+  {
+    "filename": "93099-i-can-feel-you-creep-into-my-private-life.jpg",
+    "imageID": 38,
+    "brightness_median": 126,
+    "brightness_stdev": 50.6304,
+    "saturation_median": 127,
+    "saturation_stdev": 63.0283,
+    "hue_median": 134,
+    "hue_stdev": 67.3723
+  },
+  {
+    "filename": "103195-singularity.jpg",
+    "imageID": 39,
+    "brightness_median": 66,
+    "brightness_stdev": 48.4458,
+    "saturation_median": 95,
+    "saturation_stdev": 38.8861,
+    "hue_median": 164,
+    "hue_stdev": 52.2217
+  },
+  {
+    "filename": "114303-brighter-days.jpg",
+    "imageID": 40,
+    "brightness_median": 248,
+    "brightness_stdev": 36.0943,
+    "saturation_median": 200,
+    "saturation_stdev": 63.1117,
+    "hue_median": 140,
+    "hue_stdev": 49.4276
+  },
+  {
+    "filename": "109519-the-blue-hour.jpg",
+    "imageID": 41,
+    "brightness_median": 102,
+    "brightness_stdev": 56.9165,
+    "saturation_median": 191,
+    "saturation_stdev": 67.1119,
+    "hue_median": 153,
+    "hue_stdev": 51.35
+  },
+  {
+    "filename": "120700-dionysus.jpg",
+    "imageID": 42,
+    "brightness_median": 155,
+    "brightness_stdev": 70.6523,
+    "saturation_median": 121,
+    "saturation_stdev": 75.3475,
+    "hue_median": 42,
+    "hue_stdev": 69.2012
+  },
+  {
+    "filename": "121648-anthem-of-the-peaceful-army.jpg",
+    "imageID": 43,
+    "brightness_median": 67,
+    "brightness_stdev": 72.1505,
+    "saturation_median": 148,
+    "saturation_stdev": 58.97,
+    "hue_median": 89,
+    "hue_stdev": 59.7263
+  },
+  {
+    "filename": "110330-queen-1.jpg",
+    "imageID": 44,
+    "brightness_median": 181,
+    "brightness_stdev": 62.8941,
+    "saturation_median": 246,
+    "saturation_stdev": 36.6859,
+    "hue_median": 10,
+    "hue_stdev": 26.9222
+  },
+  {
+    "filename": "109204-graffiti-u.jpg",
+    "imageID": 45,
+    "brightness_median": 48,
+    "brightness_stdev": 40.4414,
+    "saturation_median": 148,
+    "saturation_stdev": 58.9261,
+    "hue_median": 170,
+    "hue_stdev": 46.4323
+  },
+  {
+    "filename": "104944-electric-light.jpg",
+    "imageID": 46,
+    "brightness_median": 58,
+    "brightness_stdev": 40.4294,
+    "saturation_median": 0,
+    "saturation_stdev": 26.9758,
+    "hue_median": 0,
+    "hue_stdev": 31.1984
+  },
+  {
+    "filename": "93821-head-over-heels-1.jpg",
+    "imageID": 47,
+    "brightness_median": 176,
+    "brightness_stdev": 45.8369,
+    "saturation_median": 134,
+    "saturation_stdev": 45.4029,
+    "hue_median": 149,
+    "hue_stdev": 47.589
+  },
+  {
+    "filename": "104814-skulls-example.jpg",
+    "imageID": 48,
+    "brightness_median": 239,
+    "brightness_stdev": 63.8181,
+    "saturation_median": 6,
+    "saturation_stdev": 31.3445,
+    "hue_median": 49,
+    "hue_stdev": 23.3274
+  },
+  {
+    "filename": "88121-fame.jpg",
+    "imageID": 49,
+    "brightness_median": 50,
+    "brightness_stdev": 50.5028,
+    "saturation_median": 0,
+    "saturation_stdev": 27.661,
+    "hue_median": 0,
+    "hue_stdev": 67.9284
+  },
+  {
+    "filename": "99883-culture-ii-1.jpg",
+    "imageID": 50,
+    "brightness_median": 187,
+    "brightness_stdev": 68.0543,
+    "saturation_median": 167,
+    "saturation_stdev": 69.8285,
+    "hue_median": 253,
+    "hue_stdev": 98.367
+  },
+  {
+    "filename": "112522-hi-viz.jpg",
+    "imageID": 51,
+    "brightness_median": 208,
+    "brightness_stdev": 62.0388,
+    "saturation_median": 105,
+    "saturation_stdev": 63.7772,
+    "hue_median": 33,
+    "hue_stdev": 71.9627
+  },
+  {
+    "filename": "114203-thread.jpg",
+    "imageID": 52,
+    "brightness_median": 207,
+    "brightness_stdev": 65.7225,
+    "saturation_median": 214,
+    "saturation_stdev": 54.161,
+    "hue_median": 131,
+    "hue_stdev": 48.3297
+  },
+  {
+    "filename": "121328-love-is-here-to-stay.jpg",
+    "imageID": 53,
+    "brightness_median": 108,
+    "brightness_stdev": 73.4328,
+    "saturation_median": 20,
+    "saturation_stdev": 77.1354,
+    "hue_median": 250,
+    "hue_stdev": 117.1531
+  },
+  {
+    "filename": "109792-liberation.jpg",
+    "imageID": 53,
+    "brightness_median": 108,
+    "brightness_stdev": 73.4328,
+    "saturation_median": 20,
+    "saturation_stdev": 77.1354,
+    "hue_median": 250,
+    "hue_stdev": 117.1531
+  },
+  {
+    "filename": "93901-the-fratellis.jpg",
+    "imageID": 55,
+    "brightness_median": 75,
+    "brightness_stdev": 80.3667,
+    "saturation_median": 208,
+    "saturation_stdev": 63.8544,
+    "hue_median": 74,
+    "hue_stdev": 86.2987
+  },
+  {
+    "filename": "125231-merrie-land.jpg",
+    "imageID": 56,
+    "brightness_median": 104,
+    "brightness_stdev": 65.8999,
+    "saturation_median": 0,
+    "saturation_stdev": 50.0322,
+    "hue_median": 0,
+    "hue_stdev": 53.5824
+  },
+  {
+    "filename": "108547-lost-found.jpg",
+    "imageID": 57,
+    "brightness_median": 175,
+    "brightness_stdev": 62.1648,
+    "saturation_median": 52,
+    "saturation_stdev": 31.5637,
+    "hue_median": 26,
+    "hue_stdev": 41.1113
+  },
+  {
+    "filename": "117763-vector.jpg",
+    "imageID": 58,
+    "brightness_median": 208,
+    "brightness_stdev": 50.721,
+    "saturation_median": 212,
+    "saturation_stdev": 10.0976,
+    "hue_median": 249,
+    "hue_stdev": 29.5148
+  },
+  {
+    "filename": "126068-eden-1.jpg",
+    "imageID": 59,
+    "brightness_median": 58,
+    "brightness_stdev": 91.986,
+    "saturation_median": 124,
+    "saturation_stdev": 88.3203,
+    "hue_median": 13,
+    "hue_stdev": 79.1141
+  },
+  {
+    "filename": "131909-dying-to-live.jpg",
+    "imageID": 60,
+    "brightness_median": 156,
+    "brightness_stdev": 68.5772,
+    "saturation_median": 207,
+    "saturation_stdev": 71.8172,
+    "hue_median": 1,
+    "hue_stdev": 80.4959
+  },
+  {
+    "filename": "128544-the-music-made-me-do-it.jpg",
+    "imageID": 61,
+    "brightness_median": 115,
+    "brightness_stdev": 63.1833,
+    "saturation_median": 99,
+    "saturation_stdev": 49.0732,
+    "hue_median": 190,
+    "hue_stdev": 76.315
+  },
+  {
+    "filename": "119654-first-time.jpg",
+    "imageID": 62,
+    "brightness_median": 89,
+    "brightness_stdev": 71.8099,
+    "saturation_median": 112,
+    "saturation_stdev": 87.2807,
+    "hue_median": 142,
+    "hue_stdev": 68.2501
+  },
+  {
+    "filename": "124851-singular-1.jpg",
+    "imageID": 63,
+    "brightness_median": 67,
+    "brightness_stdev": 78.5912,
+    "saturation_median": 47,
+    "saturation_stdev": 37.9748,
+    "hue_median": 77,
+    "hue_stdev": 59.2131
+  },
+  {
+    "filename": "106868-44876.jpg",
+    "imageID": 64,
+    "brightness_median": 131,
+    "brightness_stdev": 73.6678,
+    "saturation_median": 63,
+    "saturation_stdev": 59.5013,
+    "hue_median": 113,
+    "hue_stdev": 66.7959
+  },
+  {
+    "filename": "79228-little-dark-age-1.jpg",
+    "imageID": 65,
+    "brightness_median": 254,
+    "brightness_stdev": 63.4687,
+    "saturation_median": 186,
+    "saturation_stdev": 33.4104,
+    "hue_median": 35,
+    "hue_stdev": 15.8387
+  },
+  {
+    "filename": "124855-what-is-love.jpg",
+    "imageID": 66,
+    "brightness_median": 107,
+    "brightness_stdev": 76.8175,
+    "saturation_median": 51,
+    "saturation_stdev": 56.8437,
+    "hue_median": 99,
+    "hue_stdev": 64.5262
+  },
+  {
+    "filename": "99302-world-domination.jpg",
+    "imageID": 66,
+    "brightness_median": 107,
+    "brightness_stdev": 76.8175,
+    "saturation_median": 51,
+    "saturation_stdev": 56.8437,
+    "hue_median": 99,
+    "hue_stdev": 64.5262
+  },
+  {
+    "filename": "93924-beloved-antichrist.jpg",
+    "imageID": 68,
+    "brightness_median": 130,
+    "brightness_stdev": 68.8064,
+    "saturation_median": 62,
+    "saturation_stdev": 30.9164,
+    "hue_median": 27,
+    "hue_stdev": 12.2457
+  },
+  {
+    "filename": "100592-knowing-what-you-know-now.jpg",
+    "imageID": 69,
+    "brightness_median": 169,
+    "brightness_stdev": 111.528,
+    "saturation_median": 0,
+    "saturation_stdev": 57.1984,
+    "hue_median": 0,
+    "hue_stdev": 74.6176
+  },
+  {
+    "filename": "119516-my-mind-makes-noises.jpg",
+    "imageID": 70,
+    "brightness_median": 22,
+    "brightness_stdev": 34.0348,
+    "saturation_median": 145,
+    "saturation_stdev": 48.0999,
+    "hue_median": 244,
+    "hue_stdev": 108.7371
+  },
+  {
+    "filename": "99471-2640.jpg",
+    "imageID": 71,
+    "brightness_median": 108,
+    "brightness_stdev": 55.0897,
+    "saturation_median": 0,
+    "saturation_stdev": 13.7026,
+    "hue_median": 0,
+    "hue_stdev": 30.5801
+  },
+  {
+    "filename": "106365-wheres-the-drop.jpg",
+    "imageID": 72,
+    "brightness_median": 70,
+    "brightness_stdev": 60.195,
+    "saturation_median": 7,
+    "saturation_stdev": 45.9919,
+    "hue_median": 170,
+    "hue_stdev": 76.0828
+  },
+  {
+    "filename": "109215-until-death-call-my-name.jpg",
+    "imageID": 73,
+    "brightness_median": 110,
+    "brightness_stdev": 55.6473,
+    "saturation_median": 60,
+    "saturation_stdev": 45.7495,
+    "hue_median": 17,
+    "hue_stdev": 91.5621
+  },
+  {
+    "filename": "120425-8-letters.jpg",
+    "imageID": 74,
+    "brightness_median": 40,
+    "brightness_stdev": 69.3919,
+    "saturation_median": 9,
+    "saturation_stdev": 11.5015,
+    "hue_median": 70,
+    "hue_stdev": 86.104
+  },
+  {
+    "filename": "131272-hoodie-szn-1.jpg",
+    "imageID": 75,
+    "brightness_median": 62,
+    "brightness_stdev": 47.3699,
+    "saturation_median": 158,
+    "saturation_stdev": 66.4614,
+    "hue_median": 145,
+    "hue_stdev": 34.3186
+  },
+  {
+    "filename": "119058-super-sunset.jpg",
+    "imageID": 76,
+    "brightness_median": 245,
+    "brightness_stdev": 76.2067,
+    "saturation_median": 188,
+    "saturation_stdev": 63.4293,
+    "hue_median": 36,
+    "hue_stdev": 20.1433
+  },
+  {
+    "filename": "110926-passwords.jpg",
+    "imageID": 77,
+    "brightness_median": 95,
+    "brightness_stdev": 74.9105,
+    "saturation_median": 9,
+    "saturation_stdev": 57.2342,
+    "hue_median": 15,
+    "hue_stdev": 92.6014
+  },
+  {
+    "filename": "112012-the-now-now.jpg",
+    "imageID": 78,
+    "brightness_median": 200,
+    "brightness_stdev": 102.7396,
+    "saturation_median": 195,
+    "saturation_stdev": 76.6684,
+    "hue_median": 126,
+    "hue_stdev": 72.568
+  },
+  {
+    "filename": "101799-the-other.jpg",
+    "imageID": 79,
+    "brightness_median": 126,
+    "brightness_stdev": 57.0848,
+    "saturation_median": 105,
+    "saturation_stdev": 31.0851,
+    "hue_median": 148,
+    "hue_stdev": 41.0349
+  },
+  {
+    "filename": "102329-in-the-rainbow-rain.jpg",
+    "imageID": 80,
+    "brightness_median": 174,
+    "brightness_stdev": 42.482,
+    "saturation_median": 132,
+    "saturation_stdev": 83.2926,
+    "hue_median": 130,
+    "hue_stdev": 30.6567
+  },
+  {
+    "filename": "125985-the-pains-of-growing.jpg",
+    "imageID": 81,
+    "brightness_median": 186,
+    "brightness_stdev": 47.1966,
+    "saturation_median": 96,
+    "saturation_stdev": 42.9208,
+    "hue_median": 28,
+    "hue_stdev": 53.5545
+  },
+  {
+    "filename": "103385-i-hear-a-song.jpg",
+    "imageID": 82,
+    "brightness_median": 29,
+    "brightness_stdev": 58.9293,
+    "saturation_median": 0,
+    "saturation_stdev": 59.4166,
+    "hue_median": 0,
+    "hue_stdev": 40.5337
+  },
+  {
+    "filename": "97149-blue-madonna-1.jpg",
+    "imageID": 83,
+    "brightness_median": 38,
+    "brightness_stdev": 46.6135,
+    "saturation_median": 45,
+    "saturation_stdev": 35.5526,
+    "hue_median": 47,
+    "hue_stdev": 62.3283
+  },
+  {
+    "filename": "109690-sweetener-1.jpg",
+    "imageID": 84,
+    "brightness_median": 237,
+    "brightness_stdev": 39.9787,
+    "saturation_median": 76,
+    "saturation_stdev": 28.707,
+    "hue_median": 19,
+    "hue_stdev": 19.978
+  },
+  {
+    "filename": "131464-damned-if-you-do.jpg",
+    "imageID": 85,
+    "brightness_median": 69,
+    "brightness_stdev": 54.4568,
+    "saturation_median": 100,
+    "saturation_stdev": 44.3199,
+    "hue_median": 158,
+    "hue_stdev": 39.6634
+  },
+  {
+    "filename": "110905-watching-the-sky.jpg",
+    "imageID": 86,
+    "brightness_median": 117,
+    "brightness_stdev": 49.8443,
+    "saturation_median": 250,
+    "saturation_stdev": 48.7621,
+    "hue_median": 150,
+    "hue_stdev": 14.0984
+  },
+  {
+    "filename": "109442-vibras.jpg",
+    "imageID": 87,
+    "brightness_median": 241,
+    "brightness_stdev": 17.7891,
+    "saturation_median": 217,
+    "saturation_stdev": 26.5242,
+    "hue_median": 11,
+    "hue_stdev": 15.2214
+  },
+  {
+    "filename": "89934-wrong-creatures.jpg",
+    "imageID": 88,
+    "brightness_median": 34,
+    "brightness_stdev": 65.7031,
+    "saturation_median": 38,
+    "saturation_stdev": 31.828,
+    "hue_median": 106,
+    "hue_stdev": 58.6197
+  },
+  {
+    "filename": "117696-living-in-extraordinary-times.jpg",
+    "imageID": 89,
+    "brightness_median": 129,
+    "brightness_stdev": 22.0103,
+    "saturation_median": 253,
+    "saturation_stdev": 43.3085,
+    "hue_median": 134,
+    "hue_stdev": 24.304
+  },
+  {
+    "filename": "104249-cool-like-you.jpg",
+    "imageID": 90,
+    "brightness_median": 31,
+    "brightness_stdev": 72.8692,
+    "saturation_median": 109,
+    "saturation_stdev": 60.9731,
+    "hue_median": 34,
+    "hue_stdev": 57.8047
+  },
+  {
+    "filename": "115178-beautiful-life.jpg",
+    "imageID": 91,
+    "brightness_median": 226,
+    "brightness_stdev": 86.8029,
+    "saturation_median": 0,
+    "saturation_stdev": 29.5289,
+    "hue_median": 0,
+    "hue_stdev": 46.0924
+  },
+  {
+    "filename": "120100-wax.jpg",
+    "imageID": 92,
+    "brightness_median": 212,
+    "brightness_stdev": 69.5517,
+    "saturation_median": 2,
+    "saturation_stdev": 38.7404,
+    "hue_median": 24,
+    "hue_stdev": 101.192
+  },
+  {
+    "filename": "88740-hadeon.jpg",
+    "imageID": 93,
+    "brightness_median": 64,
+    "brightness_stdev": 64.9233,
+    "saturation_median": 76,
+    "saturation_stdev": 50.2825,
+    "hue_median": 29,
+    "hue_stdev": 95.2914
+  },
+  {
+    "filename": "110775-performance.jpg",
+    "imageID": 94,
+    "brightness_median": 210,
+    "brightness_stdev": 48.1278,
+    "saturation_median": 49,
+    "saturation_stdev": 48.4664,
+    "hue_median": 30,
+    "hue_stdev": 55.0738
+  },
+  {
+    "filename": "121352-its-about-time.jpg",
+    "imageID": 95,
+    "brightness_median": 76,
+    "brightness_stdev": 71.3154,
+    "saturation_median": 96,
+    "saturation_stdev": 63.9147,
+    "hue_median": 170,
+    "hue_stdev": 81.3319
+  },
+  {
+    "filename": "88772-a-brief-inquiry-into-online-relationships.jpg",
+    "imageID": 96,
+    "brightness_median": 255,
+    "brightness_stdev": 14.971,
+    "saturation_median": 1,
+    "saturation_stdev": 5.5995,
+    "hue_median": 106,
+    "hue_stdev": 56.4127
+  },
+  {
+    "filename": "110881-be-the-cowboy.jpg",
+    "imageID": 97,
+    "brightness_median": 217,
+    "brightness_stdev": 47.2216,
+    "saturation_median": 13,
+    "saturation_stdev": 44.372,
+    "hue_median": 200,
+    "hue_stdev": 94.3309
+  },
+  {
+    "filename": "110719-love-monster.jpg",
+    "imageID": 98,
+    "brightness_median": 8,
+    "brightness_stdev": 33.9992,
+    "saturation_median": 0,
+    "saturation_stdev": 27.7364,
+    "hue_median": 0,
+    "hue_stdev": 28.1081
+  },
+  {
+    "filename": "113954-everything-is-love-1.jpg",
+    "imageID": 99,
+    "brightness_median": 69,
+    "brightness_stdev": 34.3882,
+    "saturation_median": 142,
+    "saturation_stdev": 55.1139,
+    "hue_median": 23,
+    "hue_stdev": 43.2801
+  },
+  {
+    "filename": "109106-shawn-mendes.jpg",
+    "imageID": 100,
+    "brightness_median": 135,
+    "brightness_stdev": 63.1991,
+    "saturation_median": 113,
+    "saturation_stdev": 64.3257,
+    "hue_median": 20,
+    "hue_stdev": 35.4025
+  },
+  {
+    "filename": "131857-lioness.jpg",
+    "imageID": 101,
+    "brightness_median": 233,
+    "brightness_stdev": 52.199,
+    "saturation_median": 57,
+    "saturation_stdev": 20.4799,
+    "hue_median": 13,
+    "hue_stdev": 13.3302
+  },
+  {
+    "filename": "125527-spaceman.jpg",
+    "imageID": 102,
+    "brightness_median": 69,
+    "brightness_stdev": 77.998,
+    "saturation_median": 66,
+    "saturation_stdev": 56.5225,
+    "hue_median": 172,
+    "hue_stdev": 58.2908
+  },
+  {
+    "filename": "108199-kod-1.jpg",
+    "imageID": 103,
+    "brightness_median": 145,
+    "brightness_stdev": 59.4586,
+    "saturation_median": 187,
+    "saturation_stdev": 61.5421,
+    "hue_median": 221,
+    "hue_stdev": 86.8721
+  },
+  {
+    "filename": "92035-semicircle.jpg",
+    "imageID": 104,
+    "brightness_median": 166,
+    "brightness_stdev": 53.8198,
+    "saturation_median": 59,
+    "saturation_stdev": 63.0423,
+    "hue_median": 89,
+    "hue_stdev": 69.1357
+  },
+  {
+    "filename": "118666-i-hope-youre-happy.jpg",
+    "imageID": 105,
+    "brightness_median": 226,
+    "brightness_stdev": 71.2642,
+    "saturation_median": 84,
+    "saturation_stdev": 80.0677,
+    "hue_median": 98,
+    "hue_stdev": 88.8575
+  },
+  {
+    "filename": "120061-dancing-queen.jpg",
+    "imageID": 106,
+    "brightness_median": 144,
+    "brightness_stdev": 59.5837,
+    "saturation_median": 213,
+    "saturation_stdev": 91.0986,
+    "hue_median": 160,
+    "hue_stdev": 53.695
+  },
+  {
+    "filename": "103432-the-future-and-the-past.jpg",
+    "imageID": 107,
+    "brightness_median": 160,
+    "brightness_stdev": 44.1792,
+    "saturation_median": 181,
+    "saturation_stdev": 67.9422,
+    "hue_median": 157,
+    "hue_stdev": 66.4836
+  },
+  {
+    "filename": "113829-nasir.jpg",
+    "imageID": 107,
+    "brightness_median": 160,
+    "brightness_stdev": 44.1792,
+    "saturation_median": 181,
+    "saturation_stdev": 67.9422,
+    "hue_median": 157,
+    "hue_stdev": 66.4836
+  },
+  {
+    "filename": "119339-love-me-love-me-not.jpg",
+    "imageID": 109,
+    "brightness_median": 186,
+    "brightness_stdev": 39.7051,
+    "saturation_median": 174,
+    "saturation_stdev": 37.7078,
+    "hue_median": 8,
+    "hue_stdev": 45.4521
+  },
+  {
+    "filename": "93152-vale.jpg",
+    "imageID": 110,
+    "brightness_median": 48,
+    "brightness_stdev": 66.5866,
+    "saturation_median": 201,
+    "saturation_stdev": 64.3837,
+    "hue_median": 13,
+    "hue_stdev": 72.6589
+  },
+  {
+    "filename": "121518-hiding-place-1.jpg",
+    "imageID": 111,
+    "brightness_median": 22,
+    "brightness_stdev": 63.8412,
+    "saturation_median": 0,
+    "saturation_stdev": 4.5833,
+    "hue_median": 0,
+    "hue_stdev": 19.3689
+  },
+  {
+    "filename": "122889-shake-the-spirit.jpg",
+    "imageID": 112,
+    "brightness_median": 96,
+    "brightness_stdev": 79.3791,
+    "saturation_median": 92,
+    "saturation_stdev": 39.7036,
+    "hue_median": 36,
+    "hue_stdev": 61.6309
+  },
+  {
+    "filename": "122242-delta.jpg",
+    "imageID": 113,
+    "brightness_median": 236,
+    "brightness_stdev": 21.1736,
+    "saturation_median": 23,
+    "saturation_stdev": 17.6875,
+    "hue_median": 36,
+    "hue_stdev": 30.035
+  },
+  {
+    "filename": "96187-camila.jpg",
+    "imageID": 114,
+    "brightness_median": 83,
+    "brightness_stdev": 68.9009,
+    "saturation_median": 148,
+    "saturation_stdev": 53.6529,
+    "hue_median": 28,
+    "hue_stdev": 90.0989
+  },
+  {
+    "filename": "104776-call-the-comet.jpg",
+    "imageID": 115,
+    "brightness_median": 10,
+    "brightness_stdev": 81.4294,
+    "saturation_median": 95,
+    "saturation_stdev": 48.5596,
+    "hue_median": 155,
+    "hue_stdev": 42.986
+  },
+  {
+    "filename": "106828-never-gonna-die.jpg",
+    "imageID": 116,
+    "brightness_median": 108,
+    "brightness_stdev": 70.0185,
+    "saturation_median": 0,
+    "saturation_stdev": 99.0531,
+    "hue_median": 0,
+    "hue_stdev": 67.7628
+  },
+  {
+    "filename": "101312-stone-temple-pilots.jpg",
+    "imageID": 117,
+    "brightness_median": 224,
+    "brightness_stdev": 55.2072,
+    "saturation_median": 3,
+    "saturation_stdev": 23.3751,
+    "hue_median": 34,
+    "hue_stdev": 64.4861
+  },
+  {
+    "filename": "119214-thank-you-goodnight.jpg",
+    "imageID": 118,
+    "brightness_median": 94,
+    "brightness_stdev": 82.389,
+    "saturation_median": 170,
+    "saturation_stdev": 84.9061,
+    "hue_median": 147,
+    "hue_stdev": 60.0495
+  },
+  {
+    "filename": "94788-resistance-is-futile.jpg",
+    "imageID": 119,
+    "brightness_median": 129,
+    "brightness_stdev": 65.0485,
+    "saturation_median": 34,
+    "saturation_stdev": 53.2587,
+    "hue_median": 158,
+    "hue_stdev": 88.5314
+  },
+  {
+    "filename": "109813-astroworld-1.jpg",
+    "imageID": 120,
+    "brightness_median": 187,
+    "brightness_stdev": 53.6196,
+    "saturation_median": 105,
+    "saturation_stdev": 68.549,
+    "hue_median": 28,
+    "hue_stdev": 63.8757
+  },
+  {
+    "filename": "46097-joyride-1.jpg",
+    "imageID": 121,
+    "brightness_median": 229,
+    "brightness_stdev": 73.0135,
+    "saturation_median": 0,
+    "saturation_stdev": 26.5322,
+    "hue_median": 0,
+    "hue_stdev": 86.1732
+  },
+  {
+    "filename": "95176-beerbongs-bentleys.jpg",
+    "imageID": 122,
+    "brightness_median": 202,
+    "brightness_stdev": 62.1049,
+    "saturation_median": 205,
+    "saturation_stdev": 104.8029,
+    "hue_median": 40,
+    "hue_stdev": 70.21
+  },
+  {
+    "filename": "110971-cnco.jpg",
+    "imageID": 123,
+    "brightness_median": 117,
+    "brightness_stdev": 84.2564,
+    "saturation_median": 56,
+    "saturation_stdev": 61.4923,
+    "hue_median": 18,
+    "hue_stdev": 39.3862
+  },
+  {
+    "filename": "111746-daytona-1.jpg",
+    "imageID": 124,
+    "brightness_median": 125,
+    "brightness_stdev": 56.714,
+    "saturation_median": 45,
+    "saturation_stdev": 40.0611,
+    "hue_median": 67,
+    "hue_stdev": 79.4776
+  },
+  {
+    "filename": "121472-el-mal-querer.jpg",
+    "imageID": 125,
+    "brightness_median": 219,
+    "brightness_stdev": 35.4205,
+    "saturation_median": 17,
+    "saturation_stdev": 42.5485,
+    "hue_median": 34,
+    "hue_stdev": 73.0304
+  },
+  {
+    "filename": "103095-wide-awake.jpg",
+    "imageID": 126,
+    "brightness_median": 155,
+    "brightness_stdev": 59.1823,
+    "saturation_median": 158,
+    "saturation_stdev": 40.2982,
+    "hue_median": 82,
+    "hue_stdev": 53.4782
+  },
+  {
+    "filename": "115403-always-in-between.jpg",
+    "imageID": 127,
+    "brightness_median": 102,
+    "brightness_stdev": 49.4043,
+    "saturation_median": 135,
+    "saturation_stdev": 38.6404,
+    "hue_median": 144,
+    "hue_stdev": 61.8561
+  },
+  {
+    "filename": "101720-eat-the-elephant.jpg",
+    "imageID": 128,
+    "brightness_median": 208,
+    "brightness_stdev": 104.0097,
+    "saturation_median": 0,
+    "saturation_stdev": 36.5252,
+    "hue_median": 0,
+    "hue_stdev": 68.2722
+  },
+  {
+    "filename": "116105-swimming.jpg",
+    "imageID": 129,
+    "brightness_median": 255,
+    "brightness_stdev": 76.8353,
+    "saturation_median": 0,
+    "saturation_stdev": 28.704,
+    "hue_median": 0,
+    "hue_stdev": 61.216
+  },
+  {
+    "filename": "89470-thunderbolt.jpg",
+    "imageID": 130,
+    "brightness_median": 62,
+    "brightness_stdev": 37.2627,
+    "saturation_median": 107,
+    "saturation_stdev": 63.8086,
+    "hue_median": 38,
+    "hue_stdev": 36.8774
+  },
+  {
+    "filename": "104478-wildness.jpg",
+    "imageID": 131,
+    "brightness_median": 179,
+    "brightness_stdev": 50.1598,
+    "saturation_median": 116,
+    "saturation_stdev": 38.4709,
+    "hue_median": 144,
+    "hue_stdev": 49.3773
+  },
+  {
+    "filename": "115322-outlaws-til-the-end-vol-1.jpg",
+    "imageID": 132,
+    "brightness_median": 116,
+    "brightness_stdev": 65.8991,
+    "saturation_median": 115,
+    "saturation_stdev": 62.2626,
+    "hue_median": 25,
+    "hue_stdev": 44.3105
+  },
+  {
+    "filename": "102710-dirty-computer.jpg",
+    "imageID": 133,
+    "brightness_median": 141,
+    "brightness_stdev": 65.7207,
+    "saturation_median": 92,
+    "saturation_stdev": 72.0941,
+    "hue_median": 148,
+    "hue_stdev": 91.4778
+  },
+  {
+    "filename": "123003-visceral.jpg",
+    "imageID": 134,
+    "brightness_median": 3,
+    "brightness_stdev": 50.7427,
+    "saturation_median": 0,
+    "saturation_stdev": 77.9669,
+    "hue_median": 0,
+    "hue_stdev": 76.9359
+  },
+  {
+    "filename": "116028-in-the-blue-light.jpg",
+    "imageID": 135,
+    "brightness_median": 227,
+    "brightness_stdev": 33.9606,
+    "saturation_median": 2,
+    "saturation_stdev": 82.2854,
+    "hue_median": 233,
+    "hue_stdev": 45.1786
+  },
+  {
+    "filename": "108385-my-indigo.jpg",
+    "imageID": 136,
+    "brightness_median": 206,
+    "brightness_stdev": 32.1657,
+    "saturation_median": 94,
+    "saturation_stdev": 40.7737,
+    "hue_median": 34,
+    "hue_stdev": 85.15
+  },
+  {
+    "filename": "100857-black-coffee.jpg",
+    "imageID": 137,
+    "brightness_median": 220,
+    "brightness_stdev": 101.9762,
+    "saturation_median": 75,
+    "saturation_stdev": 81.516,
+    "hue_median": 50,
+    "hue_stdev": 101.2348
+  },
+  {
+    "filename": "65057-elohim.jpg",
+    "imageID": 138,
+    "brightness_median": 163,
+    "brightness_stdev": 50.2012,
+    "saturation_median": 30,
+    "saturation_stdev": 30.8963,
+    "hue_median": 67,
+    "hue_stdev": 47.8258
+  },
+  {
+    "filename": "122964-ella-mai.jpg",
+    "imageID": 139,
+    "brightness_median": 83,
+    "brightness_stdev": 65.3115,
+    "saturation_median": 100,
+    "saturation_stdev": 52.3748,
+    "hue_median": 8,
+    "hue_stdev": 77.2812
+  },
+  {
+    "filename": "93443-electric-caf.jpg",
+    "imageID": 140,
+    "brightness_median": 112,
+    "brightness_stdev": 67.8547,
+    "saturation_median": 77,
+    "saturation_stdev": 48.9343,
+    "hue_median": 225,
+    "hue_stdev": 112.769
+  },
+  {
+    "filename": "102546-tell-me-how-you-really-feel.jpg",
+    "imageID": 141,
+    "brightness_median": 93,
+    "brightness_stdev": 56.5916,
+    "saturation_median": 135,
+    "saturation_stdev": 50.0166,
+    "hue_median": 5,
+    "hue_stdev": 71.3451
+  },
+  {
+    "filename": "108509-kids-see-ghosts-1.jpg",
+    "imageID": 142,
+    "brightness_median": 208,
+    "brightness_stdev": 37.646,
+    "saturation_median": 114,
+    "saturation_stdev": 61.7885,
+    "hue_median": 121,
+    "hue_stdev": 85.1107
+  },
+  {
+    "filename": "90299-what-happens-next.jpg",
+    "imageID": 143,
+    "brightness_median": 247,
+    "brightness_stdev": 106.4954,
+    "saturation_median": 0,
+    "saturation_stdev": 53.9698,
+    "hue_median": 0,
+    "hue_stdev": 83.5442
+  },
+  {
+    "filename": "93509-heaven-before-all-hell-breaks-loose.jpg",
+    "imageID": 144,
+    "brightness_median": 63,
+    "brightness_stdev": 66.9257,
+    "saturation_median": 116,
+    "saturation_stdev": 68.5531,
+    "hue_median": 9,
+    "hue_stdev": 87.6975
+  },
+  {
+    "filename": "109284-take-me-to-the-disco.jpg",
+    "imageID": 145,
+    "brightness_median": 137,
+    "brightness_stdev": 83.4639,
+    "saturation_median": 80,
+    "saturation_stdev": 66.0778,
+    "hue_median": 46,
+    "hue_stdev": 52.1479
+  },
+  {
+    "filename": "114148-nearer-my-god.jpg",
+    "imageID": 146,
+    "brightness_median": 17,
+    "brightness_stdev": 51.763,
+    "saturation_median": 0,
+    "saturation_stdev": 45.8938,
+    "hue_median": 0,
+    "hue_stdev": 61.487
+  },
+  {
+    "filename": "118489-the-great-depression.jpg",
+    "imageID": 147,
+    "brightness_median": 24,
+    "brightness_stdev": 57.7562,
+    "saturation_median": 34,
+    "saturation_stdev": 66.5303,
+    "hue_median": 28,
+    "hue_stdev": 80.5769
+  },
+  {
+    "filename": "108155-scorpion-1.jpg",
+    "imageID": 148,
+    "brightness_median": 49,
+    "brightness_stdev": 43.4113,
+    "saturation_median": 0,
+    "saturation_stdev": 1.5458,
+    "hue_median": 0,
+    "hue_stdev": 41.9449
+  },
+  {
+    "filename": "116023-trench.jpg",
+    "imageID": 149,
+    "brightness_median": 25,
+    "brightness_stdev": 68.7089,
+    "saturation_median": 34,
+    "saturation_stdev": 91.4577,
+    "hue_median": 37,
+    "hue_stdev": 45.7581
+  },
+  {
+    "filename": "121991-honey.png",
+    "imageID": 150,
+    "brightness_median": 231,
+    "brightness_stdev": 52.0988,
+    "saturation_median": 173,
+    "saturation_stdev": 61.0852,
+    "hue_median": 12,
+    "hue_stdev": 51.4609
+  },
+  {
+    "filename": "123507-the-unheavenly-creatures.jpg",
+    "imageID": 151,
+    "brightness_median": 94,
+    "brightness_stdev": 63.4145,
+    "saturation_median": 141,
+    "saturation_stdev": 50.2818,
+    "hue_median": 18,
+    "hue_stdev": 29.8978
+  },
+  {
+    "filename": "94241-beautiful-people-will-ruin-your-life.jpg",
+    "imageID": 152,
+    "brightness_median": 207,
+    "brightness_stdev": 77.183,
+    "saturation_median": 226,
+    "saturation_stdev": 81.4021,
+    "hue_median": 252,
+    "hue_stdev": 98.93
+  },
+  {
+    "filename": "109716-all-that-reckoning.jpg",
+    "imageID": 153,
+    "brightness_median": 22,
+    "brightness_stdev": 55.8771,
+    "saturation_median": 49,
+    "saturation_stdev": 40.0184,
+    "hue_median": 18,
+    "hue_stdev": 88.828
+  },
+  {
+    "filename": "101453-technology.jpg",
+    "imageID": 154,
+    "brightness_median": 87,
+    "brightness_stdev": 63.759,
+    "saturation_median": 122,
+    "saturation_stdev": 65.1297,
+    "hue_median": 24,
+    "hue_stdev": 69.279
+  },
+  {
+    "filename": "110884-disobey.jpg",
+    "imageID": 155,
+    "brightness_median": 42,
+    "brightness_stdev": 79.3328,
+    "saturation_median": 137,
+    "saturation_stdev": 79.9217,
+    "hue_median": 173,
+    "hue_stdev": 79.483
+  },
+  {
+    "filename": "95541-defy.jpg",
+    "imageID": 156,
+    "brightness_median": 9,
+    "brightness_stdev": 59.7018,
+    "saturation_median": 160,
+    "saturation_stdev": 90.2802,
+    "hue_median": 10,
+    "hue_stdev": 86.4225
+  },
+  {
+    "filename": "122090-saturn.jpg",
+    "imageID": 157,
+    "brightness_median": 205,
+    "brightness_stdev": 76.5178,
+    "saturation_median": 25,
+    "saturation_stdev": 42.135,
+    "hue_median": 150,
+    "hue_stdev": 75.3692
+  },
+  {
+    "filename": "121321-generation-rx.jpg",
+    "imageID": 158,
+    "brightness_median": 0,
+    "brightness_stdev": 56.5528,
+    "saturation_median": 0,
+    "saturation_stdev": 71.6637,
+    "hue_median": 0,
+    "hue_stdev": 56.5908
+  },
+  {
+    "filename": "116026-ta13oo.jpg",
+    "imageID": 158,
+    "brightness_median": 0,
+    "brightness_stdev": 56.5528,
+    "saturation_median": 0,
+    "saturation_stdev": 71.6637,
+    "hue_median": 0,
+    "hue_stdev": 56.5908
+  },
+  {
+    "filename": "115177-know.jpg",
+    "imageID": 160,
+    "brightness_median": 238,
+    "brightness_stdev": 50.4144,
+    "saturation_median": 3,
+    "saturation_stdev": 96.4977,
+    "hue_median": 70,
+    "hue_stdev": 62.9648
+  },
+  {
+    "filename": "118492-secure.jpg",
+    "imageID": 161,
+    "brightness_median": 145,
+    "brightness_stdev": 59.6298,
+    "saturation_median": 206,
+    "saturation_stdev": 62.9778,
+    "hue_median": 14,
+    "hue_stdev": 73.1289
+  },
+  {
+    "filename": "113314-immortelle-1.jpg",
+    "imageID": 162,
+    "brightness_median": 14,
+    "brightness_stdev": 39.3422,
+    "saturation_median": 145,
+    "saturation_stdev": 42.866,
+    "hue_median": 42,
+    "hue_stdev": 34.8773
+  },
+  {
+    "filename": "124823-caution-1.jpg",
+    "imageID": 163,
+    "brightness_median": 127,
+    "brightness_stdev": 59.3861,
+    "saturation_median": 241,
+    "saturation_stdev": 44.7097,
+    "hue_median": 143,
+    "hue_stdev": 18.0686
+  },
+  {
+    "filename": "113234-marauder-1.jpg",
+    "imageID": 164,
+    "brightness_median": 76,
+    "brightness_stdev": 78.2381,
+    "saturation_median": 0,
+    "saturation_stdev": 45.5292,
+    "hue_median": 0,
+    "hue_stdev": 77.3367
+  },
+  {
+    "filename": "107022-church-of-scars.jpg",
+    "imageID": 165,
+    "brightness_median": 74,
+    "brightness_stdev": 66.4968,
+    "saturation_median": 93,
+    "saturation_stdev": 27.0045,
+    "hue_median": 146,
+    "hue_stdev": 59.954
+  },
+  {
+    "filename": "102554-heartbreak-kodak.jpg",
+    "imageID": 166,
+    "brightness_median": 233,
+    "brightness_stdev": 60.4624,
+    "saturation_median": 18,
+    "saturation_stdev": 56.7907,
+    "hue_median": 155,
+    "hue_stdev": 41.8525
+  },
+  {
+    "filename": "103155-speak-your-mind.jpg",
+    "imageID": 167,
+    "brightness_median": 144,
+    "brightness_stdev": 67.6836,
+    "saturation_median": 58,
+    "saturation_stdev": 47.9483,
+    "hue_median": 23,
+    "hue_stdev": 78.5262
+  },
+  {
+    "filename": "111554-testing.jpg",
+    "imageID": 168,
+    "brightness_median": 26,
+    "brightness_stdev": 97.8273,
+    "saturation_median": 0,
+    "saturation_stdev": 55.4472,
+    "hue_median": 0,
+    "hue_stdev": 70.2145
+  },
+  {
+    "filename": "120916-forever-neverland.jpg",
+    "imageID": 169,
+    "brightness_median": 158,
+    "brightness_stdev": 29.4446,
+    "saturation_median": 120,
+    "saturation_stdev": 33.819,
+    "hue_median": 169,
+    "hue_stdev": 53.6869
+  },
+  {
+    "filename": "120207-simulation-theory.jpg",
+    "imageID": 170,
+    "brightness_median": 130,
+    "brightness_stdev": 79.7848,
+    "saturation_median": 193,
+    "saturation_stdev": 69.5712,
+    "hue_median": 195,
+    "hue_stdev": 46.37
+  },
+  {
+    "filename": "126151-seasons-change.jpg",
+    "imageID": 171,
+    "brightness_median": 70,
+    "brightness_stdev": 39.6586,
+    "saturation_median": 37,
+    "saturation_stdev": 36.6064,
+    "hue_median": 42,
+    "hue_stdev": 93.5693
+  },
+  {
+    "filename": "126036-young-dangerous.jpg",
+    "imageID": 172,
+    "brightness_median": 51,
+    "brightness_stdev": 73.1254,
+    "saturation_median": 70,
+    "saturation_stdev": 62.948,
+    "hue_median": 27,
+    "hue_stdev": 53.1614
+  },
+  {
+    "filename": "99359-boarding-house-reach.jpg",
+    "imageID": 173,
+    "brightness_median": 151,
+    "brightness_stdev": 81.3403,
+    "saturation_median": 127,
+    "saturation_stdev": 97.2044,
+    "hue_median": 160,
+    "hue_stdev": 40.6466
+  },
+  {
+    "filename": "94248-avatar-country.jpg",
+    "imageID": 174,
+    "brightness_median": 88,
+    "brightness_stdev": 59.5086,
+    "saturation_median": 182,
+    "saturation_stdev": 59.4422,
+    "hue_median": 167,
+    "hue_stdev": 51.2867
+  },
+  {
+    "filename": "109740-come-tomorrow.jpg",
+    "imageID": 175,
+    "brightness_median": 22,
+    "brightness_stdev": 116.2789,
+    "saturation_median": 0,
+    "saturation_stdev": 29.0962,
+    "hue_median": 0,
+    "hue_stdev": 20.3427
+  },
+  {
+    "filename": "93151-grimmest-hits.jpg",
+    "imageID": 176,
+    "brightness_median": 118,
+    "brightness_stdev": 34.3966,
+    "saturation_median": 127,
+    "saturation_stdev": 37.111,
+    "hue_median": 48,
+    "hue_stdev": 20.8484
+  },
+  {
+    "filename": "120258-kamikaze.jpg",
+    "imageID": 177,
+    "brightness_median": 220,
+    "brightness_stdev": 61.1507,
+    "saturation_median": 33,
+    "saturation_stdev": 34.8304,
+    "hue_median": 31,
+    "hue_stdev": 45.9135
+  },
+  {
+    "filename": "104482-no-shame.jpg",
+    "imageID": 178,
+    "brightness_median": 176,
+    "brightness_stdev": 53.7469,
+    "saturation_median": 26,
+    "saturation_stdev": 31.4972,
+    "hue_median": 49,
+    "hue_stdev": 74.6975
+  },
+  {
+    "filename": "104623-treehouse.jpg",
+    "imageID": 179,
+    "brightness_median": 123,
+    "brightness_stdev": 61.399,
+    "saturation_median": 124,
+    "saturation_stdev": 66.2235,
+    "hue_median": 72,
+    "hue_stdev": 52.3356
+  },
+  {
+    "filename": "121354-blood-red-roses.jpg",
+    "imageID": 180,
+    "brightness_median": 245,
+    "brightness_stdev": 62.2722,
+    "saturation_median": 12,
+    "saturation_stdev": 85.9004,
+    "hue_median": 8,
+    "hue_stdev": 51.0392
+  },
+  {
+    "filename": "96477-space-gun-1.jpg",
+    "imageID": 181,
+    "brightness_median": 144,
+    "brightness_stdev": 59.033,
+    "saturation_median": 79,
+    "saturation_stdev": 34.2624,
+    "hue_median": 35,
+    "hue_stdev": 22.8065
+  },
+  {
+    "filename": "94015-ember.jpg",
+    "imageID": 182,
+    "brightness_median": 87,
+    "brightness_stdev": 57.1462,
+    "saturation_median": 94,
+    "saturation_stdev": 63.9075,
+    "hue_median": 15,
+    "hue_stdev": 84.8572
+  },
+  {
+    "filename": "107136-quand-tout-recommence.jpg",
+    "imageID": 183,
+    "brightness_median": 237,
+    "brightness_stdev": 49.7247,
+    "saturation_median": 0,
+    "saturation_stdev": 53.7056,
+    "hue_median": 0,
+    "hue_stdev": 82.9405
+  },
+  {
+    "filename": "127155-dicaprio-2-1.jpg",
+    "imageID": 184,
+    "brightness_median": 56,
+    "brightness_stdev": 76.6717,
+    "saturation_median": 42,
+    "saturation_stdev": 41.66,
+    "hue_median": 154,
+    "hue_stdev": 77.2445
+  },
+  {
+    "filename": "93179-always-ascending-1.jpg",
+    "imageID": 185,
+    "brightness_median": 14,
+    "brightness_stdev": 41.8116,
+    "saturation_median": 54,
+    "saturation_stdev": 42.2917,
+    "hue_median": 170,
+    "hue_stdev": 37.0406
+  },
+  {
+    "filename": "122027-down-the-road-wherever.jpg",
+    "imageID": 186,
+    "brightness_median": 144,
+    "brightness_stdev": 44.2277,
+    "saturation_median": 41,
+    "saturation_stdev": 48.5109,
+    "hue_median": 145,
+    "hue_stdev": 58.2734
+  },
+  {
+    "filename": "98638-man-of-the-woods.jpg",
+    "imageID": 187,
+    "brightness_median": 237,
+    "brightness_stdev": 54.6116,
+    "saturation_median": 193,
+    "saturation_stdev": 89.5989,
+    "hue_median": 14,
+    "hue_stdev": 64.5693
+  },
+  {
+    "filename": "124853-love.jpg",
+    "imageID": 188,
+    "brightness_median": 56,
+    "brightness_stdev": 50.1782,
+    "saturation_median": 113,
+    "saturation_stdev": 38.604,
+    "hue_median": 161,
+    "hue_stdev": 101.2964
+  },
+  {
+    "filename": "95553-you-are-someone-else.jpg",
+    "imageID": 189,
+    "brightness_median": 174,
+    "brightness_stdev": 63.4333,
+    "saturation_median": 129,
+    "saturation_stdev": 58.0681,
+    "hue_median": 24,
+    "hue_stdev": 88.6895
+  },
+  {
+    "filename": "120147-ysiv.jpg",
+    "imageID": 190,
+    "brightness_median": 124,
+    "brightness_stdev": 71.0102,
+    "saturation_median": 0,
+    "saturation_stdev": 0.2107,
+    "hue_median": 0,
+    "hue_stdev": 5.216
+  },
+  {
+    "filename": "126812-i-used-to-know-her-part-2-ep.jpg",
+    "imageID": 191,
+    "brightness_median": 107,
+    "brightness_stdev": 60.8197,
+    "saturation_median": 51,
+    "saturation_stdev": 62.0795,
+    "hue_median": 15,
+    "hue_stdev": 67.6803
+  },
+  {
+    "filename": "116881-summer-nights.jpg",
+    "imageID": 192,
+    "brightness_median": 100,
+    "brightness_stdev": 76.6566,
+    "saturation_median": 136,
+    "saturation_stdev": 61.8728,
+    "hue_median": 21,
+    "hue_stdev": 53.1601
+  },
+  {
+    "filename": "113881-nasty.jpg",
+    "imageID": 193,
+    "brightness_median": 114,
+    "brightness_stdev": 92.4074,
+    "saturation_median": 141,
+    "saturation_stdev": 68.5483,
+    "hue_median": 147,
+    "hue_stdev": 75.6435
+  },
+  {
+    "filename": "108312-coup-de-grace.jpg",
+    "imageID": 194,
+    "brightness_median": 99,
+    "brightness_stdev": 72.1174,
+    "saturation_median": 137,
+    "saturation_stdev": 58.1383,
+    "hue_median": 164,
+    "hue_stdev": 54.1408
+  },
+  {
+    "filename": "109937-free-yourself-up.jpg",
+    "imageID": 195,
+    "brightness_median": 246,
+    "brightness_stdev": 45.6843,
+    "saturation_median": 16,
+    "saturation_stdev": 20.0362,
+    "hue_median": 31,
+    "hue_stdev": 8.4288
+  },
+  {
+    "filename": "95543-by-the-way-i-forgive-you.jpg",
+    "imageID": 196,
+    "brightness_median": 16,
+    "brightness_stdev": 28.7974,
+    "saturation_median": 72,
+    "saturation_stdev": 37.5518,
+    "hue_median": 42,
+    "hue_stdev": 17.1964
+  },
+  {
+    "filename": "123707-malibu-nights.jpg",
+    "imageID": 197,
+    "brightness_median": 212,
+    "brightness_stdev": 5.8527,
+    "saturation_median": 225,
+    "saturation_stdev": 14.4321,
+    "hue_median": 241,
+    "hue_stdev": 31.2232
+  },
+  {
+    "filename": "99126-american-utopia.jpg",
+    "imageID": 198,
+    "brightness_median": 244,
+    "brightness_stdev": 73.3085,
+    "saturation_median": 0,
+    "saturation_stdev": 72.5372,
+    "hue_median": 0,
+    "hue_stdev": 70.6503
+  },
+  {
+    "filename": "110568-bad-witch-1.jpg",
+    "imageID": 199,
+    "brightness_median": 236,
+    "brightness_stdev": 77.3698,
+    "saturation_median": 5,
+    "saturation_stdev": 2.7995,
+    "hue_median": 51,
+    "hue_stdev": 25.1075
+  },
+  {
+    "filename": "113158-hunter.jpg",
+    "imageID": 200,
+    "brightness_median": 142,
+    "brightness_stdev": 59.8476,
+    "saturation_median": 204,
+    "saturation_stdev": 69.8794,
+    "hue_median": 18,
+    "hue_stdev": 114.1296
+  },
+  {
+    "filename": "91529-voicenotes-1.jpg",
+    "imageID": 201,
+    "brightness_median": 40,
+    "brightness_stdev": 52.6467,
+    "saturation_median": 74,
+    "saturation_stdev": 73.6613,
+    "hue_median": 106,
+    "hue_stdev": 86.6606
+  },
+  {
+    "filename": "90121-the-time-is-now.jpg",
+    "imageID": 202,
+    "brightness_median": 20,
+    "brightness_stdev": 63.1325,
+    "saturation_median": 120,
+    "saturation_stdev": 53.5542,
+    "hue_median": 26,
+    "hue_stdev": 36.0746
+  },
+  {
+    "filename": "119752-7.jpg",
+    "imageID": 203,
+    "brightness_median": 149,
+    "brightness_stdev": 90.9357,
+    "saturation_median": 77,
+    "saturation_stdev": 76.4878,
+    "hue_median": 35,
+    "hue_stdev": 74.9224
+  },
+  {
+    "filename": "125620-masters-of-the-sun-vol-1-1.jpg",
+    "imageID": 203,
+    "brightness_median": 149,
+    "brightness_stdev": 90.9357,
+    "saturation_median": 77,
+    "saturation_stdev": 76.4878,
+    "hue_median": 35,
+    "hue_stdev": 74.9224
+  },
+  {
+    "filename": "101950-sex-food.jpg",
+    "imageID": 205,
+    "brightness_median": 195,
+    "brightness_stdev": 53.4761,
+    "saturation_median": 32,
+    "saturation_stdev": 40.629,
+    "hue_median": 143,
+    "hue_stdev": 26.2841
+  },
+  {
+    "filename": "114439-still-run.jpg",
+    "imageID": 206,
+    "brightness_median": 91,
+    "brightness_stdev": 81.1626,
+    "saturation_median": 172,
+    "saturation_stdev": 35.6568,
+    "hue_median": 11,
+    "hue_stdev": 25.7548
+  },
+  {
+    "filename": "103646-love-is-dead.jpg",
+    "imageID": 207,
+    "brightness_median": 194,
+    "brightness_stdev": 64.5839,
+    "saturation_median": 199,
+    "saturation_stdev": 59.3156,
+    "hue_median": 214,
+    "hue_stdev": 87.3226
+  },
+  {
+    "filename": "100756-post-traumatic.jpg",
+    "imageID": 208,
+    "brightness_median": 70,
+    "brightness_stdev": 40.0031,
+    "saturation_median": 45,
+    "saturation_stdev": 22.6457,
+    "hue_median": 19,
+    "hue_stdev": 18.3577
+  },
+  {
+    "filename": "121515-shiny-and-oh-so-bright-vol-1-lp-no-past-no-future-no-sun.jpg",
+    "imageID": 209,
+    "brightness_median": 92,
+    "brightness_stdev": 83.2384,
+    "saturation_median": 65,
+    "saturation_stdev": 41.7737,
+    "hue_median": 28,
+    "hue_stdev": 85.5302
+  },
+  {
+    "filename": "106020-invasion-of-privacy-1.jpg",
+    "imageID": 210,
+    "brightness_median": 122,
+    "brightness_stdev": 85.7375,
+    "saturation_median": 170,
+    "saturation_stdev": 88.2302,
+    "hue_median": 138,
+    "hue_stdev": 56.9158
+  },
+  {
+    "filename": "89582-pounding-the-pavement.jpg",
+    "imageID": 211,
+    "brightness_median": 132,
+    "brightness_stdev": 84.4131,
+    "saturation_median": 135,
+    "saturation_stdev": 57.9602,
+    "hue_median": 15,
+    "hue_stdev": 49.0724
+  },
+  {
+    "filename": "107061-tranquility-base-hotel-casino.jpg",
+    "imageID": 212,
+    "brightness_median": 22,
+    "brightness_stdev": 79.3624,
+    "saturation_median": 102,
+    "saturation_stdev": 43.6609,
+    "hue_median": 26,
+    "hue_stdev": 13.2988
+  },
+  {
+    "filename": "116648-head-in-the-clouds.jpg",
+    "imageID": 213,
+    "brightness_median": 242,
+    "brightness_stdev": 33.9381,
+    "saturation_median": 5,
+    "saturation_stdev": 38.7891,
+    "hue_median": 198,
+    "hue_stdev": 89.991
+  },
+  {
+    "filename": "116099-night-day-day-edition.jpg",
+    "imageID": 214,
+    "brightness_median": 235,
+    "brightness_stdev": 102.779,
+    "saturation_median": 98,
+    "saturation_stdev": 37.3195,
+    "hue_median": 19,
+    "hue_stdev": 32.5554
+  },
+  {
+    "filename": "104941-sex-cigarettes-1.jpg",
+    "imageID": 215,
+    "brightness_median": 177,
+    "brightness_stdev": 82.301,
+    "saturation_median": 21,
+    "saturation_stdev": 33.1379,
+    "hue_median": 7,
+    "hue_stdev": 104.1588
+  },
+  {
+    "filename": "119561-lake-effect-kid-1.jpg",
+    "imageID": 216,
+    "brightness_median": 192,
+    "brightness_stdev": 84.6918,
+    "saturation_median": 34,
+    "saturation_stdev": 49.8507,
+    "hue_median": 170,
+    "hue_stdev": 67.6362
+  },
+  {
+    "filename": "103868-when-legends-rise.jpg",
+    "imageID": 217,
+    "brightness_median": 234,
+    "brightness_stdev": 29.2276,
+    "saturation_median": 0,
+    "saturation_stdev": 6.8419,
+    "hue_median": 0,
+    "hue_stdev": 38.3607
+  },
+  {
+    "filename": "98546-post-.jpg",
+    "imageID": 218,
+    "brightness_median": 126,
+    "brightness_stdev": 67.2661,
+    "saturation_median": 50,
+    "saturation_stdev": 22.1462,
+    "hue_median": 136,
+    "hue_stdev": 4.3821
+  },
+  {
+    "filename": "120060-bridges.jpg",
+    "imageID": 219,
+    "brightness_median": 236,
+    "brightness_stdev": 74.258,
+    "saturation_median": 204,
+    "saturation_stdev": 71.6895,
+    "hue_median": 26,
+    "hue_stdev": 107.9308
+  },
+  {
+    "filename": "134399-hood-baby.jpg",
+    "imageID": 220,
+    "brightness_median": 87,
+    "brightness_stdev": 100.5228,
+    "saturation_median": 0,
+    "saturation_stdev": 47.2948,
+    "hue_median": 0,
+    "hue_stdev": 33.6248
+  },
+  {
+    "filename": "130589-the-special-ones.jpg",
+    "imageID": 221,
+    "brightness_median": 188,
+    "brightness_stdev": 51.124,
+    "saturation_median": 58,
+    "saturation_stdev": 38.8154,
+    "hue_median": 21,
+    "hue_stdev": 18.9402
+  },
+  {
+    "filename": "112926-dictator.jpg",
+    "imageID": 222,
+    "brightness_median": 4,
+    "brightness_stdev": 84.3656,
+    "saturation_median": 0,
+    "saturation_stdev": 105.3661,
+    "hue_median": 0,
+    "hue_stdev": 100.1295
+  },
+  {
+    "filename": "95150-lie.jpg",
+    "imageID": 223,
+    "brightness_median": 8,
+    "brightness_stdev": 109.3564,
+    "saturation_median": 0,
+    "saturation_stdev": 106.6657,
+    "hue_median": 0,
+    "hue_stdev": 62.35
+  },
+  {
+    "filename": "105688-year-of-the-snitch-1.jpg",
+    "imageID": 224,
+    "brightness_median": 90,
+    "brightness_stdev": 49.1246,
+    "saturation_median": 42,
+    "saturation_stdev": 48.7276,
+    "hue_median": 59,
+    "hue_stdev": 38.9493
+  },
+  {
+    "filename": "126783-walls.jpg",
+    "imageID": 225,
+    "brightness_median": 31,
+    "brightness_stdev": 43.4319,
+    "saturation_median": 29,
+    "saturation_stdev": 67.5054,
+    "hue_median": 85,
+    "hue_stdev": 81.5928
+  },
+  {
+    "filename": "125299-blood-remixed.jpg",
+    "imageID": 226,
+    "brightness_median": 46,
+    "brightness_stdev": 48.2306,
+    "saturation_median": 35,
+    "saturation_stdev": 10.2109,
+    "hue_median": 0,
+    "hue_stdev": 24.1466
+  },
+  {
+    "filename": "114175-joytime-ii.jpg",
+    "imageID": 227,
+    "brightness_median": 226,
+    "brightness_stdev": 54.5355,
+    "saturation_median": 69,
+    "saturation_stdev": 72.6102,
+    "hue_median": 133,
+    "hue_stdev": 88.5802
+  },
+  {
+    "filename": "100666-staying-at-tamaras.jpg",
+    "imageID": 228,
+    "brightness_median": 90,
+    "brightness_stdev": 66.0606,
+    "saturation_median": 152,
+    "saturation_stdev": 58.3661,
+    "hue_median": 24,
+    "hue_stdev": 60.9693
+  },
+  {
+    "filename": "118943-slime-language.jpg",
+    "imageID": 229,
+    "brightness_median": 217,
+    "brightness_stdev": 47.63,
+    "saturation_median": 0,
+    "saturation_stdev": 32.8068,
+    "hue_median": 0,
+    "hue_stdev": 67.1531
+  },
+  {
+    "filename": "101095-be-more-kind.jpg",
+    "imageID": 230,
+    "brightness_median": 238,
+    "brightness_stdev": 37.562,
+    "saturation_median": 6,
+    "saturation_stdev": 5.772,
+    "hue_median": 34,
+    "hue_stdev": 11.3232
+  },
+  {
+    "filename": "108538-bigger.jpg",
+    "imageID": 231,
+    "brightness_median": 6,
+    "brightness_stdev": 97.0531,
+    "saturation_median": 71,
+    "saturation_stdev": 99.6514,
+    "hue_median": 14,
+    "hue_stdev": 91.8263
+  },
+  {
+    "filename": "119747-brava.jpg",
+    "imageID": 232,
+    "brightness_median": 197,
+    "brightness_stdev": 65.7695,
+    "saturation_median": 117,
+    "saturation_stdev": 65.0421,
+    "hue_median": 132,
+    "hue_stdev": 89.7896
+  },
+  {
+    "filename": "95655-youre-not-alone.jpg",
+    "imageID": 233,
+    "brightness_median": 70,
+    "brightness_stdev": 45.439,
+    "saturation_median": 111,
+    "saturation_stdev": 57.0716,
+    "hue_median": 124,
+    "hue_stdev": 43.7946
+  },
+  {
+    "filename": "125285-life-suckslets-dance.jpg",
+    "imageID": 234,
+    "brightness_median": 151,
+    "brightness_stdev": 65.0062,
+    "saturation_median": 159,
+    "saturation_stdev": 82.8502,
+    "hue_median": 106,
+    "hue_stdev": 53.5161
+  },
+  {
+    "filename": "107615-tko-the-knock-out.jpg",
+    "imageID": 235,
+    "brightness_median": 23,
+    "brightness_stdev": 78.5001,
+    "saturation_median": 147,
+    "saturation_stdev": 53.2155,
+    "hue_median": 13,
+    "hue_stdev": 65.0341
+  },
+  {
+    "filename": "124673-golden.jpg",
+    "imageID": 236,
+    "brightness_median": 219,
+    "brightness_stdev": 65.0968,
+    "saturation_median": 252,
+    "saturation_stdev": 48.9693,
+    "hue_median": 29,
+    "hue_stdev": 110.396
+  },
+  {
+    "filename": "116602-no-tourists.jpg",
+    "imageID": 237,
+    "brightness_median": 6,
+    "brightness_stdev": 37.553,
+    "saturation_median": 83,
+    "saturation_stdev": 85.0331,
+    "hue_median": 154,
+    "hue_stdev": 79.5097
+  },
+  {
+    "filename": "104809-good-thing-1.jpg",
+    "imageID": 238,
+    "brightness_median": 33,
+    "brightness_stdev": 55.2912,
+    "saturation_median": 170,
+    "saturation_stdev": 29.2319,
+    "hue_median": 11,
+    "hue_stdev": 45.0109
+  },
+  {
+    "filename": "117838-jake-shears.jpg",
+    "imageID": 239,
+    "brightness_median": 45,
+    "brightness_stdev": 51.7279,
+    "saturation_median": 72,
+    "saturation_stdev": 42.5915,
+    "hue_median": 34,
+    "hue_stdev": 20.2748
+  },
+  {
+    "filename": "102474-if-there-is-light-it-will-find-you.jpg",
+    "imageID": 240,
+    "brightness_median": 72,
+    "brightness_stdev": 94.0762,
+    "saturation_median": 53,
+    "saturation_stdev": 44.526,
+    "hue_median": 106,
+    "hue_stdev": 87.2913
+  },
+  {
+    "filename": "115900-tpc.jpg",
+    "imageID": 241,
+    "brightness_median": 124,
+    "brightness_stdev": 61.6165,
+    "saturation_median": 80,
+    "saturation_stdev": 45.3282,
+    "hue_median": 30,
+    "hue_stdev": 57.5315
+  },
+  {
+    "filename": "99089-nation-of-two.jpg",
+    "imageID": 242,
+    "brightness_median": 255,
+    "brightness_stdev": 22.5773,
+    "saturation_median": 0,
+    "saturation_stdev": 15.1347,
+    "hue_median": 0,
+    "hue_stdev": 45.713
+  },
+  {
+    "filename": "124847-hymn.jpg",
+    "imageID": 243,
+    "brightness_median": 131,
+    "brightness_stdev": 75.5818,
+    "saturation_median": 62,
+    "saturation_stdev": 57.2218,
+    "hue_median": 28,
+    "hue_stdev": 45.4031
+  },
+  {
+    "filename": "115509-survive-the-summer.jpg",
+    "imageID": 244,
+    "brightness_median": 13,
+    "brightness_stdev": 48.773,
+    "saturation_median": 0,
+    "saturation_stdev": 76.0186,
+    "hue_median": 0,
+    "hue_stdev": 48.54
+  },
+  {
+    "filename": "94893-ivory.jpg",
+    "imageID": 245,
+    "brightness_median": 189,
+    "brightness_stdev": 79.6054,
+    "saturation_median": 0,
+    "saturation_stdev": 1.2973,
+    "hue_median": 0,
+    "hue_stdev": 10.0849
+  },
+  {
+    "filename": "98727-superorganism.jpg",
+    "imageID": 246,
+    "brightness_median": 86,
+    "brightness_stdev": 43.5652,
+    "saturation_median": 216,
+    "saturation_stdev": 56.1417,
+    "hue_median": 122,
+    "hue_stdev": 24.4375
+  },
+  {
+    "filename": "104432-bobby-tarantino-ii.jpg",
+    "imageID": 247,
+    "brightness_median": 134,
+    "brightness_stdev": 59.2176,
+    "saturation_median": 145,
+    "saturation_stdev": 45.5753,
+    "hue_median": 128,
+    "hue_stdev": 85.4848
+  },
+  {
+    "filename": "113593-joy-as-an-act-of-resistance.jpg",
+    "imageID": 248,
+    "brightness_median": 175,
+    "brightness_stdev": 58.9467,
+    "saturation_median": 46,
+    "saturation_stdev": 44.3378,
+    "hue_median": 19,
+    "hue_stdev": 91.2444
+  },
+  {
+    "filename": "108218-gods-favorite-customer.jpg",
+    "imageID": 249,
+    "brightness_median": 65,
+    "brightness_stdev": 79.7277,
+    "saturation_median": 141,
+    "saturation_stdev": 55.3368,
+    "hue_median": 135,
+    "hue_stdev": 59.7084
+  },
+  {
+    "filename": "129855-nature.jpg",
+    "imageID": 250,
+    "brightness_median": 195,
+    "brightness_stdev": 46.0921,
+    "saturation_median": 42,
+    "saturation_stdev": 61.2099,
+    "hue_median": 127,
+    "hue_stdev": 56.4346
+  },
+  {
+    "filename": "98737-ephorize.jpg",
+    "imageID": 251,
+    "brightness_median": 142,
+    "brightness_stdev": 66.0379,
+    "saturation_median": 188,
+    "saturation_stdev": 88.038,
+    "hue_median": 152,
+    "hue_stdev": 22.1437
+  },
+  {
+    "filename": "111238-rose.jpg",
+    "imageID": 252,
+    "brightness_median": 45,
+    "brightness_stdev": 40.8946,
+    "saturation_median": 0,
+    "saturation_stdev": 28.2687,
+    "hue_median": 0,
+    "hue_stdev": 79.5836
+  },
+  {
+    "filename": "118990-evolution-1.jpg",
+    "imageID": 253,
+    "brightness_median": 48,
+    "brightness_stdev": 55.4264,
+    "saturation_median": 240,
+    "saturation_stdev": 31.4944,
+    "hue_median": 130,
+    "hue_stdev": 10.8629
+  },
+  {
+    "filename": "128516-championships.jpg",
+    "imageID": 254,
+    "brightness_median": 68,
+    "brightness_stdev": 62.401,
+    "saturation_median": 127,
+    "saturation_stdev": 84.8582,
+    "hue_median": 123,
+    "hue_stdev": 42.1419
+  },
+  {
+    "filename": "121525-rocket.jpg",
+    "imageID": 255,
+    "brightness_median": 72,
+    "brightness_stdev": 43.4937,
+    "saturation_median": 237,
+    "saturation_stdev": 50.8502,
+    "hue_median": 183,
+    "hue_stdev": 21.8803
+  },
+  {
+    "filename": "114929-cleave.jpg",
+    "imageID": 256,
+    "brightness_median": 136,
+    "brightness_stdev": 48.8496,
+    "saturation_median": 13,
+    "saturation_stdev": 69.233,
+    "hue_median": 145,
+    "hue_stdev": 73.6653
+  },
+  {
+    "filename": "105105-yesterday-was-forever.jpg",
+    "imageID": 257,
+    "brightness_median": 146,
+    "brightness_stdev": 51.86,
+    "saturation_median": 76,
+    "saturation_stdev": 54.4289,
+    "hue_median": 133,
+    "hue_stdev": 64.768
+  },
+  {
+    "filename": "99029-everyone-afraid-to-be-forgotten.jpg",
+    "imageID": 258,
+    "brightness_median": 44,
+    "brightness_stdev": 37.911,
+    "saturation_median": 96,
+    "saturation_stdev": 70.2634,
+    "hue_median": 146,
+    "hue_stdev": 25.4236
+  },
+  {
+    "filename": "107618-expectations.jpg",
+    "imageID": 258,
+    "brightness_median": 44,
+    "brightness_stdev": 37.911,
+    "saturation_median": 96,
+    "saturation_stdev": 70.2634,
+    "hue_median": 146,
+    "hue_stdev": 25.4236
+  },
+  {
+    "filename": "105261-28-days-in-the-valley.jpg",
+    "imageID": 260,
+    "brightness_median": 70,
+    "brightness_stdev": 83.0747,
+    "saturation_median": 182,
+    "saturation_stdev": 82.8584,
+    "hue_median": 7,
+    "hue_stdev": 88.3663
+  },
+  {
+    "filename": "104529-year-of-the-tiger.jpg",
+    "imageID": 261,
+    "brightness_median": 6,
+    "brightness_stdev": 54.9826,
+    "saturation_median": 0,
+    "saturation_stdev": 17.4066,
+    "hue_median": 0,
+    "hue_stdev": 15.7715
+  },
+  {
+    "filename": "120327-still-cyco-punk-after-all-these-years.jpg",
+    "imageID": 262,
+    "brightness_median": 26,
+    "brightness_stdev": 78.5119,
+    "saturation_median": 0,
+    "saturation_stdev": 6.067,
+    "hue_median": 0,
+    "hue_stdev": 20.0336
+  },
+  {
+    "filename": "128536-different-world.jpg",
+    "imageID": 263,
+    "brightness_median": 128,
+    "brightness_stdev": 63.1873,
+    "saturation_median": 103,
+    "saturation_stdev": 34.5284,
+    "hue_median": 31,
+    "hue_stdev": 52.4637
+  },
+  {
+    "filename": "134346-pop-heart.jpg",
+    "imageID": 264,
+    "brightness_median": 225,
+    "brightness_stdev": 71.9281,
+    "saturation_median": 0,
+    "saturation_stdev": 91.1788,
+    "hue_median": 0,
+    "hue_stdev": 75.639
+  },
+  {
+    "filename": "110552-lost-souls.jpg",
+    "imageID": 265,
+    "brightness_median": 201,
+    "brightness_stdev": 59.8858,
+    "saturation_median": 94,
+    "saturation_stdev": 56.3209,
+    "hue_median": 28,
+    "hue_stdev": 6.2825
+  },
+  {
+    "filename": "13726-tha-carter-v-1.jpg",
+    "imageID": 266,
+    "brightness_median": 41,
+    "brightness_stdev": 88.9104,
+    "saturation_median": 215,
+    "saturation_stdev": 104.3594,
+    "hue_median": 4,
+    "hue_stdev": 98.6236
+  },
+  {
+    "filename": "123754-nao-para-nao.jpg",
+    "imageID": 267,
+    "brightness_median": 214,
+    "brightness_stdev": 23.3601,
+    "saturation_median": 85,
+    "saturation_stdev": 41.5415,
+    "hue_median": 136,
+    "hue_stdev": 57.7232
+  },
+  {
+    "filename": "118881-onepointfive.jpg",
+    "imageID": 268,
+    "brightness_median": 115,
+    "brightness_stdev": 55.1786,
+    "saturation_median": 51,
+    "saturation_stdev": 45.8238,
+    "hue_median": 73,
+    "hue_stdev": 56.6273
+  },
+  {
+    "filename": "94607-no-cross-no-crown.jpg",
+    "imageID": 269,
+    "brightness_median": 79,
+    "brightness_stdev": 47.7678,
+    "saturation_median": 86,
+    "saturation_stdev": 58.6605,
+    "hue_median": 23,
+    "hue_stdev": 101.0082
+  },
+  {
+    "filename": "109167-wild-wild-wonderland.jpg",
+    "imageID": 270,
+    "brightness_median": 181,
+    "brightness_stdev": 69.4915,
+    "saturation_median": 172,
+    "saturation_stdev": 69.4751,
+    "hue_median": 184,
+    "hue_stdev": 91.4214
+  },
+  {
+    "filename": "121336-the-wake.jpg",
+    "imageID": 271,
+    "brightness_median": 147,
+    "brightness_stdev": 80.0817,
+    "saturation_median": 232,
+    "saturation_stdev": 92.181,
+    "hue_median": 7,
+    "hue_stdev": 95.3257
+  },
+  {
+    "filename": "103203-golden-hour.jpg",
+    "imageID": 272,
+    "brightness_median": 186,
+    "brightness_stdev": 41.1447,
+    "saturation_median": 194,
+    "saturation_stdev": 68.8128,
+    "hue_median": 140,
+    "hue_stdev": 64.7117
+  },
+  {
+    "filename": "99928-new-material.jpg",
+    "imageID": 272,
+    "brightness_median": 186,
+    "brightness_stdev": 41.1447,
+    "saturation_median": 194,
+    "saturation_stdev": 68.8128,
+    "hue_median": 140,
+    "hue_stdev": 64.7117
+  },
+  {
+    "filename": "104595-attention-attention.jpg",
+    "imageID": 274,
+    "brightness_median": 255,
+    "brightness_stdev": 90.6327,
+    "saturation_median": 255,
+    "saturation_stdev": 37.9665,
+    "hue_median": 33,
+    "hue_stdev": 10.7752
+  },
+  {
+    "filename": "127773-atlantico.jpg",
+    "imageID": 275,
+    "brightness_median": 33,
+    "brightness_stdev": 43.2993,
+    "saturation_median": 163,
+    "saturation_stdev": 49.5999,
+    "hue_median": 157,
+    "hue_stdev": 26.2225
+  },
+  {
+    "filename": "115402-stripped.jpg",
+    "imageID": 276,
+    "brightness_median": 65,
+    "brightness_stdev": 49.856,
+    "saturation_median": 199,
+    "saturation_stdev": 50.1386,
+    "hue_median": 216,
+    "hue_stdev": 86.2297
+  },
+  {
+    "filename": "125375-dancing-shadows.jpg",
+    "imageID": 277,
+    "brightness_median": 17,
+    "brightness_stdev": 46.3864,
+    "saturation_median": 170,
+    "saturation_stdev": 67.2235,
+    "hue_median": 170,
+    "hue_stdev": 85.3446
+  },
+  {
+    "filename": "117944-elephants-on-acid.jpg",
+    "imageID": 278,
+    "brightness_median": 83,
+    "brightness_stdev": 44.915,
+    "saturation_median": 88,
+    "saturation_stdev": 28.4105,
+    "hue_median": 153,
+    "hue_stdev": 12.2895
+  },
+  {
+    "filename": "93926-pop-evil.jpg",
+    "imageID": 278,
+    "brightness_median": 83,
+    "brightness_stdev": 44.915,
+    "saturation_median": 88,
+    "saturation_stdev": 28.4105,
+    "hue_median": 153,
+    "hue_stdev": 12.2895
+  },
+  {
+    "filename": "107888-sacrifices.jpg",
+    "imageID": 280,
+    "brightness_median": 243,
+    "brightness_stdev": 59.9193,
+    "saturation_median": 5,
+    "saturation_stdev": 55.5171,
+    "hue_median": 34,
+    "hue_stdev": 58.4392
+  },
+  {
+    "filename": "107617-noonday-dream.jpg",
+    "imageID": 281,
+    "brightness_median": 161,
+    "brightness_stdev": 42.6097,
+    "saturation_median": 75,
+    "saturation_stdev": 26.4631,
+    "hue_median": 28,
+    "hue_stdev": 2.7931
+  },
+  {
+    "filename": "98853-firepower-1.jpg",
+    "imageID": 282,
+    "brightness_median": 198,
+    "brightness_stdev": 61.1953,
+    "saturation_median": 182,
+    "saturation_stdev": 57.6623,
+    "hue_median": 30,
+    "hue_stdev": 100.4512
+  },
+  {
+    "filename": "126723-interstate-gospel.jpg",
+    "imageID": 283,
+    "brightness_median": 92,
+    "brightness_stdev": 52.8077,
+    "saturation_median": 136,
+    "saturation_stdev": 48.1002,
+    "hue_median": 26,
+    "hue_stdev": 21.3016
+  },
+  {
+    "filename": "114263-egypt-station.jpg",
+    "imageID": 284,
+    "brightness_median": 214,
+    "brightness_stdev": 59.4287,
+    "saturation_median": 107,
+    "saturation_stdev": 69.587,
+    "hue_median": 37,
+    "hue_stdev": 79.456
+  },
+  {
+    "filename": "93684-room-inside-the-world.jpg",
+    "imageID": 285,
+    "brightness_median": 122,
+    "brightness_stdev": 41.4607,
+    "saturation_median": 74,
+    "saturation_stdev": 20.1232,
+    "hue_median": 159,
+    "hue_stdev": 12.4044
+  },
+  {
+    "filename": "121143-the-anteroom.jpg",
+    "imageID": 285,
+    "brightness_median": 122,
+    "brightness_stdev": 41.4607,
+    "saturation_median": 74,
+    "saturation_stdev": 20.1232,
+    "hue_median": 159,
+    "hue_stdev": 12.4044
+  },
+  {
+    "filename": "114925-rainier-fog.jpg",
+    "imageID": 287,
+    "brightness_median": 2,
+    "brightness_stdev": 71.7808,
+    "saturation_median": 0,
+    "saturation_stdev": 19.7692,
+    "hue_median": 0,
+    "hue_stdev": 22.6419
+  },
+  {
+    "filename": "116128-souldier.jpg",
+    "imageID": 288,
+    "brightness_median": 218,
+    "brightness_stdev": 29.3414,
+    "saturation_median": 194,
+    "saturation_stdev": 62.5562,
+    "hue_median": 148,
+    "hue_stdev": 17.7633
+  },
+  {
+    "filename": "119267-under-my-skin.jpg",
+    "imageID": 288,
+    "brightness_median": 218,
+    "brightness_stdev": 29.3414,
+    "saturation_median": 194,
+    "saturation_stdev": 62.5562,
+    "hue_median": 148,
+    "hue_stdev": 17.7633
+  },
+  {
+    "filename": "117813-finding-it-hard-to-smile.jpg",
+    "imageID": 290,
+    "brightness_median": 255,
+    "brightness_stdev": 21.3706,
+    "saturation_median": 1,
+    "saturation_stdev": 108.5771,
+    "hue_median": 0,
+    "hue_stdev": 118.7963
+  },
+  {
+    "filename": "125123-wrld-on-drugs-1.jpg",
+    "imageID": 291,
+    "brightness_median": 234,
+    "brightness_stdev": 62.2105,
+    "saturation_median": 39,
+    "saturation_stdev": 63.6319,
+    "hue_median": 36,
+    "hue_stdev": 92.4314
+  },
+  {
+    "filename": "111162-hive-mind.jpg",
+    "imageID": 292,
+    "brightness_median": 231,
+    "brightness_stdev": 59.946,
+    "saturation_median": 2,
+    "saturation_stdev": 56.2034,
+    "hue_median": 42,
+    "hue_stdev": 87.8666
+  },
+  {
+    "filename": "100481-get-your-fight-on.jpg",
+    "imageID": 293,
+    "brightness_median": 34,
+    "brightness_stdev": 95.1984,
+    "saturation_median": 0,
+    "saturation_stdev": 61.1759,
+    "hue_median": 0,
+    "hue_stdev": 58.3898
+  },
+  {
+    "filename": "103051-lil-boat-2-1.jpg",
+    "imageID": 294,
+    "brightness_median": 195,
+    "brightness_stdev": 83.3979,
+    "saturation_median": 170,
+    "saturation_stdev": 33.7239,
+    "hue_median": 10,
+    "hue_stdev": 49.8317
+  },
+  {
+    "filename": "98601-amen-1.jpg",
+    "imageID": 295,
+    "brightness_median": 193,
+    "brightness_stdev": 44.7814,
+    "saturation_median": 81,
+    "saturation_stdev": 37.2042,
+    "hue_median": 22,
+    "hue_stdev": 67.3091
+  },
+  {
+    "filename": "111789-raise-vibration.jpg",
+    "imageID": 296,
+    "brightness_median": 206,
+    "brightness_stdev": 30.2792,
+    "saturation_median": 33,
+    "saturation_stdev": 55.4596,
+    "hue_median": 148,
+    "hue_stdev": 84.9917
+  },
+  {
+    "filename": "107556-kazuashita.jpg",
+    "imageID": 297,
+    "brightness_median": 202,
+    "brightness_stdev": 26.8268,
+    "saturation_median": 198,
+    "saturation_stdev": 21.6453,
+    "hue_median": 8,
+    "hue_stdev": 124.7651
+  },
+  {
+    "filename": "122237-phoenix.jpg",
+    "imageID": 298,
+    "brightness_median": 202,
+    "brightness_stdev": 51.594,
+    "saturation_median": 35,
+    "saturation_stdev": 38.8999,
+    "hue_median": 206,
+    "hue_stdev": 98.3399
+  },
+  {
+    "filename": "123693-origins.jpg",
+    "imageID": 299,
+    "brightness_median": 104,
+    "brightness_stdev": 45.4704,
+    "saturation_median": 109,
+    "saturation_stdev": 46.8546,
+    "hue_median": 96,
+    "hue_stdev": 34.9946
+  },
+  {
+    "filename": "103223-dove.jpg",
+    "imageID": 300,
+    "brightness_median": 239,
+    "brightness_stdev": 20.5917,
+    "saturation_median": 102,
+    "saturation_stdev": 55.0496,
+    "hue_median": 160,
+    "hue_stdev": 52.9556
+  },
+  {
+    "filename": "100034-sick-boy.jpg",
+    "imageID": 301,
+    "brightness_median": 113,
+    "brightness_stdev": 94.1605,
+    "saturation_median": 158,
+    "saturation_stdev": 97.7831,
+    "hue_median": 131,
+    "hue_stdev": 88.6299
+  },
+  {
+    "filename": "109710-stay-dangerous-1.jpg",
+    "imageID": 302,
+    "brightness_median": 156,
+    "brightness_stdev": 55.0777,
+    "saturation_median": 176,
+    "saturation_stdev": 46.2722,
+    "hue_median": 247,
+    "hue_stdev": 81.7364
+  },
+  {
+    "filename": "130206-icarus-falls-2.jpg",
+    "imageID": 303,
+    "brightness_median": 194,
+    "brightness_stdev": 69.7367,
+    "saturation_median": 17,
+    "saturation_stdev": 42.4036,
+    "hue_median": 35,
+    "hue_stdev": 84.793
+  },
+  {
+    "filename": "109090-palo-santo.jpg",
+    "imageID": 304,
+    "brightness_median": 21,
+    "brightness_stdev": 72.8771,
+    "saturation_median": 144,
+    "saturation_stdev": 85.3289,
+    "hue_median": 24,
+    "hue_stdev": 53.9587
+  },
+  {
+    "filename": "91107-primal-heart.jpg",
+    "imageID": 305,
+    "brightness_median": 175,
+    "brightness_stdev": 65.1965,
+    "saturation_median": 133,
+    "saturation_stdev": 55.1361,
+    "hue_median": 152,
+    "hue_stdev": 70.289
+  },
+  {
+    "filename": "99934-violence.jpg",
+    "imageID": 306,
+    "brightness_median": 47,
+    "brightness_stdev": 49.0092,
+    "saturation_median": 96,
+    "saturation_stdev": 30.2086,
+    "hue_median": 11,
+    "hue_stdev": 32.979
+  },
+  {
+    "filename": "120627-art-of-doubt.jpg",
+    "imageID": 307,
+    "brightness_median": 0,
+    "brightness_stdev": 45.2516,
+    "saturation_median": 0,
+    "saturation_stdev": 63.3253,
+    "hue_median": 0,
+    "hue_stdev": 41.9631
+  },
+  {
+    "filename": "130061-ugly-beauty-1.jpg",
+    "imageID": 308,
+    "brightness_median": 59,
+    "brightness_stdev": 63.4473,
+    "saturation_median": 119,
+    "saturation_stdev": 104.7937,
+    "hue_median": 85,
+    "hue_stdev": 67.1954
+  },
+  {
+    "filename": "113720-thank-you-for-today.jpg",
+    "imageID": 309,
+    "brightness_median": 91,
+    "brightness_stdev": 62.2063,
+    "saturation_median": 98,
+    "saturation_stdev": 31.8541,
+    "hue_median": 147,
+    "hue_stdev": 7.7431
+  },
+  {
+    "filename": "124168-in-our-wake.jpg",
+    "imageID": 310,
+    "brightness_median": 5,
+    "brightness_stdev": 59.9367,
+    "saturation_median": 0,
+    "saturation_stdev": 51.3616,
+    "hue_median": 0,
+    "hue_stdev": 73.6669
+  },
+  {
+    "filename": "121689-ballads-1.jpg",
+    "imageID": 311,
+    "brightness_median": 50,
+    "brightness_stdev": 87.3982,
+    "saturation_median": 76,
+    "saturation_stdev": 55.5385,
+    "hue_median": 28,
+    "hue_stdev": 66.6593
+  },
+  {
+    "filename": "93889-cinematic.jpg",
+    "imageID": 312,
+    "brightness_median": 108,
+    "brightness_stdev": 57.8611,
+    "saturation_median": 131,
+    "saturation_stdev": 38.2756,
+    "hue_median": 164,
+    "hue_stdev": 16.1562
+  },
+  {
+    "filename": "120837-good-cry.jpg",
+    "imageID": 313,
+    "brightness_median": 189,
+    "brightness_stdev": 44.3652,
+    "saturation_median": 121,
+    "saturation_stdev": 57.5586,
+    "hue_median": 216,
+    "hue_stdev": 35.4507
+  },
+  {
+    "filename": "108149-love-yourself-tear.jpg",
+    "imageID": 314,
+    "brightness_median": 40,
+    "brightness_stdev": 26.3367,
+    "saturation_median": 76,
+    "saturation_stdev": 10.9786,
+    "hue_median": 159,
+    "hue_stdev": 12.0412
+  },
+  {
+    "filename": "115698-tangerine-reef.jpg",
+    "imageID": 315,
+    "brightness_median": 128,
+    "brightness_stdev": 70.3081,
+    "saturation_median": 62,
+    "saturation_stdev": 65.3256,
+    "hue_median": 44,
+    "hue_stdev": 46.7296
+  }
+]

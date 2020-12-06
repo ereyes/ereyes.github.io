@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style media="screen">
+      * { box-sizing: border-box;
+      }
+      body { margin: 0; background-color: #aaa;}
+      #mosViz {
+        width:1050px;
+        margin-left: auto; margin-right: auto;
+        text-align: center;
+        overflow: hidden;
+        transition:width 0.2s;
+        line-height: 10px;
+      }
+      .mos {
+        border: 2px solid #aaa;
+      }
+      #mosSingle {
+        margin-top: 1em;
+        width:500px; height:500px;
+        margin-left: auto; margin-right: auto;
+        text-align: center;
+        overflow: hidden;
+      }
+
+    </style>
+
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $.getJSON("myData.json", function(data){
+
+          $.each(data, function(i, d){
+
+            var mosSize = 30;
+            var mosViz = '<img class="mos"'+
+            ' src="2018/'+ d.filename +'"'+
+            ' style="width:'+mosSize+'px; height:'+mosSize+'px;"'+
+            ' name="'+d.filename+'">';
+
+
+            $('#mosViz').append(mosViz);
+
+            $('.mos').mouseenter(function(e){
+              $(this).css('border', '2px solid chartreuse');
+              var mom = $(this).attr('src');
+              $('#mosSingle').html('<img src="'+mom+'" width="300">');
+            });
+
+            $('.mos').mouseleave(function(){
+              $(this).css('border', '2px solid #aaa');
+            });
+
+          });
+
+        });
+
+      });
+    </script>
+
+  </head>
+  <body>
+
+    <div id="mosViz"></div>
+    <div id="mosSingle"></div>
+
+  </body>
+</html>

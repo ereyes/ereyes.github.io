@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Album Covers released in 2018</h1>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Web-based media visualization experiments</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style media="screen">
+    body {
+      margin-left:5em;
+      margin-top:1em;
+      font-family: 'Roboto', sans-serif;
+      font-size:90%;
+      color:#666;
+      background-color:#eee;
+    }
+    a {
+      color:tomato;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Web-based media visualization experiments</h1>
+
+  <h3>Dataset</h3>
+  <p>Title: Album Covers released in 2018</p>
+  <p>Description: Wikipedia records 315 albums released in 2018. The images were downloaded from albumoftheyear.org</p>
+  <p>Total Files: 315</p>
+  <p>Format: JPG</p>
+  <p>Resolution: 690 x 690 pixels</p>
+  <p>For each file, we extracted brightness, saturation, and hue, summarizing in median and standard deviation.</p>
+  <p>Extraction was made using with <a href="https://imagej.nih.gov/ij/">ImageJ</a>, using custom script <a href="image-measure-HSB.txt">image-measure-HSB.txt</a> and <a href="image-measure-RGB.txt">image-measure-RGB.txt</a></p>
+  <p>Data: <a href="myData.json">myData.json</a></p>
+
+  <h3>Experiments</h3>
+
+  <p><a href="01_slices_mosaic.html">01_slices_mosaic.html</a></p>
+  <p><a href="02_mosaic_preview.html">02_mosaic_preview.html</a></p>
+  <p><a href="03_histogram_preview.html">03_histogram_preview.html</a></p>
+  <p><a href="04_mosaic_style.html">04_mosaic_style.html</a></p>
+  <p><a href="05_scatter_preview.html">05_scatter_preview.html</a></p>
+  <p><a href="06_z-transparency.html">06_z-transparency.html</a></p>
+</body>
+
 </html>

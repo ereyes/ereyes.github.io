@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style media="screen">
+      * { box-sizing: border-box;
+      }
+      body { margin:0; background-color: #aaa;}
+      #mosViz {
+        width:1050px;
+        text-align: center;
+        overflow: hidden;
+        line-height: 10px;
+      }
+      .mos {
+        border: 2px solid #aaa;
+        position: absolute;
+        cursor: grab;
+      }
+      #info {
+        margin-top: 1em;
+        position: absolute;
+        left:750px;
+        text-align: left;
+        font-family: Verdana;
+        font-size:0.9em; color: white;
+      }
+
+      #mosSingle {
+        margin-top: 2.5em;
+        width:500px; height:500px;
+        position: absolute;
+        left:650px;
+        text-align: center;
+        overflow: hidden;
+      }
+
+    </style>
+
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $.getJSON("myData.json", function(data){
+
+          $.each(data, function(i, d){
+
+            $( ".mos" ).draggable();
+
+            var mosSize = 30;
+            var mosViz = '<img class="mos"'+
+            ' src="2018/'+ d.filename +'"'+
+            ' style="width:'+mosSize+'px; height:'+mosSize+'px; left:+'+(50+d.hue_median)*2+'px; top:'+(20+d.saturation_median)*2+'px;"'+
+            ' name="'+d.filename+'">';
+
+
+            $('#mosViz').append(mosViz);
+            $('#info').text(i + ' images loaded.');
+
+            $('.mos').mouseenter(function(e){
+              $(this).css('border', '2px solid chartreuse');
+              var mom = $(this).attr('src');
+              $('#mosSingle').html('<img src="'+mom+'" width="300">');
+            });
+
+            $('.mos').mouseleave(function(){
+              $(this).css('border', '2px solid #aaa');
+            });
+
+          });
+
+        });
+
+      });
+    </script>
+
+  </head>
+  <body>
+
+    <div id="mosViz"></div>
+    <div id="info"></div>
+    <div id="mosSingle"></div>
+
+  </body>
+</html>
