@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="http://d3plus.org/js/d3.min.js"></script>
+  <script src="https://d3plus.org/js/d3plus-plot.v0.9.full.min.js"></script>
+
+</head>
+
+<body>
+  <script>
+    d3.json("coronavirus.json", function(mes_donnees) {
+      new d3plus.StackedArea()
+        .data(mes_donnees)
+        .groupBy("Country")
+        .render();
+    });
+  </script>
+</body>
+
+</html>

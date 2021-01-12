@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://d3plus.org/js/d3plus-hierarchy.v0.9.full.min.js"></script>
+  <script src="http://d3plus.org/js/d3.min.js"></script>
+  <script>
+    d3.json("coronavirus.json", function(mes_donnees) {
+      new d3plus.Treemap()
+        .data(mes_donnees)
+        .groupBy(["Continent", "Country"])
+        .sum("Total_Cases")
+        .render();
+    });
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
