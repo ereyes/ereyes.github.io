@@ -13,4 +13,4 @@ Historique des versions :
 - v06. Fév, 2021. Mises à disposition sur GitHub. Paris, France.
 - v01. Fév, 2016. Première création. Saint-Denis, France.
 
-[Tester les gabarits](http://ereyes.github.io/DC_gabarits/)
+[Tester les gabarits](http://ereyes.github.io/DC_gabarits/index.html)
