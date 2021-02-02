@@ -1,0 +1,37 @@
+/* Styles qui s'appliquent aux items de la collection */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 80%;
+}
+
+.media {
+  float: left;
+  padding: 1em;
+  background-color: #eee;
+}
+
+.media object {
+  width: 500px;
+  height: 500px;
+  cursor: pointer;
+}
+
+.infos {
+  float: left;
+  margin-left: 20px;
+  width: 400px;
+}
+
+.categorie p {
+  color: #333;
+  border-bottom: 1px solid lightgray;
+}
+
+.categorie span {
+  color: brown;
+  font-weight: bold;
+}

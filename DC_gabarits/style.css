@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  margin-left: 2em;
+}
+
+h1 {
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+.type_item {
+  display: inline;
+  padding: 1em;
+  border: 10px solid #888;
+  margin-right: 1em;
+  color: brown;
+}
+
+.type_item:hover {
+  border: 10px solid #AAA;
+  cursor: pointer;
+  background-color: #fff;
+}
