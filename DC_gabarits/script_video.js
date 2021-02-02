@@ -101,7 +101,7 @@ $(document).ready(function() {
   });
 
   $(preview).each(function() {
-    if (title != 0) {
+    if (preview != 0) {
       $('#preview').show();
       var meta_img = $(this).attr('content');
       $('#preview video').attr('src', meta_img);
