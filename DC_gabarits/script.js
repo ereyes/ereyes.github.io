@@ -105,10 +105,19 @@ $(document).ready(function() {
       $('#preview').show();
       var meta_img = $(this).attr('content');
 
-      if(meta_img.indexOf("mp3") == true){
-          $('#preview').append('<audio src="'+meta_img+'" controls>');
-      } else {
-        $('#preview').append('hmmm');
+      if(meta_img.includes(".mp3") == true){
+        $('#preview').append('<audio src="'+meta_img+'" width="300" controls></audio>');
+      } else if (meta_img.includes(".mp4") || meta_img.includes(".mov") || meta_img.includes(".avi") == true){
+        $('#preview').append('<video width="400" height="250" src="'+meta_img+'" controls></video>');
+      }
+      else if (meta_img.includes(".jpg") || meta_img.includes(".jpeg") || meta_img.includes(".png") == true){
+        $('#preview').append('<img src="'+meta_img+'" width="300">');
+      }
+      else if (meta_img.includes(".pdf") || meta_img.includes(".txt") || meta_img.includes(".xml") == true){
+        $('#preview').append('<iframe src="'+meta_img+'" width="300" height="400"></iframe>');
+      }
+      else {
+        $('#preview').append('hmmm, je n\'arrive pas à afficher votre fichier média. Vérifiez la balise <meta name="DC.Source">');
       }
 
 

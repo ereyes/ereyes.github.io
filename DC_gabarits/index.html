@@ -8,13 +8,77 @@
     <link rel="stylesheet" href="home.css">
   </head>
   <body>
-    <h1>Séletionnez selon le type de média de votre item</h1>
-    <div class="type_item" onclick="window.location='01_item_image.html'">Image</div>
-    <div class="type_item" onclick="window.location='01_item_video.html'">Vidéo</div>
-    <div class="type_item">Audio</div>
-    <div class="type_item">PDF</div>
-    <h1>Vues et mise en page</h1>
+
+    <h1>Gabarits HTML pour collections et items Dublin Core</h1>
+
+    <h2>Démo par type de média</h2>
+    <span class="type_item" onclick="window.location='01_item_image.html'">Image</span>
+    <span class="type_item" onclick="window.location='02_item_video.html'">Vidéo</span>
+    <span class="type_item">Audio</span>
+    <span class="type_item">PDF</span>
+
+    <h2>Utilisation</h2>
+    <p>Placez les styles suivants dans la balise <code>&lt;head&gt;</code> </p>
+    <pre>
+      <code>
+        &lt;head&gt;
+          &lt;link rel="stylesheet" href="http://ereyes.github.io/DC_gabarits/item.css"&gt;
+          &lt;link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"&gt;
+        &lt;/head&gt;
+      </code>
+    </pre>
+
+    <p>Ensuite, placez aussi les scripts suivants, toujours dans la balise <code>&lt;head&gt;</code> </p>
+    <pre>
+      <code>
+        &lt;script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"&gt; &lt;/script&gt;
+        &lt;script type="text/javascript" src="http://ereyes.github.io/DC_gabarits/script.js"&gt; &lt;/script&gt;
+      </code>
+    </pre>
+
+    <p>Dans la balise body, placez les éléments suivants :</p>
+    <pre>
+      <code>
+        &lt;body&gt;
+          &lt;!-- Ce bloque suivant est la boîte d'aperçu de l'élément --&gt;
+          &lt;div class="media" id="preview"&gt;
+            &lt;p&gt;Aperçu :&lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Ce bloque indique les éléments HTML dans lesquelles s'affichent les informations des balises &lt;meta&gt; --&gt;
+          &lt;div class="infos"&gt;
+            &lt;div id="title" class="categorie"&gt;&lt;span&gt;Titre de l'item : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="creator" class="categorie"&gt;&lt;span&gt;Auteurs :&lt;/span&gt;&lt;/div&gt;
+            &lt;div id="sujet" class="categorie"&gt;&lt;span&gt;Sujet : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="description" class="categorie"&gt;&lt;span&gt;Déscription : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="publisher" class="categorie"&gt;&lt;span&gt;Source d'information : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="contributor" class="categorie"&gt;&lt;span&gt;Contributor : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="date" class="categorie"&gt;&lt;span&gt;Date : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="type" class="categorie"&gt;&lt;span&gt;Type : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="format" class="categorie"&gt;&lt;span&gt;Format : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="identifier" class="categorie"&gt;&lt;span&gt;Identifier : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="source" class="categorie"&gt;&lt;span&gt;Source : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="language" class="categorie"&gt;&lt;span&gt;Language : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="relation" class="categorie"&gt;&lt;span&gt;Relation : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="coverage" class="categorie"&gt;&lt;span&gt;Coverage : &lt;/span&gt;&lt;/div&gt;
+            &lt;div id="rights" class="categorie"&gt;&lt;span&gt;Rights : &lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/body&gt;
+      </code>
+    </pre>
+
+    <p>Maintenant, vous pouvez placer les balises Dublin Core dans la partie <code>&lt;head&gt;</code> :
+      <code>&lt;meta name="DC.Title" content="..."&gt;</code>
+    </p>
+
+    <h2>Vues et mise en page</h2>
+    <p>À paraître</p>
+
     <hr>
+    <small>
+    <p>Fait dans le cadre des cours du master Gestion Stratégique de l'Information, Humanités numériques, de l'Université Paris 8.</p>
     <p>E. Reyes, 2016-2021. <a href="https://github.com/ereyes/ereyes.github.io/tree/master/DC_gabarits">Retour vers le repo github</a></p>
+    </small>
+    <br>
   </body>
 </html>
