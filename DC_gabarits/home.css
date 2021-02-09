@@ -14,25 +14,24 @@ h1 {
 }
 
 h2 {
-  margin-top: 2em; margin-bottom: 2em;
+  margin-top: 2em; margin-bottom:1em;
 }
 
 .type_item {
   padding: 1em;
-  border: 10px solid #888;
-  margin:1em;
+  border-bottom: 10px solid #888;
   color: brown;
 }
 
 .type_item:hover {
-  border: 10px solid #AAA;
+  border-bottom: 10px solid #AAA;
   cursor: pointer;
   background-color: #fff;
 }
 
 code {
   line-height: 18px;
-  color: chocolate;
+  color: crimson;
 }
 
 pre {
