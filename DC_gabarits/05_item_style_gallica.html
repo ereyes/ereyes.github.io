@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Item 05 - type image avec style gallica</title>
+
+  <!-- Balises <meta>   -->
+  <meta name="DC.Title" content="Portrait de Lisa Gherardini">
+  <meta name="DC.Creator" content="Peintre : Léonard de Vinci">
+  <meta name="DC.Creator" content="Photo : Michel Urtado">
+  <meta name="DC.Subject" content="Art">
+  <meta name="DC.Description" content="Portrait de Lisa Gherardini, épouse de Francesco del Giocondo, dite Monna Lisa, la Gioconda ou la Joconde. Acquis par François Ier en 1518.">
+  <meta name="DC.Publisher" content="Musée du Louvre">
+  <meta name="DC.Contributor" content="Département des Peintures, Musée du Louvre">
+  <meta name="DC.Date" content="Vers 1503 - 1519">
+  <meta name="DC.Type" content="Peinture">
+  <meta name="DC.Format" content="Dimensions : H. : 0,77 m. ; L. : 0,53 m.">
+  <meta name="DC.Format" content="image/jpg">
+  <meta name="DC.Identifier" content="INV. 779">
+  <meta name="DC.Source" content="http://cartelfr.louvre.fr/pub/fr/image/84749_11-564761.jpg">
+  <meta name="DC.Language" content="fr">
+  <meta name="DC.Relation" content="Vue du détail de la bouche : http://cartelfr.louvre.fr/cartelfr/visite?srv=obj_view_obj&objet=cartel_14153_84750_11-564766.jpg_obj.html&flag=false">
+  <meta name="DC.Relation" content="Vue du détail des yeux : http://cartelfr.louvre.fr/cartelfr/visite?srv=obj_view_obj&objet=cartel_14153_84757_11-564767.jpg_obj.html&flag=false">
+  <meta name="DC.Coverage" content="Renaisssance">
+  <meta name="DC.Rights" content="RMN-Grand Palais (Musée du Louvre)">
+
+  <!-- Référence à la feuille de style de cet item  -->
+  <link rel="stylesheet" href="style-gallica.css">
+
+  <!-- Référence à la police Roboto chez Google Fonts  -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- Référence à la bibliothèque jQuery et au script pour lire les balises <meta>  -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="http://ereyes.github.io/DC_gabarits/script.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.contenu_infos').hide();
+      $('.titre_infos').click(function(){
+        $('.contenu_infos').slideToggle();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Ce bloque suivant est la boîte d'aperçu de l'élément -->
+  <div id="preview" class="media">
+    <p>Aperçu :</p>
+  </div>
+
+  <!-- Ce bloque suivant indique les éléments HTML dans lesquelles s'affichent les informations des balises <meta> -->
+  <div class="infos">
+    <div class="titre_infos">Informations [ + ]</div>
+    <div class="contenu_infos">
+      <div id="title" class="categorie"><span>Titre de l'item : </span></div>
+      <div id="creator" class="categorie"><span>Auteurs :</span></div>
+      <div id="sujet" class="categorie"><span>Sujet : </span></div>
+      <div id="description" class="categorie"><span>Déscription : </span></div>
+      <div id="publisher" class="categorie"><span>Source d'information : </span></div>
+      <div id="contributor" class="categorie"><span>Contributor : </span></div>
+      <div id="date" class="categorie"><span>Date : </span></div>
+      <div id="type" class="categorie"><span>Type : </span></div>
+      <div id="format" class="categorie"><span>Format : </span></div>
+      <div id="identifier" class="categorie"><span>Identifier : </span></div>
+      <div id="source" class="categorie"><span>Source : </span></div>
+      <div id="language" class="categorie"><span>Language : </span></div>
+      <div id="relation" class="categorie"><span>Relation : </span></div>
+      <div id="coverage" class="categorie"><span>Coverage : </span></div>
+      <div id="rights" class="categorie"><span>Rights : </span></div>
+    </div>
+  </div>
+</body>
+
+</html>

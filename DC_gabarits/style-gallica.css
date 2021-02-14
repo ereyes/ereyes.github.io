@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+  line-height: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.media {
+  background-color: #ccc;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5em;
+}
+
+.media img {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.infos {
+  position: fixed;
+  background-color: white;
+  top: 20px;
+  left: 20px;
+  width: 300px;
+  border: 1px gray solid;
+  padding: 1em;
+}
+
+.titre_infos {
+  background-color: #333;
+  color: white;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.contenu_infos {
+  padding: 0.5em;
+  height: 700px;
+  overflow:scroll;
+}
+
+.categorie p {
+  color: #333;
+  border-bottom: 1px solid lightgray;
+}
+
+.categorie span {
+  color: brown;
+  font-weight: bold;
+}

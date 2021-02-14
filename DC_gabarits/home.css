@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #eee;
+  background-color: #fff;
   font-family: 'Roboto', sans-serif;
   color: #333;
   margin-left: 3em;
@@ -14,19 +14,24 @@ h1 {
 }
 
 h2 {
-  margin-top: 2em; margin-bottom:1em;
+  margin-top: 2em; margin-bottom:1em; clear: both;
 }
 
 .type_item {
   padding: 1em;
-  border-bottom: 10px solid #888;
+  border-left: 7px solid #888;
+  margin-bottom: 0.2em;
   color: brown;
+  display:block;
 }
 
 .type_item:hover {
-  border-bottom: 10px solid #AAA;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #eee;
+}
+
+.type_item img {
+  height: 100px;
 }
 
 code {
@@ -35,5 +40,6 @@ code {
 }
 
 pre {
-  background-color: #fff;
+  background-color: #eee;
+  border:dashed gray 1px;
 }
