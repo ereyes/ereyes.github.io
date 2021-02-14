@@ -39,7 +39,6 @@
 
       var fichier_json = "liste_items.json";
 
-      $('.list_view').hide();
       $('.grid_view').hide();
 
       $('#liste').click(function(){
@@ -53,7 +52,8 @@
               '<td>' + d.num_item + '</td>'+
               '<td>' + d.titre_item + '</td>'+
               '<td>' + d.type_item + '</td>'+
-              '<td><a href="'+ d.url_item +'">' + d.url_item + '</a></td></tr>';
+              '<td><a href="'+ d.url_item +'">' + d.url_item + '</a></td>' +
+              '<td><a href="'+ d.url_item +'"><img src="'+ d.image_item +'" style="height:50px;"></a></td></tr>;';
             $('.list_view').show();
             $('tbody').append(addData);
           });
@@ -71,9 +71,10 @@
 
           $.each(data, function(i,d){
             var addData = '<div class="item_galerie">' +
-            '<a href="'+ d.url_item +'">'
+            '<span>Item no. ' + d.num_item +
+            '<br><a href="'+ d.url_item +'">' +
             '<img src="'+ d.image_item +'" style="height:100px;"></a>' +
-            d.num_item + '. <strong>' + d.titre_item + '</strong>'+
+            '<br><a href="'+ d.url_item +'"><strong>' + d.titre_item + '</strong></a>'+
             '<br> Type : ' + d.type_item + '</div>';
             $('.grid_view').show();
             $('.grid_view').append(addData);
@@ -103,6 +104,7 @@
           <th>Titre</th>
           <th>Type</th>
           <th>URL</th>
+          <th>Aperçu</th>
         </tr>
       </thead>
       <tbody>
