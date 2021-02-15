@@ -4,29 +4,27 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <style media="screen">
-    * {
-      box-sizing: border-box;
-    }
 
-    body {
-      padding: 2em;
-      font-family: 'Roboto', sans-serif;
-      font-size: 80%;
-    }
-    .view_options {
-      color: crimson; margin-right: 1em;
-      cursor: pointer;
+  <meta name="DC.Title" content="Collection de données">
+  <meta name="DC.Creator" content="Everardo Reyes">
+  <meta name="DC.Subject" content="Documentation">
+  <meta name="DC.Subject" content="Gestion de contenus">
+  <meta name="DC.Subject" content="Archives">
+  <meta name="DC.Description" content="Exemple de collection de données au format web avec des liens vers les items de la collection.">
+  <meta name="DC.Publisher" content="ereyes.github.io">
+  <meta name="DC.Contributor" content="Master HN, parcours GSI">
+  <meta name="DC.Date" content="2021">
+  <meta name="DC.Type" content="Collection">
+  <meta name="DC.Format" content="text/html">
+  <meta name="DC.Identifier" content="11_collection_items.html">
+  <meta name="DC.Source" content="http://ereyes.github.io/DC_gabarits/11_collection_items.html">
+  <meta name="DC.Language" content="fr">
+  <meta name="DC.Relation" content="Support du cours : https://bit.ly/3qrAIeW ">
+  <meta name="DC.Relation" content="Entrepôt Github : https://github.com/ereyes/ereyes.github.io/tree/master/DC_gabarits ">
+  <meta name="DC.Coverage" content="2016-2021">
+  <meta name="DC.Rights" content="https://creativecommons.org/licenses/by-nc-nd/3.0/fr/">
 
-    }
-    .item_galerie {
-      display: block;
-      float: left;
-      border: 1px solid gray;
-      margin: 0.5em;
-      padding: 1em;
-    }
-  </style>
+  <link rel=" stylesheet" href="http://ereyes.github.io/DC_gabarits/collection.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://mottie.github.io/tablesorter/docs/css/menu.css">
   <link rel="stylesheet" href="https://mottie.github.io/tablesorter/css/theme.default.css">
@@ -34,58 +32,8 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/29372c70dd.js" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){
 
-      var fichier_json = "liste_items.json";
-
-      $('.grid_view').hide();
-
-      $('#liste').click(function(){
-        $('tbody').empty();
-        $('.grid_view').hide();
-
-        $.getJSON(fichier_json, function(data){
-
-          $.each(data, function(i,d){
-            var addData = '<tr>'+
-              '<td>' + d.num_item + '</td>'+
-              '<td>' + d.titre_item + '</td>'+
-              '<td>' + d.type_item + '</td>'+
-              '<td><a href="'+ d.url_item +'">' + d.url_item + '</a></td>' +
-              '<td><a href="'+ d.url_item +'"><img src="'+ d.image_item +'" style="height:50px;"></a></td></tr>;';
-            $('.list_view').show();
-            $('tbody').append(addData);
-          });
-
-          $("#myTable").tablesorter();
-
-        });
-      });
-
-      $('#galerie').click(function(){
-        $('.grid_view').empty();
-        $('.list_view').hide();
-
-        $.getJSON(fichier_json, function(data){
-
-          $.each(data, function(i,d){
-            var addData = '<div class="item_galerie">' +
-            '<span>Item no. ' + d.num_item +
-            '<br><a href="'+ d.url_item +'">' +
-            '<img src="'+ d.image_item +'" style="height:100px;"></a>' +
-            '<br><a href="'+ d.url_item +'"><strong>' + d.titre_item + '</strong></a>'+
-            '<br> Type : ' + d.type_item + '</div>';
-            $('.grid_view').show();
-            $('.grid_view').append(addData);
-          });
-
-        });
-
-      });
-
-    });
-  </script>
+  <script type="text/javascript" src="http://ereyes.github.io/DC_gabarits/script_collection_vues.js"></script>
 </head>
 
 <body>
@@ -113,9 +61,13 @@
     </table>
   </div>
 
-  <div class="grid_view">
+  <div class="grid_view"></div>
 
+  <div class="pied">
+    E. Reyes, 2021
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
   </div>
+
 </body>
 
 </html>

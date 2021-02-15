@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 2em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 80%;
+}
+
+.view_options {
+  color: crimson;
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.item_galerie {
+  display: block;
+  float: left;
+  border: 1px solid gray;
+  margin: 0.5em;
+  padding: 1em;
+}
+
+.pied {
+  font-size:70%;
+  border-top: solid gray 1px;
+  text-align: center;
+}
