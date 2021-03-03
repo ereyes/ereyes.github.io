@@ -116,8 +116,11 @@ $(document).ready(function() {
       else if (meta_img.includes(".pdf") || meta_img.includes(".txt") || meta_img.includes(".xml") == true){
         $('#preview').append('<iframe src="'+meta_img+'" width="300" height="400"></iframe>');
       }
+      else if (meta_img.includes(".com") == true){
+        $('#preview').append('<iframe src="'+meta_img+'" width="400" height="300" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+      }
       else {
-        $('#preview').append('hmmm, je n\'arrive pas à afficher votre fichier média. Vérifiez la balise <meta name="DC.Source">');
+        $('#preview').append('hmmm, je n\'arrive pas à afficher votre fichier média. Vérifiez la balise &lt;meta name="DC.Source"&gt;');
       }
 
 
