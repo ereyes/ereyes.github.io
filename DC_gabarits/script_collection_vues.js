@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   var fichier_json = "liste_items.json";
-  $('.list_view').hide();
+  $('.list_view').show();
   $('.grid_view').hide();
 
   $('#liste').click(function() {
