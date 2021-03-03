@@ -68,5 +68,12 @@
     "type_item": "objet",
     "url_item": "http://ereyes.github.io/DC_gabarits/10_item_objet.html",
     "image_item": "http://cartelfr.louvre.fr/pub/fr/image/59341_SH025823_01.jpg"
+  },
+  {
+    "num_item": 11,
+    "titre_item": "Creative Commons? C’est quoi ça?",
+    "type_item": "video youtube",
+    "url_item": "http://ereyes.github.io/DC_gabarits/12_item_youtube.html",
+    "image_item": "https://img.youtube.com/vi/gftrFKqtUlU/0.jpg"
   }
 ]

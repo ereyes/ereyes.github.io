@@ -1,8 +1,16 @@
 $(document).ready(function() {
 
+
   var fichier_json = "liste_items.json";
   $('.list_view').hide();
   $('.grid_view').hide();
+
+  $.getJSON(fichier_json, function(data) {
+    $.each(data, function(i, d) {
+      var res = i + 1;
+      $('#message').html('Vous avez <strong>' + res + ' </strong> items dans votre collection.');
+    });
+  });
 
   $('#liste').click(function() {
     $('tbody').empty();
