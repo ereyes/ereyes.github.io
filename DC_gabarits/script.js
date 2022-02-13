@@ -110,7 +110,7 @@ $(document).ready(function() {
       } else if (meta_img.includes(".mp4") || meta_img.includes(".mov") || meta_img.includes(".avi") == true){
         $('#preview').append('<video width="400" height="250" src="'+meta_img+'" controls></video>');
       }
-      else if (meta_img.includes(".jpg") || meta_img.includes(".jpeg") || meta_img.includes(".png") == true){
+      else if (meta_img.includes(".jpg") || meta_img.includes(".jpeg") || meta_img.includes(".png") || meta_img.includes(".JPG") == true){
         $('#preview').append('<img src="'+meta_img+'" width="300">');
       }
       else if (meta_img.includes(".pdf") || meta_img.includes(".txt") || meta_img.includes(".xml") == true){
