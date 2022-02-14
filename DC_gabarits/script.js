@@ -116,7 +116,7 @@ $(document).ready(function() {
       else if (meta_img.includes(".pdf") || meta_img.includes(".txt") || meta_img.includes(".xml") == true){
         $('#preview').append('<iframe src="'+meta_img+'" width="300" height="400"></iframe>');
       }
-      else if (meta_img.includes(".com") == true){
+      else if (meta_img.includes("http")  == true){
         $('#preview').append('<iframe src="'+meta_img+'" width="400" height="300" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
       }
       else {
