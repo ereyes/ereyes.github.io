@@ -9,8 +9,17 @@ $(document).ready(function() {
     $.each(data, function(i, d) {
       var res = i + 1;
       $('#message').html('Vous avez <strong>' + res + ' </strong> items dans votre collection.');
-
+      var addData = '<tr>' +
+      '<td>' + d.num_item + '</td>' +
+      '<td>' + d.titre_item + '</td>' +
+      '<td>' + d.type_item + '</td>' +
+      '<td><a href="' + d.url_item + '">' + d.url_item + '</a></td>' +
+      '<td><a href="' + d.url_item + '"><img src="' + d.image_item + '" style="height:50px;"></a></td></tr>;';
+    $('.list_view').show();
+    $('tbody').append(addData);
+    
     });
+    $("#myTable").tablesorter();
   });
 
   $('#liste').click(function() {
