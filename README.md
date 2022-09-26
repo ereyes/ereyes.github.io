@@ -1,8 +1,6 @@
 # codes cours ereyes
 
-Fichiers réalisé en séances.
-
-- v01. 2015-2016. 
+Fichiers réalisés en séance.
 
 [Fichiers HTML](http://ereyes.github.io/)
 
