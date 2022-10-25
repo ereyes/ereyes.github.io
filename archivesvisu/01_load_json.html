@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+      img {
+        width:40px;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+
+      $(document).ready(function(){
+
+        $.getJSON('tableaux.json', function(data){
+
+          $.each(data, function(i, item){
+
+            var mesimages = '<img ';
+            mesimages += 'src="' + item.image + '">';
+            $('#viz').append(mesimages);
+
+
+          });
+
+        });
+
+      });
+
+    </script>
+
+    <title></title>
+  </head>
+  <body>
+    <div class="" id="viz"></div>
+
+  </body>
+</html>
