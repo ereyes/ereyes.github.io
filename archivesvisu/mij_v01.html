@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Macroanalyse d'images avec JavaScript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<script type="text/javascript" src="tinycolor.js"></script>
+<script type="text/javascript" src="color-thief.js"></script>
+
+<script type="text/javascript" src="FastBlur.js"></script>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,700,700italic,400italic|Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" /></script>
+
+
+  <script type="text/javascript">
+    $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+  </script>
+<style>
+body {
+    font-family:Lora;
+    font-size: 11pt;
+}
+h1,h2,h3 {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 800;
+}
+
+header h1 {
+    font-size:12pt;
+    color: #fff;
+    background-color: #F39C12;
+    padding: 20px;
+}
+article {
+    /*width: 95%;
+    margin:auto;
+    margin-top:10px;*/
+    margin-top: 100px;
+}
+.thumbnail {
+    height: 20px;
+    margin: 0;
+}
+
+#actualCanvas {
+
+    border: 1px solid #ddd;
+    height: 400px;
+    width: 100%;
+}
+
+form.settings-group {
+    margin: 15px;
+    margin-right:15px;
+}
+
+footer {
+    margin-bottom: 200px;
+    text-align: left;
+    font-style: italic;
+    margin-top: 2em;
+}
+
+form {
+
+    /*background-color: #ddd;*/
+
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+
+#fakeCanvas {
+    display:none;
+}
+
+#workArea {
+  display: none;
+}
+.row.stripe {
+
+    background-color: #f6f6f6;
+}
+
+input[type=text]{
+   font-family: 'Open Sans';
+}
+
+input {
+    font-family: 'Open Sans';
+}
+a.btn {
+    font-family: 'Open Sans';
+}
+#summary-text{
+    margin:1em;
+}
+ul.nav {
+    font-family: 'Open Sans';
+    font-weight: 900;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#bufferImg, #bufferCanvas, #fakeCanvas {
+    display: none;
+}
+
+
+.container .jumbotron {
+    background-color: transparent;
+    padding-left:0;
+}
+
+/*.table {
+
+    font-family: 'Open Sans';
+    float:left;
+    width: auto;
+    margin-right: 15px;
+}*/
+
+.navbar-default a.navbar-brand {
+  font-family: 'Open Sans';
+  color: white;
+  font-weight: 900;
+  font-size:200%;
+}
+
+.res_panel {
+  width: 300px;
+  float: left;
+  border: 1px solid gray;
+  padding: 1em;
+}
+
+.res_panel p {
+  font-style: normal;
+}
+
+.noms_fichiers {
+  background-color: wheat;
+}
+
+footer {
+  clear: both;
+}
+
+.text-desc {
+  color:brown;
+}
+
+.texte-credits {
+  color:#999;
+}
+
+</style>
+</head>
+<body>
+<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+    <div class="navbar-header">
+    <a class="navbar-brand" href="#">Macroanalyse d'images avec JavaScript</a>
+    </div>
+    </div>
+</header>
+<article class="container">
+<div class="row">
+    <div class="col-lg-12 text-desc">
+    <!-- <h1>Imj</h1> -->
+    <h1>Macroanalyse d'images avec JavaScript</h1>
+
+    <p><strong>MIJ</strong> est un générateur de visualisations d'images sur le web. Il supporte trois modèles : codes-barres, montage et un analyseur/traceur d'images. </p>
+
+    <p> Il utilise votre CPU pour traiter ces images, donc beaucoup de très grandes images peuvent prendre toute votre mémoire et/ou beaucoup de temps.</p>
+
+    <p>D'une manière générale, les images à plus petite résolution produisent tout aussi bien un code-barres, un montage ou un tracé, donc si vous avez le choix, travaillez avec des images plus petites chaque fois que vous le pouvez. Si vous rencontrez des problèmes pour que cela fonctionne, veuillez lire certaines <a href="#" data-toggle="modal" data-target="#platformNote">notes spécifiques au navigateur et à la plate-forme</a>.</p>
+    </div>
+</div>
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="platformNote" tabindex="-1" role="dialog" aria-labelledby="platformNoteLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="platformNoteLabel">Notes for specific platforms and browsers</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Windows</h3>
+        <p>When you select multiple files on a Windows system, there's a limit imposed on the total character length in the  names of those files: <a href="http://stackoverflow.com/questions/265769/maximum-filename-length-in-ntfs-windows-xp-and-windows-vista">32,000 characters total</a>, including full path references for each file. In practice, that's about 250 files at a time, though you could squeeze a few more with short file names and simple paths.</p>
+        <p>To get around this limitation, you should use Chrome to try the "Upload a folder" option.</p>
+
+        <h3>Mac</h3>
+        <p>Safari users will probably find that the browser will just freeze when you click the button to run the generalization. It's probably working, though! You just can't see it progressing. Safari should un-freeze and render the final image when it's done.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row ">
+    <div class="col-lg-12">
+    <h2>Étape 1. Chargez vos images </h2>
+    <p>Sélectionnez jusqu'à 9999 fichiers image individuels ou un répertoire de fichiers. </p>
+    </div>
+<form id="file-loading">
+  <div class="col-lg-3 col-md-3 col-sm-3">
+    <label for="file-load-start">Select multiple image files</label>
+   <input type="file"  id="file-load-start" class="file-loader" accept="image/*" multiple value="Select multiple image files">
+  </div>
+  <div class="col-lg-1 col-md-1 col-sm-1">
+  OR
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4">
+      <label for="file-load-folder">Select a folder of image files (Chrome only)</label>
+      <input type="file" class="file-loader" id="file-load-folder" webkitdirectory directory accept="image/*" value="Select a directory of files">
+  </div>
+
+  <!--
+  <div class="col-lg-12 col-md-12 col-sm-12">
+   <input type="button" id="add-more-files" class="btn btn-primary" value="Add more file selects" />
+   <input type="button" id="reset-files" class="btn btn-default" value="Clear Files" />
+
+  </div> -->
+</form>
+<!-- <span id="submitted-file"> </span>
+<br><br>
+    <select id="creation-method-input" style="display:none">
+                        <option value="Blob">RAM</option>
+    </select>
+<ul id="file-list" style="display:none;">
+</ul> -->
+
+</div>
+
+
+
+<div class="row">
+<div class="col-lg-12">
+    <h2>Étape 2 : Choisissez le modèle de visualisation</h2>
+    <p>Définissez certaines options. Notez que les options varient selon chaque modèle.</p>
+    <ul class="nav nav-tabs">
+      <li  class="active"><a href="#">1. Barcode</a></li>
+      <li ><a href="#">2. Montage</a></li>
+      <li ><a href="#">3. Plot</a></li>
+    </ul>
+
+</div>
+</div>
+<div class="row">
+
+        <form id="settings-barcode" class="form-group settings-group col-lg-12">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <label for="canvasWidthBarcode">Canvas Width
+                <span data-toggle="tooltip" data-placement="top" title data-original-title="Canvas width will auto-set to a multiple of the number of files. Change it if you want, but other numbers will create sub-pixel antialising which won't look great." class="glyphicon glyphicon-question-sign"></span>
+                </label>
+             <div class="input-group">
+              <input id="canvasWidthBarcode" type="text" size="4" class="form-control setting" placeholder="Canvas Width" data-name="Canvas Width" aria-describedby="basic-addon2" data-default="5000" value="5000">
+              <span class="input-group-addon" id="addon2">px</span>
+            </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4">
+
+            <label for="canvasHeightBarcode">Canvas Height</label>
+              <div class="input-group">
+              <input id="canvasHeightBarcode" type="text" size="4" class="form-control setting" placeholder="Canvas Height" data-name="Canvas Height" aria-describedby="basic-addon3" data-default="1200" value="1200">
+              <span class="input-group-addon" id="addon3">px</span>
+            </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4">
+            <label for="barcodeSmoothness">Smoothing   <span data-toggle="tooltip" data-placement="top" title data-original-title="'None' is fastest, 'Color only' next. The in-between options will be *much* slower." class="glyphicon glyphicon-question-sign"></span></label><br/>
+            <select id="barcodeSmoothness" class="form-control">
+                <option value="0">None</option>
+                <!--<option value="5">A little bit (5)</option>
+                <option value="10">A bit more (10)</option>
+                <option value="30">Quite smooth indeed (30)</option>-->
+                <option value="100">Average color only (avec liste fichiers et couleurs)</option>
+                <option value="150">Dominant color only (avec liste fichiers et couleurs)</option>
+                <option value="160">Color palettes (experimental)</option>
+
+            </select>
+            </div>
+
+        </form>
+
+        <form id="settings-montage" class="form-group settings-group col-lg-12">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+            <label for="thumbWidthMontage">Thumbnail Width</label>
+            <div class="input-group">
+              <input id="thumbWidthMontage" type="text" size="4" class="form-control setting" placeholder="Thumbnail Width" data-name="Thumbnail Width" aria-describedby="basic-addon2" value="20">
+              <span class="input-group-addon" id="addon2">px</span>
+            </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4">
+            <label for="thumbHeightMontage">Thumbnail Height</label>
+            <div class="input-group">
+              <input id="thumbHeightMontage" type="text" size="4" class="form-control setting" placeholder="Thumbnail Height" data-name="Thumbnail Height" aria-describedby="basic-addon3" value="16">
+              <span class="input-group-addon" id="addon3">px</span>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <label for="montageColumns"># of Columns</label>
+              <input id="montageColumns" type="text" size="4" class="form-control setting" data-name="Montage Columns" placeholder="# of Columns" value="50">
+
+            </div>
+        </form>
+
+        <form id="settings-plot" class="form-group settings-group col-lg-12">
+            <div class="col-lg-2 col-md-2 col-sm-4">
+            <label for="thumbWidthPlot">Thumb Width</label>
+
+            <div class="input-group">
+
+              <input id="thumbWidthPlot" type="text" size="4" class="form-control setting" placeholder="Width" aria-describedby="basic-addon2" data-name="Thumbnail Width" value="18">
+              <span class="input-group-addon" id="addon2">px</span>
+            </div>
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-4">
+            <label for="thumbHeightPlot">Thumb Height</label>
+            <div class="input-group">
+              <input id="thumbHeightPlot" type="text" size="4" class="form-control setting" placeholder="Height" data-name="Thumbnail Height" aria-describedby="basic-addon3" value="14">
+              <span class="input-group-addon" id="addon3">px</span>
+            </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-2 col-sm-4">
+                          <label for="canvasWidthPlot">Canvas Width</label>
+            <div class="input-group">
+              <input id="canvasWidthPlot" type="text" size="4" class="form-control setting" placeholder="Width" aria-describedby="basic-addon2" data-name="Canvas Width" value="800">
+              <span class="input-group-addon" id="addon2">px</span>
+            </div>
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-4">
+            <label for="canvasHeightPlot">Canvas Height</label>
+            <div class="input-group">
+
+              <input id="canvasHeightPlot" type="text" size="4" class="form-control setting" placeholder="Height" aria-describedby="basic-addon3" data-name="Canvas Height" value="600">
+              <span class="input-group-addon" id="addon3">px</span>
+            </div>
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-4">
+
+              <label for="x-axis">X-axis</label>
+               <select class="form-control setting" id="x-axis" data-default="hue" data-name="X-Axis">
+                <option value="hue" selected>Hue</option>
+                <option value="saturation">Saturation</option>
+                <option value="lightness">Lightness</option>
+                <option value="value">Value</option>
+                <option value="brightness">Brightness</option>
+                <option value="luminance">Luminance</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+              </select>
+
+
+            </div>
+
+          <div class="col-lg-2 col-md-2 col-sm-4">
+
+              <label for="y-axis">Y-axis</label>
+              <select class="form-control setting" id="y-axis" data-default="luminance" data-name="Y-Axis">
+                <option value="hue">Hue</option>
+                <option value="saturation">Saturation</option>
+                <option value="lightness">Lightness</option>
+                <option value="value">Value</option>
+                <option value="brightness" selected>Brightness</option>
+                <option value="luminance">Luminance</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+              </select>
+
+            </div>
+
+        </form>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <br>
+            <input id="settings-apply" type="button" class="btn btn-default" value="Apply Settings"/>
+            <br/><br/>
+        </div>
+
+</div>
+
+</div>
+<div class="row ">
+
+    <h2 class="col-lg-12">Étape 3 : Vérifiez vos choix</h2>
+     <div class="col-lg-4 col-md-4 col-sm-6">
+    <div id="summary-text">
+
+    </div>
+    </div>
+
+    <div class="col-lg-8 col-md-8 col-sm-6">
+    <div id="problems">
+
+    </div>
+             <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+    <input type="submit" class="btn btn-primary btn-lg" id="do-it" value="Do The Thing" />
+
+<br><br>
+    <div id="progress">
+         <div class="progress">
+
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+              0%
+            </div>
+          </div>
+    </div>
+
+<a type="submit" class="btn btn-success btn-lg disabled" id="download-it" value="Download It">Download It</a>
+
+
+    </div>
+    </div>
+</div>
+
+
+
+
+<div class="row">
+<div class="col-lg-12">
+<h2>Étape 4 : Regardez le résultat</h2>
+<p>Lorsque l'image de la visualisation est terminée, faites un clic droit et "Enregistrer sous...", ou utilisez le lien de téléchargement ci-dessus.</p>
+
+
+
+<img id="bufferImg" width="200" height="200"/>
+
+<canvas id="bufferCanvas"> </canvas>
+
+<canvas id="actualCanvas"> </canvas>
+
+<canvas id="fakeCanvas"> </canvas>
+
+</div>
+</div>
+
+<div>
+  <div class="" style="font-style:normal;">
+    <p> <strong>Listes des données</strong> </p>
+    À gauche, la liste de noms des fichiers. <br>À droite, la liste de la couleur RGB dominante de chauqe image. <br>
+    Effacer les résultats avant de recommencer <button type="button" name="button" onclick="viderText();" class="btn">effacer</button>
+  </div>
+  <br>
+  <div class="res_panel" id="noms_fichiers">
+  </div>
+  <div class="res_panel" id="dom_color_rgb">
+  </div>
+</div>
+
+
+</article>
+
+<footer class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 texte-credits">
+
+<p>v. 0.2. 2022. Modifications par E. Reyes.</p>
+<p>v. 0.1. 2016. This simple toolkit was assembled by Zach Whalen. It probably works fine, but it may not. It comes with no guarantee or warranty of any kind. Call it an alpha release. I'll move this into github eventually, but until then, if you have questions, problems, or concerns, feel free to get in touch at <a href="http://www.twitter.com/zachwhalen">@zachwhalen</a>. In the meantime, of course feel free to copy, modify, distribute or adapt for your own purposes.</p>
+
+<p>This webpage and the underlying code makes use of <a href="https://jquery.com/">jQuery</a>, <a href="http://getbootstrap.com/">Bootstrap</a>, <a href="http://glyphicons.com/">Glyphicon</a>, <a href="https://bgrins.github.io/TinyColor/">Tinycolor.js</a>, <a href="http://www.quasimondo.com/BoxBlurForCanvas/FastBlurDemo.html">Super Fast Blur</a> and <a href="https://github.com/lokesh/color-thief/">Color Thief</a></p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</div>
+</div>
+
+
+</footer>
+
+<script type="text/javascript">
+fileList = new Array();
+
+function addFileLoader(){
+    $(".file-loader").on("change", function() {
+        console.log("submitted!");
+        fileList.length = 0;
+
+        $(".file-loader").each( function () {
+            var theseFiles = $(this).prop("files");
+            for (var f = 0; f < theseFiles.length; f++){
+                fileList.push(theseFiles[f]);
+                $('#noms_fichiers').append(fileList[f].name + '<br>');
+            }
+        });
+
+        console.log(fileList);
+
+        $("#canvasWidthBarcode").val( optimalWidth(fileList.length) );
+        $("#canvasHeightBarcode").val( optimalHeight ( $("#canvasWidthBarcode").val() ));
+
+    });
+}
+
+addFileLoader();
+
+
+
+
+// var widthLoader = document.getElementById('width');
+//  heightLoader.addEventListener('change', handleWidthSetting, false);
+
+// var settingsLoader = document.getElementById('height');
+//  settingsLoader.addEventListener('change', handleHeightSetting, false);
+
+// deal with settings
+//var visType;
+settings = new Array();
+settings.kind = 'barcode';
+
+
+
+$("#add-more-files").on("click", function(){
+    //console.log( $("#file-load-start"));
+    $("#file-load-start").after("<input type=\"file\" class=\"file-loader file-load-addon\" multiple>");
+
+    addFileLoader();
+});
+
+$("#reset-files").on("click", function(){
+    $("#file-loading")[0].reset();
+    $(".file-load-addon").detach();
+});
+
+$(".nav a").on("click",function() {
+
+
+    $(".nav .active").removeClass("active");
+    $(this).parent().addClass("active");
+
+    settings.kind = $(this).text().toLowerCase();
+
+    //console.log(setto);
+
+    $(".form-group").hide();
+    $("#settings-"+settings.kind).show();
+
+    $(".form-group input").prop("disabled", true);
+    $("#settings-"+settings.kind+" input, #settings-"+settings.kind+" select").prop("disabled", false);
+
+    return false;
+
+});
+
+
+
+// validate
+$("#settings-apply").on("click", function(){
+
+    var msg = '';
+    var severity = 'success';
+
+    console.log("Apply these settings:");
+
+
+    // $(".file-loader").each( function () {
+    //     var theseFiles = $(this).prop("files");
+    //     for (var f = 0; f < theseFiles.length; f++){
+    //         fileList.push(theseFiles[f]);
+    //     }
+    // });
+
+    if (settings.kind == 'barcode'){
+        $("#settings-barcode input[type=text]").each( function() {
+            if ($(this).val().match(/[^0-9]/)){
+                msg += $(this).attr("data-name") + " must be given in numbers only. ";
+                severity = "warning";
+            }
+        });
+
+        settings.canvasWidth = ($("#canvasWidthBarcode").val() == '' ? $("#canvasWidthBarcode").attr("data-default") : $("#canvasWidthBarcode").val());
+        //settings.canvasWidth = optimalWidth(fileList.length);
+
+        settings.canvasHeight = ($("#canvasHeightBarcode").val() == '' ? $("#canvasHeightBarcode").attr("data-default") : $("#canvasHeightBarcode").val());
+
+
+        settings.smooth = $("#barcodeSmoothness").val();
+
+        var summary = '';
+
+        // fileList.sort( function (a,b){
+        //   return parseInt(a.replace(/\D/g,'')) - parseInt(b.replace(/\D/g,''));
+        // });
+
+    }
+
+    if (settings.kind == 'montage'){
+
+        $("#settings-montage input[type=text]").each( function() {
+            if ($(this).val().match(/[^0-9]/)){
+                msg += $(this).attr("data-name") + " must be given in numbers only. ";
+                severity = "warning";
+            }
+        });
+
+        settings.thumbHeight = ($("#thumbHeightMontage").val() == '' ? $("#thumbHeightMontage").attr("data-default") : $("#thumbHeightMontage").val());
+        settings.thumbWidth = ($("#thumbWidthMontage").val() == '' ? $("#thumbWidthMontage").attr("data-default") : $("#thumbWidthMontage").val());
+        settings.columns = ($("#montageColumns").val() == '' ? $("#montageColumns").attr("data-default") : $("#montageColumns").val());
+
+        settings.canvasWidth = settings.thumbWidth * settings.columns;
+//         fileList.sort( function (a,b){
+//           var aa = a.toString();
+//           var bb = b.toString();
+//           var aaa = aa.replace(/\D/gi,'');
+//           var bbb = bb.replace(/\D/gi,'');
+//           var aaaa = parseInt(aaa);
+//           var bbbb = parseInt(bbb);
+//           return aaaa - bbbb;
+// //          return parseInt(b.toString().replace(/\D/g,'')) - parseInt(a.toString().replace(/\D/g,''));
+//         });
+
+        //console.log(fileList);
+    }
+
+    if (settings.kind == 'plot'){
+
+        $("#settings-plot input[type=text]").each( function() {
+            if ($(this).val().match(/[^0-9]/)){
+                msg += $(this).attr("data-name") + " must be given in numbers only. ";
+                severity = "warning";
+            }
+        });
+
+        settings.thumbHeight = ($("#thumbHeightPlot").val() == '' ? $("#thumbHeightPlot").attr("data-default") : $("#thumbHeightPlot").val());
+        settings.thumbWidth = ($("#thumbWidthPlot").val() == '' ? $("#thumbWidthPlot").attr("data-default") : $("#thumbWidthPlot").val());
+        settings.canvasWidth = ($("#canvasWidthPlot").val() == '' ? $("#canvasWidthPlot").attr("data-default") : $("#canvasWidthPlot").val());
+        settings.canvasHeight = ($("#canvasHeightPlot").val() == '' ? $("#canvasHeightPlot").attr("data-default") : $("#canvasHeightPlot").val());
+        settings.xSrc = ($("#x-axis").val() == '' ? $("#x-axis").attr("data-default") : $("#x-axis").val());
+        settings.ySrc = ($("#y-axis").val() == '' ? $("#y-axis").attr("data-default") : $("#y-axis").val());
+
+
+    }
+
+    console.log(settings);
+    console.log(msg);
+
+
+    // $("#settings-barcode .setting").each( function(){
+    //     //consle.log('show summary');
+    //     summary += $(this).attr("data-name") + ": " + $(this).val() + "<br/>";
+
+    // });
+
+    var summary = '';
+
+    $("#settings-" + settings.kind + " .setting").each( function () {
+        summary += "<tr><th>" + $(this).attr("data-name") + "</th><td>" + $(this).val() + "</td></tr>";
+
+    });
+
+    $("#summary-text").html("<table class='table table-striped table-bordered condensed'><tr><th>Type</th><td> " + settings.kind + "</td></tr><tr><th>" + "Files to Process</th><td>" + fileList.length  + "</td></tr>" + summary);
+
+
+    var reports = new Array();
+
+    if (fileList.length == 0){
+        reports.push("You haven't loaded any files!");
+    }
+
+    if (fileList.length > 9999){
+        reports.push("That's too many images. Sadly, I'm probably not going to be able to process all that.");
+    }
+
+    if (settings.canvasWidth > 10000 | settings.canvasHeight > 10000){
+        reports.push("Your canvas size exceeds the upper limit I can reliably process (10000).");
+    }
+
+    if (settings.kind == 'barcode'){
+        // if we're going to be in sub-pixel land
+        if ((settings.canvasWidth % fileList.length) > 0){
+            reports.push("The canvas width isn't a multiple of the number of files. This will cause the \"slices\" to be less than 1 pixel, or to start and stop on points between pixels. It'll work, but these sub-pixels will render with antialiasing, causing the overall barcode to be muddier and slightly transparent.");
+        }
+    }
+
+    if (settings.kind == 'plot'){
+        if (settings.xSrc === settings.ySrc){
+            reports.push("You've got the x-axis and the y-axis mapping the same property, which isn't going to look very interesting. (It will make a diagonal line.)")
+        }
+    }
+
+    if (reports.length > 0){
+            var probs = '<div class="alert alert-warning">';
+            for (p = 0; p < reports.length; p++){
+                probs += "<strong>Warning:</strong> " + reports[p] + "<br/>";
+            }
+
+            probs += "</div>";
+
+            $("#problems").html(probs);
+
+            $("#do-it").val("Do it Anyway");
+    }else{
+
+        $("#do-it").val("Do the Thing!");
+
+        $("#problems").html("<div class='alert alert-success'>These settings all look good. Let's get to it!</div>");
+    }
+
+    $("#do-it").show();
+
+
+
+});
+
+function optimalWidth(len){
+    var min = 800;
+    var max = 9999;
+
+    if (len > min & min < max){
+        return len;
+    }else{
+        //var try = Math.floor(min / len);
+        //console.log('Its too short probably');
+        var width = len;
+        var slice = 1;
+        while (width < min){
+            width = len * slice;
+            //console.log(width);
+            slice++;
+        }
+        return width;
+    }
+}
+
+function optimalHeight(width){
+    return Math.floor( width * (9/21));
+}
+
+function downloadCanvas(link, canvasId, filename) {
+    link.href = document.getElementById(canvasId).toDataURL();
+    link.download = filename;
+}
+
+$("#settings-montage,#settings-plot,#settings-message,#do-it,#progress,#download-it").hide();
+
+document.getElementById('download-it').addEventListener('click', function() {
+    downloadCanvas(this, 'actualCanvas',     settings.kind + '.png');
+}, false);
+
+
+var imageLoader = document.getElementById('files');
+ //   imageLoader.addEventListener('change', handleFileSelect, false);
+var canvas = document.getElementById('actualCanvas');
+
+
+// picWidth = 20;
+// picHeight = 16;
+
+// var xOffset = 0;
+// var yOffset = 0;
+
+// var columns = 15;
+
+
+
+//canvas.width = 5000;
+//canvas.height = 1200;
+
+$("#do-it").on("click", function (){
+
+    canvas.width=settings.canvasWidth;
+    canvas.height=settings.canvasHeight;
+
+    var xOffset = 0;
+    if (settings.kind == 'barcode'){
+        doBarcode();
+    }else if (settings.kind == 'montage'){
+        doMontage();
+    }else if (settings.kind == 'plot'){
+        doPlot();
+    }
+
+});
+
+
+function doPlot(){
+
+    var fileAt = 0;
+    var progress = 0;
+
+
+    picWidth = settings.thumbWidth;
+    picHeight = settings.thumbHeight;
+
+    canvas.width = settings.canvasWidth;
+    canvas.height = settings.canvasHeight;
+
+    $("#actualCanvas").css({"height":canvas.height,"width":canvas.width});
+
+    for (var f = 0; f < fileList.length; f++) {
+        var file = fileList[f];
+        var picReader = new FileReader();
+        picReader.addEventListener("load", function (event) {
+            var picReader = new FileReader();
+            var img = new Image();
+            var ctx = canvas.getContext('2d');
+
+            img.onload = function(){
+
+                var xPosition = plotValue(img, settings.xSrc);
+                var yPosition = plotValue(img, settings.ySrc);
+
+                //console.log(xPosition +", " + yPosition);
+
+                var yOffset = plotValue(img, settings.ySrc) * canvas.height;
+                var xOffset = plotValue(img, settings.xSrc) * canvas.width;
+
+                ctx.drawImage(img,0,0,img.width,img.height,xOffset,yOffset,picWidth,picHeight);
+
+                fileAt += 1;
+                progress = Math.round((fileAt / fileList.length) * 100);
+                updateProgress(progress);
+
+            }
+            img.src = event.target.result;
+        });
+        picReader.readAsDataURL(file);
+    }
+
+}
+
+function updateProgress(progress){
+    //console.log(progress);
+    $("#progress").show();
+    $("#download-it").show();
+    $("#progress .progress-bar").attr("aria-valuenow",progress).css({"width": progress +"%"}).text(progress + "%");
+
+
+    if (progress == 100){
+        $("#download-it").removeClass("disabled");
+    }
+}
+
+
+function plotValue(img,metric){
+
+    // should return a percentage-type value, i.e. .3, which will be muliplied by canvas dimension on axis
+
+    var rgb = getAverageRGB(img);
+    var color = tinycolor("rgb("+rgb.r+","+rgb.g+","+rgb.b+")");
+
+
+    switch (metric){
+        case 'hue':
+            // hue is 0 - 255
+            var hsv = color.toHsv();
+           //console.log("Hue = " + hsv.h);
+            return hsv.h / 255;
+            break;
+        case 'saturation':
+            var hsv = color.toHsv();
+            //return hsv.s / 100;
+            return hsv.s;
+            break;
+
+        case 'lightness':
+            var hsl = color.toHsl();
+            //return hsl.l / 100;
+            return hsl.l;
+            break;
+
+        case 'value':
+            var hsv = color.toHsv();
+            return hsv.v;// / 100;
+            break;
+
+        case 'brightness':
+            // 0 to 255
+            var brt = color.getBrightness();
+            //console.log("Brightness = " + brt);
+
+            return brt / 255;
+            break;
+
+        case 'luminance':
+            var lum = color.getLuminance();
+            return lum;
+            break;
+
+        case 'red':
+            return rgb.r / 255;
+            break;
+        case 'blue':
+            return rgb.b / 255;
+            break;
+
+        case 'green':
+            return rgb.g / 255;
+            break;
+
+
+    }
+}
+
+function doMontage (){
+
+    var fileAt = 0;
+    var progress = 0;
+    var xCounter = 0;
+
+    picWidth = settings.thumbWidth;
+    picHeight = settings.thumbHeight;
+
+    columns = settings.columns;
+
+    canvas.width = columns * picWidth;
+    canvas.height = picHeight * (Math.ceil(fileList.length / columns));
+
+    $("#actualCanvas").css({"height":canvas.height,"width":canvas.width});
+
+    function makeAndDraw(file){
+
+
+      var reader = new FileReader();
+      var yOffset = Math.floor( xCounter / columns) * picHeight;
+      var xOffset = (xCounter % columns) * picWidth;
+
+      file.offsetData = {x : xOffset, y : yOffset};
+
+      reader.addEventListener("load", function () {
+        var img = new Image();
+        var ctx = canvas.getContext('2d');
+        img.src = this.result;
+
+        img.onload = function (){
+          ctx.drawImage(img,0,0,img.width,img.height,file.offsetData.x,file.offsetData.y,picWidth,picHeight);
+
+
+          fileAt += 1;
+          progress = Math.round((fileAt / fileList.length) * 100);
+          updateProgress(progress);
+        }
+
+      }, false);
+
+      reader.readAsDataURL(file);
+      xCounter += 1;
+    }
+
+    if (fileList){
+      [].forEach.call(fileList, makeAndDraw);
+    }
+}
+
+
+function doBarcode() {
+    var progress = 0;
+    var xOffset = 0;
+    var fileAt = 0;
+    var xCounter = 0;
+
+    //canvas.width = fileList.length * slice;
+
+    canvas.width = settings.canvasWidth;
+    canvas.height = settings.canvasHeight;
+
+    var slice = Math.round( canvas.width / fileList.length );
+
+    function makeForBarcode (file) {
+      var xOffset = xCounter * slice;
+      file.offsetData = {x: xOffset};
+
+      var reader = new FileReader();
+
+      reader.addEventListener("load", function () {
+        var img = new Image();
+        var ctx = canvas.getContext('2d');
+        img.src = this.result;
+
+        img.onload = function(){
+          //console.log(img);
+          //console.log(file.offsetData);
+
+          if (settings.smooth == 5 || settings.smooth == 10 || settings.smooth == 30){
+
+              var bufferCanvasId = 'buffer-' + xOffset;
+              var bufferImageId = bufferCanvasId + "Img";
+              $('#workArea').append("<canvas id='" + bufferCanvasId + "'></canvas>");
+              $('#workArea').append("<img id='" + bufferImageId + "' />");
+
+              boxBlurImage(img,bufferCanvasId, settings.smooth,false,1);
+
+              var bufferCanvas = document.getElementById('bufferCanvasId');
+
+              var blurredUrl = document.getElementById('bufferCanvasId').toDataURL();
+
+              $("#" + bufferImageId).attr("src", blurredUrl);
+
+              var blurredImage = document.getElementById('bufferImageId');
+
+              blurredImage.onload = function(result) {
+                console.log(blurredImage);
+                  ctx.drawImage(blurredImage,0,0,img.width,img.height,file.offsetData.x,0,slice,canvas.height);
+              }
+
+
+
+
+
+
+
+              //console.log(blurredUrl);
+
+
+
+
+
+
+
+              // blurredImage.onload = function(){
+              //     console.log(blurredImage);
+              //     ctx.drawImage(blurredImage,0,0,img.width,img.height,file.offsetData.x,0,slice,canvas.height);
+              // }
+
+
+              // apply a blur level
+
+
+
+
+
+
+
+              //console.log(img.width);
+              //console.log([blurredImage,0,0,blurredImage.width,blurredImage.height,file.offsetData.x,0,slice,canvas.height]);
+              // original: ctx.drawImage(blurredImage,0,0,img.width,img.height,file.offsetData.x,0,slice,canvas.height);
+              //ctx.drawImage(img,0,0,img.width,img.height,file.offsetData.x,0,slice,canvas.height);
+          }else if (settings.smooth == 100) {
+              // just use color
+              var rgb = getAverageRGB(img);
+              ctx.fillStyle = "rgb("+rgb.r+","+rgb.g+","+rgb.b+")";
+              ctx.fillRect(file.offsetData.x,0,slice,canvas.height);
+              $('#dom_color_rgb').append(rgb.r+","+rgb.g+","+rgb.b+'<br>');
+          }else if (settings.smooth == 150){
+              var colorThief = new ColorThief();
+              var domColor = colorThief.getColor(img);
+              ctx.fillStyle = "rgb(" + domColor[0] + "," + domColor[1] + "," + domColor[2] + ")";
+              ctx.fillRect(file.offsetData.x,0,slice,canvas.height);
+              $('#dom_color_rgb').append(domColor[0]+","+domColor[1]+","+domColor[2]+'<br>');
+
+          }else if (settings.smooth == 160){
+              var colorThief = new ColorThief();
+              var pal = colorThief.getPalette(img, 2);
+              //console.log(pal);
+              var p = 0;
+              var subslice = canvas.height / pal.length;
+
+              for (p = 0; p < pal.length; p++){
+                var subY = subslice * p;
+                ctx.fillStyle = "rgb(" + pal[p][0] + "," + pal[p][1] + "," + pal[p][2] + ")";
+                ctx.fillRect(file.offsetData.x,subY,slice,subslice);
+              }
+
+          }else{
+              // basic image smooshing
+              ctx.drawImage(img,0,0,img.width,img.height,file.offsetData.x,0,slice,canvas.height);
+          }
+
+          fileAt += 1;
+          progress = Math.round((fileAt / fileList.length) * 100);
+          updateProgress(progress);
+        }
+      });
+
+      reader.readAsDataURL(file);
+      xCounter += 1;
+    }
+
+    if (fileList){
+      [].forEach.call(fileList, makeForBarcode);
+    }
+
+    // --- junk below
+
+
+    // for (var f = 0; f < fileList.length; f++) {
+    //     var file = fileList[f];
+
+
+
+    //     //var slice = canvas.width / fileList.length
+    //     var picReader = new FileReader();
+    //     picReader.addEventListener("load", function (event) {
+    //         var img = new Image();
+    //         var ctx = canvas.getContext('2d');
+    //         ctx.imageSmoothingEnabled = false;
+    //         img.onload = function(){
+    //             if (settings.smooth == 5 || settings.smooth == 10 || settings.smooth == 30){
+    //                 // apply a blur level
+    //                 boxBlurImage(img,'bufferCanvas', settings.smooth,false,1);
+    //                 var blurredUrl = document.getElementById('bufferCanvas').toDataURL();
+    //                 $("#bufferImg").attr("src", blurredUrl);
+    //                 var blurredImage = document.getElementById('bufferImg');
+    //                 ctx.drawImage(blurredImage,0,0,img.width,img.height,xOffset,0,slice,canvas.height);
+    //             }else if (settings.smooth == 100) {
+    //                 // just use color
+    //                 var rgb = getAverageRGB(img);
+    //                 ctx.fillStyle = "rgb("+rgb.r+","+rgb.g+","+rgb.b+")";
+    //                 ctx.fillRect(xOffset,0,slice,canvas.height);
+    //             }else{
+    //                 // basic image smooshing
+    //                 ctx.drawImage(img,0,0,img.width,img.height,xOffset,0,slice,canvas.height);
+    //             }
+
+    //             fileAt += 1;
+    //             progress = Math.round((fileAt / fileList.length) * 100);
+    //             updateProgress(progress);
+
+    //             xOffset = xOffset + slice;
+    //         }
+
+    //         img.src = event.target.result;
+    //     }
+    //     );
+    //     picReader.readAsDataURL(file);
+    // }
+}
+
+
+
+function getAverageRGB(imgEl) {
+
+    var blockSize = 5, // only visit every 5 pixels
+        defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
+        fakeCanvas = document.getElementById('fakeCanvas'),
+        context = fakeCanvas.getContext && fakeCanvas.getContext('2d'),
+        data, width, height,
+        i = -4,
+        length,
+        rgb = {r:0,g:0,b:0},
+        count = 0;
+
+    if (!context) {
+        return defaultRGB;
+    }
+
+    height = fakeCanvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+    width = fakeCanvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+
+    context.drawImage(imgEl, 0, 0);
+
+    try {
+        data = context.getImageData(0, 0, width, height);
+    } catch(e) {
+        /* security error, img on diff domain */alert('x');
+        return defaultRGB;
+    }
+
+    length = data.data.length;
+
+    while ( (i += blockSize * 4) < length ) {
+        ++count;
+        rgb.r += data.data[i];
+        rgb.g += data.data[i+1];
+        rgb.b += data.data[i+2];
+    }
+
+    // ~~ used to floor values
+    rgb.r = ~~(rgb.r/count);
+    rgb.g = ~~(rgb.g/count);
+    rgb.b = ~~(rgb.b/count);
+
+    return rgb;
+}
+
+function viderText(){
+  $('#dom_color_rgb').empty();
+}
+
+
+</script>
+
+</body>
+</html>
