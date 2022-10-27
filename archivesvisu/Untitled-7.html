@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Exo 02</title>
+  <style>
+    .carre {
+        width:30px;
+        height: 30px;
+        background-color: rgb(255,0,0);
+        position: absolute;
+        opacity: 0.5;
+    }
+  </style>
+  <script>
+    function generer(){
+
+        for(var i = 0; i < 10; i++){
+            document.getElementById('espace').innerHTML += '<div class="carre" style="top:'+ Math.random()*window.innerHeight+'px; left:'+ Math.random()*window.innerWidth+'px;">'+ i +'</div>';
+        }
+
+    }
+  </script>
+</head>
+<body>
+    <button onclick="generer();">Je veux des divs !</button>
+    <div id="espace"></div>
+</body>
+</html>
