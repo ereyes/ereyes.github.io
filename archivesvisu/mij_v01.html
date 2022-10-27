@@ -53,7 +53,7 @@ article {
 #actualCanvas {
 
     border: 1px solid #ddd;
-    height: 400px;
+    height: 100px;
     width: 100%;
 }
 
@@ -273,9 +273,9 @@ footer {
     <h2>Étape 2 : Choisissez le modèle de visualisation</h2>
     <p>Définissez certaines options. Notez que les options varient selon chaque modèle.</p>
     <ul class="nav nav-tabs">
-      <li  class="active"><a href="#">1. Barcode</a></li>
-      <li ><a href="#">2. Montage</a></li>
-      <li ><a href="#">3. Plot</a></li>
+      <li  class="active"><a href="#">Barcode</a></li>
+      <li ><a href="#">Montage</a></li>
+      <li ><a href="#">Plot</a></li>
     </ul>
 
 </div>
@@ -283,6 +283,20 @@ footer {
 <div class="row">
 
         <form id="settings-barcode" class="form-group settings-group col-lg-12">
+          <div class="col-lg-4 col-md-4 col-sm-4">
+          <label for="barcodeSmoothness">Couleurs   <span data-toggle="tooltip" data-placement="top" title data-original-title="'None' affiche l'image. Les autres options affichent les couleurs, la liste de fichiers et la liste de couleur au format RGB." class="glyphicon glyphicon-question-sign"></span></label><br/>
+          <select id="barcodeSmoothness" class="form-control">
+              <option value="0">None</option>
+              <!--<option value="5">A little bit (5)</option>
+              <option value="10">A bit more (10)</option>
+              <option value="30">Quite smooth indeed (30)</option>-->
+              <option value="100">Average color only (avec liste fichiers et couleurs)</option>
+              <option value="150">Dominant color only (avec liste fichiers et couleurs)</option>
+              <option value="160">Color palettes (experimental)</option>
+
+          </select>
+          </div>
+
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <label for="canvasWidthBarcode">Canvas Width
                 <span data-toggle="tooltip" data-placement="top" title data-original-title="Canvas width will auto-set to a multiple of the number of files. Change it if you want, but other numbers will create sub-pixel antialising which won't look great." class="glyphicon glyphicon-question-sign"></span>
@@ -300,20 +314,6 @@ footer {
               <input id="canvasHeightBarcode" type="text" size="4" class="form-control setting" placeholder="Canvas Height" data-name="Canvas Height" aria-describedby="basic-addon3" data-default="1200" value="1200">
               <span class="input-group-addon" id="addon3">px</span>
             </div>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-4">
-            <label for="barcodeSmoothness">Smoothing   <span data-toggle="tooltip" data-placement="top" title data-original-title="'None' is fastest, 'Color only' next. The in-between options will be *much* slower." class="glyphicon glyphicon-question-sign"></span></label><br/>
-            <select id="barcodeSmoothness" class="form-control">
-                <option value="0">None</option>
-                <!--<option value="5">A little bit (5)</option>
-                <option value="10">A bit more (10)</option>
-                <option value="30">Quite smooth indeed (30)</option>-->
-                <option value="100">Average color only (avec liste fichiers et couleurs)</option>
-                <option value="150">Dominant color only (avec liste fichiers et couleurs)</option>
-                <option value="160">Color palettes (experimental)</option>
-
-            </select>
             </div>
 
         </form>
@@ -416,7 +416,7 @@ footer {
         </form>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <br>
-            <input id="settings-apply" type="button" class="btn btn-default" value="Apply Settings"/>
+            <input id="settings-apply" type="button" class="btn btn-primary" value="Apply Settings"/>
             <br/><br/>
         </div>
 
@@ -733,7 +733,7 @@ $("#settings-apply").on("click", function(){
 
         $("#do-it").val("Do the Thing!");
 
-        $("#problems").html("<div class='alert alert-success'>These settings all look good. Let's get to it!</div>");
+        $("#problems").html("<div class='alert alert-success'>Ces paramètres semblent tous bons. Allons-y !</div>");
     }
 
     $("#do-it").show();
