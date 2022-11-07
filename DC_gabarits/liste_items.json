@@ -4,7 +4,7 @@
     "titre_item": "Mona Lisa (gabarit basique)",
     "type_item": "image",
     "url_item": "http://ereyes.github.io/DC_gabarits/01_item_image.html",
-    "image_item": "http://cartelfr.louvre.fr/pub/fr/image/84749_11-564761.jpg"
+    "image_item": "https://collections.louvre.fr/media/cache/large/0000000021/0000062370/0000868046_OG.JPG"
   },
   {
     "num_item": 2,
@@ -53,21 +53,21 @@
     "titre_item": "La Liberté guidant le peuple",
     "type_item": "image",
     "url_item": "http://ereyes.github.io/DC_gabarits/08_item_image_liberte.html",
-    "image_item": "http://cartelfr.louvre.fr/pub/fr/image/85959_EL090533.jpg"
+    "image_item": "https://collections.louvre.fr/media/cache/large/0000000021/0000065872/0000168915_OG.JPG"
   },
   {
     "num_item": 9,
     "titre_item": "Carquois",
     "type_item": "sculpture",
     "url_item": "http://ereyes.github.io/DC_gabarits/09_item_sculpture.html",
-    "image_item": "http://cartelfr.louvre.fr/pub/fr/image/78867_13-519779.jpg"
+    "image_item": "https://collections.louvre.fr/media/cache/large/0000000021/0000122127/0000225872_OG.JPG"
   },
   {
     "num_item": 10,
     "titre_item": "Aiguilles à chas",
     "type_item": "objet",
     "url_item": "http://ereyes.github.io/DC_gabarits/10_item_objet.html",
-    "image_item": "http://cartelfr.louvre.fr/pub/fr/image/59341_SH025823_01.jpg"
+    "image_item": "https://collections.louvre.fr/media/cache/small/0000000021/0000143246/0000231499_OG.JPG"
   },
   {
     "num_item": 11,
