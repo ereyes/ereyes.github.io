@@ -113,7 +113,7 @@ $(document).ready(function() {
       else if (meta_img.includes(".jpg") || meta_img.includes(".jpeg") || meta_img.includes(".png") || meta_img.includes(".JPG") == true){
         $('#preview').append('<img src="'+meta_img+'" width="300">');
       }
-      else if (meta_img.includes(".pdf") || meta_img.includes(".txt") || meta_img.includes(".xml") == true){
+      else if (meta_img.includes(".pdf") || meta_img.includes(".txt") || meta_img.includes(".xml") || meta_img.includes(".do") == true){
         $('#preview').append('<iframe src="'+meta_img+'" width="300" height="400"></iframe>');
       }
       else if (meta_img.includes("http")  == true){
