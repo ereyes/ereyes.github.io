@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style media="screen">
+      #espace {
+        margin-left:200px;
+        margin-top:200px;
+      }
+      .nom {
+        position:absolute;
+        rotate:10deg;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.getJSON('morceaux_spotify_2021.json', function(data){
+              $.each(data, function(i, d){
+
+                var mes_donnees = '<div ';
+                mes_donnees +='class="nom" style="left:'+Math.random()*window.innerWidth+'px; top:'+Math.random()*innerHeight+'px; rotate:'+Math.random()*90+'deg:">' + d.artist_name + '</div>';
+
+                $('#espace').append(mes_donnees);
+
+
+              })
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="espace"></div>
+</body>
+</html>
