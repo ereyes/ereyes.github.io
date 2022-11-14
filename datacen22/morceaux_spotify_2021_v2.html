@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Spotify Viz: Meilleurs 50 de 2021</title>
     <style media="screen">
       body {
         background-color:black;
@@ -24,37 +24,49 @@
         position:absolute;
         border:5px solid #333;
         border-radius:150px;
-        background-color:green;
         transform: rotate(20deg);
         padding:1em;
+        background-color:green;
         color:white;
         font-family:Arial Narrow;
         font-size:0.7em;
       }
       .nom:hover {
         position:absolute;
-        border:1px solid gray;
+        border:1px solid white;
         border-radius:150px;
-        background-color:lightgreen;
-        color:black;
+        background-color:green;
+        color:white;
         font-size:1em;
         transform: rotate(360deg);
         transition:transform 2s;
         z-index:200;
+        opacity:1;
       }
       .nom a {
         color:white;
         text-decoration:none;
       }
+      .credits{
+        position: absolute;
+        bottom: 0px;
+        color: #eee;
+        font-family:Arial Narrow;
+        font-size:70%;
+        padding-bottom: 0.5em;
+        padding-left: 1em;
+      }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
             $.getJSON('morceaux_spotify_2021.json', function(data){
               $.each(data, function(i, d){
 
+                $('.nom').draggable();
                 var mes_donnees = '<div ';
-                mes_donnees +='class="nom" style="left:'+d.duration_ms*0.009+'px; top:'+d.danceability*900+'px; rotate:'+Math.random()*360+'deg; transform:translate(20px 50%); width:'+ d.tempo * 0.5 + 'px; height:'+d.tempo * 0.5 +'px; opacity:'+d.energy+';"><a href="https://open.spotify.com/track/'+d.track_id+'" target="_blank">' + d.artist_name + '</a></div>';
+                mes_donnees +='class="nom" style="left:'+d.duration_ms*0.009+'px; top:'+d.danceability*900+'px; rotate:'+Math.random()*360+'deg; transform:translate(20px 50%); width:'+ d.tempo * 0.2 + 'px; height:'+d.tempo * 0.2 +'px; opacity:'+d.energy+';"><a href="https://open.spotify.com/track/'+d.track_id+'" target="_blank">' + d.artist_name + '</a></div>';
 
                 $('#espace').append(mes_donnees);
 
@@ -66,7 +78,7 @@
 </head>
 <body>
     <div class="titre">
-      <strong>Spotify Viz</strong>: 50 meilleurs morceaux de 2021
+      <strong style="font-size:1.5em;">Spotify Viz</strong> | 50 meilleurs morceaux de 2021
       <p style="font-size:0.8em;">
         X : duration du morceau <br>
         Y : danceability <br>
@@ -75,5 +87,8 @@
       </p>
     </div>
     <div id="espace"></div>
+    <div class="credits">
+      2022. E. Reyes pour le Master CEN 1, Univ. Paris 8.
+    </div>
 </body>
 </html>
