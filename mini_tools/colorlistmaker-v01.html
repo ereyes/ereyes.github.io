@@ -1,0 +1,265 @@
+<!-- *************************
+    A mini tool to generate a list of color values from one or various image files. 
+    ereyes.github.io
+    Paris, 02.2024
+    License: Creative Commons CC BY-SA 4.0
+    ************************* -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Listmaker</title>
+<style>
+    * { box-sizing: border-box;}
+    #welcome {
+        width:250px;
+        float:left;
+        margin-left: 20px;
+    }
+    #welcome p {
+        color:#888;
+    }
+    #drop_zone {
+        width: 270px;
+        height:250px;
+        border: 2px dashed #ccc;
+        margin-left: 50px;
+        margin-top: 30px;
+        text-align: left;
+        line-height: 30px;
+        padding:2em;
+        float: left;
+    }
+    #image_count {
+        clear: both;
+    }
+    #image_container {
+        clear: both;
+    }
+    .thumbnail {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    .color_display {
+        width: 50px;
+        height: 50px;
+        border: 2px solid #000;
+    }
+    .color_values {
+        text-align: center;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+
+
+</style>
+</head>
+<body>
+
+    <div id="welcome">
+        <h1><span style="color: tomato;">Color</span> Listmaker</h1>
+        <p>A simple drag and drop tool to extract the most dominant color in one or various JPG or PNG files.</p>
+        <p>You get a table of results in rgb, hsl, and hex formats.</p>
+        <p>You also get a thumbnail and a color preview, but that will not copy and paste into a spreadsheet.</p>
+    </div>
+    
+<div id="drop_zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+    Drag & drop image(s) or <br>
+    <input type="file" id="fileInput" multiple onchange="loadImages(event)">
+</div>
+
+<div id="image_count"></div>
+<div id="image_container"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+<script>
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        var files = event.dataTransfer.files;
+        loadImagesFromFileList(files);
+    }
+
+    function loadImages(event) {
+        var files = event.target.files;
+        loadImagesFromFileList(files);
+    }
+
+    function loadImagesFromFileList(files) {
+        var table = document.createElement('table');
+        var headerRow = table.insertRow();
+        var header1 = headerRow.insertCell(0);
+        var header2 = headerRow.insertCell(1);
+        var header3 = headerRow.insertCell(2);
+        var header4 = headerRow.insertCell(3);
+        var header5 = headerRow.insertCell(4);
+        var header6 = headerRow.insertCell(5);
+        var header7 = headerRow.insertCell(6);
+        var header8 = headerRow.insertCell(7);
+        var header9 = headerRow.insertCell(8);
+        var header10 = headerRow.insertCell(9);
+        var header11 = headerRow.insertCell(10);
+        var header12 = headerRow.insertCell(11);
+        header1.innerHTML = "<b>Thumbnail</b>";
+        header2.innerHTML = "<b>Color</b>";
+        header3.innerHTML = "<b>RGB</b>";
+        header4.innerHTML = "<b>HSL</b>";
+        header5.innerHTML = "<b>Hexadecimal</b>";
+        header6.innerHTML = "<b>Filename</b>";
+        header7.innerHTML = "<b>Red</b>";
+        header8.innerHTML = "<b>Green</b>";
+        header9.innerHTML = "<b>Blue</b>";
+        header10.innerHTML = "<b>Hue</b>";
+        header11.innerHTML = "<b>Sat</b>";
+        header12.innerHTML = "<b>Lig</b>";
+        
+        for (var i = 0; i < files.length; i++) {
+            if (files[i].type.match('image.*')) {
+                var row = table.insertRow();
+                
+
+                var reader = new FileReader();
+
+                reader.onload = (function(index) {
+                    var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        var cell4 = row.insertCell(3);
+                        var cell5 = row.insertCell(4);
+                        var cell6 = row.insertCell(5);
+                        var cell7 = row.insertCell(6);
+                        var cell8 = row.insertCell(7);
+                        var cell9 = row.insertCell(8);
+                        var cell10 = row.insertCell(9);
+                        var cell11 = row.insertCell(10);
+                        var cell12 = row.insertCell(11);
+                    return function(e) {
+
+                        var image = document.createElement('img');
+                        image.src = e.target.result;
+                        image.className = 'thumbnail';
+                        cell1.appendChild(image);
+
+                        getColor(e.target.result, function(color) {
+                            var colorDisplay = document.createElement('div');
+                            colorDisplay.className = 'color_display';
+                            colorDisplay.style.backgroundColor = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
+                            cell2.appendChild(colorDisplay);
+
+                            var colorValues = document.createElement('div');
+                            colorValues.className = 'color_values';
+                            colorValues.innerHTML = 'rgb(' + color[0] + ', ' + color[1] + ', ' + color[2] + ')';
+                            cell3.appendChild(colorValues);
+
+                            var hslValues = document.createElement('div');
+                            hslValues.className = 'color_values';
+                            hslValues.innerHTML = 'hsl(' + rgbToHsl(color[0], color[1], color[2]).join(' ') + ')';
+                            cell4.appendChild(hslValues);
+
+                            var hexValue = document.createElement('div');
+                            hexValue.className = 'color_values';
+                            hexValue.innerHTML = rgbToHex(color[0], color[1], color[2]);
+                            cell5.appendChild(hexValue);
+
+                            var fileName = document.createElement('div');
+                            fileName.className = 'color_values';
+                            fileName.innerHTML = files[index].name;
+                            cell6.appendChild(fileName);
+
+                            var colorValues = document.createElement('div');
+                            colorValues.className = 'color_values';
+                            colorValues.innerHTML = color[0];
+                            cell7.appendChild(colorValues);
+
+                            var colorValues = document.createElement('div');
+                            colorValues.className = 'color_values';
+                            colorValues.innerHTML = color[1];
+                            cell8.appendChild(colorValues);
+
+                            var colorValues = document.createElement('div');
+                            colorValues.className = 'color_values';
+                            colorValues.innerHTML = color[2];
+                            cell9.appendChild(colorValues);
+
+                            var hslComponents = rgbToHsl(color[0], color[1], color[2]);
+                            var hueValue = document.createElement('div');
+                            hueValue.className = 'color_values';
+                            hueValue.innerHTML = hslComponents[0];
+                            cell10.appendChild(hueValue);
+
+                            var saturationValue = document.createElement('div');
+                            saturationValue.className = 'color_values';
+                            saturationValue.innerHTML = hslComponents[1].replace(/%/g,'');
+                            cell11.appendChild(saturationValue);
+
+                            var lightnessValue = document.createElement('div');
+                            lightnessValue.className = 'color_values';
+                            lightnessValue.innerHTML = hslComponents[2].replace(/%/g,'');
+                            cell12.appendChild(lightnessValue);
+
+
+                        });
+                    };
+                })(i);
+                reader.readAsDataURL(files[i]);
+            }
+        }
+        
+        document.getElementById('image_container').appendChild(table);
+        document.getElementById('image_count').innerHTML = 'You added ' + i + ' images.';
+    }
+
+    function getColor(imageSrc, callback) {
+        var image = document.createElement('img');
+        image.onload = function() {
+            var colorThief = new ColorThief();
+            var dominantColor = colorThief.getColor(image);
+            if (typeof callback === 'function') {
+                callback(dominantColor);
+            }
+        };
+        image.src = imageSrc;
+    }
+
+    function rgbToHsl(r, g, b) {
+        r /= 255, g /= 255, b /= 255;
+        var max = Math.max(r, g, b), min = Math.min(r, g, b);
+        var h, s, l = (max + min) / 2;
+
+        if (max === min) {
+            h = s = 0;
+        } else {
+            var d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch (max) {
+                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / d + 2; break;
+                case b: h = (r - g) / d + 4; break;
+            }
+            h /= 6;
+        }
+        return [Math.round(h * 360), Math.round(s * 100) + '%', Math.round(l * 100) + '%'];
+    }
+
+    function rgbToHex(r, g, b) {
+        return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    }
+</script>
+
+</body>
+</html>
