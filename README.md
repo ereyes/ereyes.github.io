@@ -1,8 +1,6 @@
-# codes cours ereyes
+# code stuff
 
-Fichiers réalisés en séance.
-
-[Fichiers HTML](http://ereyes.github.io/)
+[Live HTML](http://ereyes.github.io/)
 
 
 
